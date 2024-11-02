@@ -30,6 +30,9 @@ public class CalcServlet extends HttpServlet {
 		resp.getWriter().println("x = " + x);
 		resp.getWriter().println("y = " + y);
 		
+		// 加法
+		int addResult = Integer.parseInt(x) + Integer.parseInt(y);
+		resp.getWriter().println("addResult = " + addResult);
 		
 	}
 	
