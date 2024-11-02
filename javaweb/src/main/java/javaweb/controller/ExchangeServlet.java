@@ -28,7 +28,8 @@ public class ExchangeServlet extends HttpServlet {
 			resp.getWriter().println("請輸入零錢 change=?");
 			return;
 		}
-		
+		int change = Integer.parseInt(changeStr); // 字串轉 int
+		resp.getWriter().println("找零錢 $" + change);
 	}
 	
 }
