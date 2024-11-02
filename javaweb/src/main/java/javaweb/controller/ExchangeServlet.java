@@ -24,6 +24,11 @@ public class ExchangeServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// UTF-8 編碼
+		req.setCharacterEncoding("UTF-8");  // 請求編碼
+		resp.setCharacterEncoding("UTF-8"); // 回應編碼
+		resp.setContentType("text/plain;charset=UTF-8"); // 文件編碼
+				
 		String changeStr = req.getParameter("change");
 		if(changeStr == null) {
 			resp.getWriter().println("請輸入零錢 change=?");
