@@ -12,7 +12,8 @@ import jakarta.servlet.http.HttpServletResponse;
  * 找零錢程式
  * 使用者輸入零錢 change=87
  * 網址: /exchange?change=87
- * 輸出: 50元 1 個
+ * 輸出: 找零錢 87 元
+ * 		 50元 1 個
  * 		 10元 3 個
  * 		  5元 1 個
  * 		  1元 2 個
@@ -29,7 +30,7 @@ public class ExchangeServlet extends HttpServlet {
 			return;
 		}
 		int change = Integer.parseInt(changeStr); // 字串轉 int
-		resp.getWriter().println("找零錢 $" + change);
+		resp.getWriter().println("找零錢 " + change + " 元");
 	}
 	
 }
