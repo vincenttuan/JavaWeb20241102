@@ -18,7 +18,7 @@ import jakarta.servlet.http.HttpServletResponse;
  * 
  * */
 
-@WebServlet("/calc/add")
+@WebServlet("/calc/*")
 public class CalcServlet extends HttpServlet {
 
 	@Override
@@ -30,9 +30,15 @@ public class CalcServlet extends HttpServlet {
 		resp.getWriter().println("x = " + x);
 		resp.getWriter().println("y = " + y);
 		
-		// 加法
-		int addResult = Integer.parseInt(x) + Integer.parseInt(y);
-		resp.getWriter().println("addResult = " + addResult);
+		String pathInfo = req.getPathInfo();
+		
+		switch (pathInfo) {
+			case "/add":
+				// 加法
+				int addResult = Integer.parseInt(x) + Integer.parseInt(y);
+				resp.getWriter().println("addResult = " + addResult);
+				break;
+		}
 		
 	}
 	
