@@ -38,6 +38,10 @@ public class CalcServlet extends HttpServlet {
 				int addResult = Integer.parseInt(x) + Integer.parseInt(y);
 				resp.getWriter().println("addResult = " + addResult);
 				break;
+			case "/sub":
+				int subResult = Integer.parseInt(x) - Integer.parseInt(y);
+				resp.getWriter().println("subResult = " + subResult);
+				break;
 		}
 		
 	}
