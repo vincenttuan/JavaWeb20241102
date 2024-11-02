@@ -36,6 +36,21 @@ public class ExchangeServlet extends HttpServlet {
 		}
 		int change = Integer.parseInt(changeStr); // 字串轉 int
 		resp.getWriter().println("找零錢 " + change + " 元");
+		
+		int fifty = change / 50; // fifty = 1
+		change %= 50;            // change = 37,  change = change % 50;
+		
+		int ten = change / 10;   // ten = 3
+		change %= 10;            // change = 7
+		
+		int five = change / 5;   // five = 1
+		int one = change %= 5;   // one = 2
+		
+		resp.getWriter().println("50元 " + fifty + " 個");
+		resp.getWriter().println("10元 " + ten + " 個");
+		resp.getWriter().println("5元 " + five + " 個");
+		resp.getWriter().println("1元 " + one + " 個");
+		
 	}
 	
 }
