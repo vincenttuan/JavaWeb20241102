@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<%
+	String[][] awards = (String[][])request.getAttribute("awards");
+%>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,11 +28,9 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr><td>1</td><td>小八貓</td><td>5</td></tr>	
-								<tr><td>2</td><td>烏薩奇</td><td>5</td></tr>
-								<tr><td>3</td><td>吉伊卡哇</td><td>5</td></tr>
-								<tr><td>4</td><td>小桃</td><td>5</td></tr>
-								<tr><td>5</td><td>獅薩</td><td>5</td></tr>
+								<% for(String[] award : awards) { %>
+									<tr><td><%=award[0] %></td><td><%=award[1] %></td><td><%=award[2] %></td></tr>	
+								<% } %>
 							</tbody>
 						</table>
 						<p />
