@@ -72,11 +72,11 @@ public class LotteryServlet extends HttpServlet {
 							</thead>
 							<tbody>
 								<tr>
-									<td>%d</td><td>%s</td>
-									<td>%d</td><td>%s</td>
-									<td>%d</td><td>%s</td>
-									<td>%d</td><td>%s</td>
-									<td>%d</td><td>%s</td>
+									<td>1</td><td>現金10萬元</td>
+									<td>2</td><td>禮券2萬元</td>
+									<td>3</td><td>禮券5000元</td>
+									<td>4</td><td>現金500元</td>
+									<td>5~10</td><td>7-11 100元</td>
 								</tr>
 							</tbody>
 						</table>
