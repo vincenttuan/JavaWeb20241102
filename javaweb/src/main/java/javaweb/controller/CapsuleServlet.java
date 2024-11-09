@@ -70,8 +70,14 @@ public class CapsuleServlet extends HttpServlet {
 				resp.sendRedirect("/javaweb/capsule?play=true");
 				return;
 			}
-			myId = "0";
-			myAwardName = "扭蛋機已無扭蛋";
+			// 傳給 jsp 的資料
+			req.setAttribute("myId", "0");
+			req.setAttribute("myAwardName", "已無扭蛋");
+			req.setAttribute("awards", awards);
+			
+			// 指向到 jsp
+			req.getRequestDispatcher("/WEB-INF/view/capsule.jsp").forward(req, resp);
+			return;
 		}
 		
 		System.out.println("獎號 myId: " + myId);

@@ -36,8 +36,8 @@
 							</tbody>
 						</table>
 						<p />
-						<a href="/javaweb/capsule?reset=true" class="pure-button">扭蛋機重置</a> 
-						<a href="/javaweb/capsule?play=true" class="pure-button pure-button-primary">開始扭蛋</a> 
+						<a href="/javaweb/capsule?reset=true" class="pure-button pure-button-primary" style="display: <%=myId.equals("0")?"":"none" %>" >扭蛋機重置</a> 
+						<a href="/javaweb/capsule?play=true"  class="pure-button pure-button-primary" style="display: <%=myId.equals("0")?"none":"" %>">開始扭蛋</a> 
 						獎號: <%=myId %> 獎項: <%=myAwardName %> 
 					</td>
 				</tr>
