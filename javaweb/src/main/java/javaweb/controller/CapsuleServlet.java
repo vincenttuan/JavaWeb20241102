@@ -25,6 +25,18 @@ public class CapsuleServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// 判斷有無 play 參數?
+		String play = req.getParameter("play");
+		if(play == null) { // 不參與抽獎
+			// 傳給 jsp 的資料
+			req.setAttribute("myId", "");
+			req.setAttribute("myAwardName", "");
+			req.setAttribute("awards", awards);
+			
+			// 指向到 jsp
+			req.getRequestDispatcher("/WEB-INF/view/capsule.jsp").forward(req, resp);
+			return; // 方法停止不往下執行
+		}
 		
 		// 開始抽獎
 		// 獎號
