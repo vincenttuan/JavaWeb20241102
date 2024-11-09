@@ -12,10 +12,11 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Lottery 抽獎</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
 </head>
-<body>
+<body style="padding: 15px">
 	獎品列表
-	<table border="1">
+	<table class="pure-table pure-table-bordered">
 		<thead>
 			<tr>
 				<th>獎號</th>
