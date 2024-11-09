@@ -81,7 +81,7 @@ public class LotteryServlet extends HttpServlet {
 							</tbody>
 						</table>
 						<p />
-						您抽到 %d 號 獎項: %s
+						您抽到 ${number} 號 獎項: ${award}
 					</body>
 				</html>
 				""";
