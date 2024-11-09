@@ -39,7 +39,12 @@ public class Lottery2Servlet extends HttpServlet {
 		// 顯示資料(console)
 		System.out.printf("您抽到 %d 號 獎項: %s%n", number, award);
 				
-		
+		// 透過 jsp 來顯示獎號(number)與獎項(award)
+		// 設定要傳遞給 jsp 的資料
+		req.setAttribute("number", number);
+		req.setAttribute("award", award);
+		// 透過分派器來forward往前傳(往 jsp 傳)
+		req.getRequestDispatcher("/WEB-INF/view/lottery2.jsp").forward(req, resp);
 		
 	}
 	
