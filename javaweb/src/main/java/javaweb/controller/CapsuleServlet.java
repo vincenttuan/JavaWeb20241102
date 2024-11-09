@@ -39,7 +39,7 @@ public class CapsuleServlet extends HttpServlet {
 		// 獎項庫存
 		int myAwardQty = Integer.parseInt(myAward[2]);
 		if(myAwardQty > 0) {
-			// 將獎項庫存 -1
+			// 更新獎項庫存 -1
 			myAward[2] = String.valueOf(Integer.parseInt(myAward[2]) - 1);
 		} else {
 			myAwardName += "已經售完";
