@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
 
 <%
+	String myId = String.valueOf(request.getAttribute("myId"));
+	String myAwardName = String.valueOf(request.getAttribute("myAwardName"));
 	String[][] awards = (String[][])request.getAttribute("awards");
 %>    
 <!DOCTYPE html>
@@ -34,7 +36,8 @@
 							</tbody>
 						</table>
 						<p />
-						<a href="" class="pure-button pure-button-primary">開始扭蛋</a> 獎品: 
+						<a href="" class="pure-button pure-button-primary">開始扭蛋</a> 
+						獎號: <%=myId %> 獎項: <%=myAwardName %> 
 					</td>
 				</tr>
 			</table>

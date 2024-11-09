@@ -50,8 +50,11 @@ public class CapsuleServlet extends HttpServlet {
 		System.out.println("獎項名字 myAwardName: " + myAwardName);
 		System.out.println("獎項庫存 myAwardQty: " + myAward[2]);
 		
-		
+		// 傳給 jsp 的資料
+		req.setAttribute("myId", myId);
+		req.setAttribute("myAwardName", myAwardName);
 		req.setAttribute("awards", awards);
+		
 		// 指向到 jsp
 		req.getRequestDispatcher("/WEB-INF/view/capsule.jsp").forward(req, resp);
 	}
