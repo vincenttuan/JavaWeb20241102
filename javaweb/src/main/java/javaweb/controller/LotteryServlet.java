@@ -73,19 +73,27 @@ public class LotteryServlet extends HttpServlet {
 							<tbody>
 								<tr>
 									<td>1</td><td>現金10萬元</td>
+								</tr>
+								<tr>	
 									<td>2</td><td>禮券2萬元</td>
+								</tr>
+								<tr>	
 									<td>3</td><td>禮券5000元</td>
+								</tr>
+								<tr>	
 									<td>4</td><td>現金500元</td>
+								</tr>
+								<tr>	
 									<td>5~10</td><td>7-11 100元</td>
 								</tr>
 							</tbody>
 						</table>
 						<p />
-						您抽到 ${number} 號 獎項: ${award}
+						您抽到 %d 號 獎項: %s
 					</body>
 				</html>
 				""";
-		resp.getWriter().println(html);
+		resp.getWriter().println(String.format(html, number, award));
 	}
 	
 }
