@@ -16,6 +16,12 @@ public class TodayServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
+		// 告知瀏覽器你的網頁編碼資訊
+		// 設定回應編碼(UTF-8)
+		resp.setCharacterEncoding("UTF-8");
+		// 設定回應文件格式(text/plain;charset=UTF-8)
+		resp.setContentType("text/plain;charset=UTF-8");
+		
 		Date today = new Date();
 		/**
 		 * 格式說明
