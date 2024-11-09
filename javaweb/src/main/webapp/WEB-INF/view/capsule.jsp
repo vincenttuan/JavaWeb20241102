@@ -24,19 +24,19 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
-									<td>1</td><td>小八貓</td><td>5</td>
-									<td>2</td><td>烏薩奇</td><td>5</td>
-									<td>3</td><td>吉伊卡哇</td><td>5</td>
-									<td>4</td><td>小桃</td><td>5</td>
-									<td>5</td><td>獅薩</td><td>5</td>
-								</tr>
+								<tr><td>1</td><td>小八貓</td><td>5</td></tr>	
+								<tr><td>2</td><td>烏薩奇</td><td>5</td></tr>
+								<tr><td>3</td><td>吉伊卡哇</td><td>5</td></tr>
+								<tr><td>4</td><td>小桃</td><td>5</td></tr>
+								<tr><td>5</td><td>獅薩</td><td>5</td></tr>
 							</tbody>
 						</table>
+						<p />
+						<a href="" class="pure-button pure-button-primary">開始扭蛋</a> 獎品: 
 					</td>
 				</tr>
 			</table>
-			<a href="">開始扭蛋</a> 獎品: 
+			
 		</fieldset>
 	</div>
 </body>
