@@ -13,11 +13,26 @@
 			<legend>扭蛋機</legend>
 			<table>
 				<tr>
-					<td>
-					
+					<td valign="top">
+						<img src="/javaweb/image/capsule.jpg">
 					</td>
-					<td>
-					
+					<td valign="top">
+						<table class="pure-table">
+							<thead>
+								<tr>
+									<th>編號</th><th>名稱</th><th>庫存</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>1</td><td>xxx</td><td>5</td>
+									<td>2</td><td>xxx</td><td>5</td>
+									<td>3</td><td>xxx</td><td>5</td>
+									<td>4</td><td>xxx</td><td>5</td>
+									<td>5</td><td>xxx</td><td>5</td>
+								</tr>
+							</tbody>
+						</table>
 					</td>
 				</tr>
 			</table>
