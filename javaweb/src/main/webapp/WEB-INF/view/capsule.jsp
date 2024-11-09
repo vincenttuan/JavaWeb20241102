@@ -36,7 +36,7 @@
 							</tbody>
 						</table>
 						<p />
-						<a href="" class="pure-button pure-button-primary">開始扭蛋</a> 
+						<a href="/javaweb/capsule?play=true" class="pure-button pure-button-primary">開始扭蛋</a> 
 						獎號: <%=myId %> 獎項: <%=myAwardName %> 
 					</td>
 				</tr>
