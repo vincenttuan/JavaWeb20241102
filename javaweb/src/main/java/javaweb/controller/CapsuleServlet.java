@@ -38,10 +38,16 @@ public class CapsuleServlet extends HttpServlet {
 		String myAwardName = myAward[1];
 		// 獎項庫存
 		int myAwardQty = Integer.parseInt(myAward[2]);
+		if(myAwardQty > 0) {
+			// 將獎項庫存 -1
+			myAward[2] = String.valueOf(Integer.parseInt(myAward[2]) - 1);
+		} else {
+			myAwardName += "已經售完";
+		}
 		
 		System.out.println("獎號 myId: " + myId);
 		System.out.println("獎項 myAward: " + Arrays.toString(myAward));
-		System.out.println("獎項名字 myAwardName: " + myAward[1]);
+		System.out.println("獎項名字 myAwardName: " + myAwardName);
 		System.out.println("獎項庫存 myAwardQty: " + myAward[2]);
 		
 		
