@@ -25,6 +25,13 @@ public class CapsuleServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// 判斷有無 reset 參數?
+		String reset = req.getParameter("reset");
+		if(reset != null && reset.equals("true")) {
+			// 資料重置(將扭蛋數量全部改為5個)
+			Stream.of(awards).forEach(award -> award[2] = "5");
+		}
+		
 		// 判斷有無 play 參數?
 		String play = req.getParameter("play");
 		if(play == null) { // 不參與抽獎
