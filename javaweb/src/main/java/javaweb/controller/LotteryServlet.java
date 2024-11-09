@@ -60,7 +60,7 @@ public class LotteryServlet extends HttpServlet {
 				<html>
 					<head>
 						<meta charset="UTF-8">
-						<title>Index</title>
+						<title>Lottery 抽獎</title>
 					</head>
 					<body>
 						獎品列表
