@@ -20,7 +20,7 @@ public class CapsuleServlet extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+		req.setAttribute("awards", awards);
 		// 指向到 jsp
 		req.getRequestDispatcher("/WEB-INF/view/capsule.jsp").forward(req, resp);
 	}
