@@ -54,6 +54,38 @@ public class LotteryServlet extends HttpServlet {
 		
 		// 顯示資料(console)
 		System.out.printf("您抽到 %d 號 獎項: %s%n", number, award);
+		
+		// 顯示資料(瀏覽器)
+		String html = """
+				<html>
+					<head>
+						<meta charset="UTF-8">
+						<title>Index</title>
+					</head>
+					<body>
+						獎品列表
+						<table border="1">
+							<thead>
+								<tr>
+									<th>獎號</th><th>獎項</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>%d</td><td>%s</td>
+									<td>%d</td><td>%s</td>
+									<td>%d</td><td>%s</td>
+									<td>%d</td><td>%s</td>
+									<td>%d</td><td>%s</td>
+								</tr>
+							</tbody>
+						</table>
+						<p />
+						您抽到 %d 號 獎項: %s
+					</body>
+				</html>
+				""";
+		resp.getWriter().println(html);
 	}
 	
 }
