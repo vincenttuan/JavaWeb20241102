@@ -61,7 +61,17 @@ public class CapsuleServlet extends HttpServlet {
 			// 更新獎項庫存 -1
 			myAward[2] = String.valueOf(Integer.parseInt(myAward[2]) - 1);
 		} else {
-			myAwardName += "已經售完";
+			//myAwardName += "已經售完";
+			// 讓瀏覽器自動重新執行 /javaweb/capsule?play=true
+			// 判斷扭蛋機中是否還有扭蛋 ?
+			int total = Stream.of(awards).mapToInt(award -> Integer.parseInt(award[2])).sum();
+			System.out.println("目前剩餘扭蛋數量: " + total);
+			if(total > 0) {
+				resp.sendRedirect("/javaweb/capsule?play=true");
+				return;
+			}
+			myId = "0";
+			myAwardName = "扭蛋機已無扭蛋";
 		}
 		
 		System.out.println("獎號 myId: " + myId);
