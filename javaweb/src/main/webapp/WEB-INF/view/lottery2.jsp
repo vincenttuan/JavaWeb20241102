@@ -47,7 +47,7 @@
 		</tbody>
 	</table>
 	<p />
-	<a href="/javaweb/lottery2" class="pure-button">抽獎按鈕</a>
+	<a href="/javaweb/lottery2" class="pure-button pure-button-primary">抽獎按鈕</a>
 	您抽到 <%=number %> 號 獎項: <%=award %>
 </body>
 </html>
