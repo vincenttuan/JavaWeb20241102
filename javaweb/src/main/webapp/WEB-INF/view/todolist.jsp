@@ -83,6 +83,7 @@
 		const updateText = (event, id, input) => {
 			if(event.key == 'Enter') {
 				console.log(id, input.value);
+				input.readOnly = true;
 			}
 		};
 	</script>
