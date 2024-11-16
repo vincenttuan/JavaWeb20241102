@@ -23,9 +23,10 @@ public class TodoListServlet extends HttpServlet {
 		
 		switch (pathInfo) {
 			case "/update": // 修改 
-				resp.getWriter().print(checked);
+				Boolean complete = Boolean.valueOf(checked); // String 轉 Boolean
+				todoListDao.updateTodoComplete(Integer.parseInt(id), complete);
 				// 修改完之後要去的地方
-				//resp.sendRedirect("/javaweb/todolist/");
+				resp.sendRedirect("/javaweb/todolist/");
 				return;
 			case "/delete": // 刪除
 				todoListDao.deleteTodo(Integer.parseInt(id));
