@@ -6,7 +6,7 @@ import java.util.List;
 import javaweb.model.dao.TodoListDao;
 import javaweb.model.entity.Todo;
 
-public class TodoListInMempry implements TodoListDao {
+public class TodoListDaoInMempry implements TodoListDao {
 	
 	// In-Memory 集合: 利用 ArrayList<Todo> 來模擬資料庫
 	private static ArrayList<Todo> todos;

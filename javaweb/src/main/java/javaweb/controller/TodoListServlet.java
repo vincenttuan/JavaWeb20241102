@@ -7,10 +7,12 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import javaweb.model.dao.TodoListDao;
+import javaweb.model.dao.impl.TodoListDaoInMempry;
 
 @WebServlet("/todolist/*")
 public class TodoListServlet extends HttpServlet {
-
+	private TodoListDao todoListDao = new TodoListDaoInMempry();
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String pathInfo = req.getPathInfo();
@@ -23,6 +25,7 @@ public class TodoListServlet extends HttpServlet {
 			default: // 其他
 				
 		}
+		
 		
 		req.getRequestDispatcher("/WEB-INF/view/todolist.jsp").forward(req, resp);
 	}
