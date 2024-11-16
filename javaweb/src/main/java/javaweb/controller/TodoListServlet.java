@@ -1,6 +1,8 @@
 package javaweb.controller;
 
 import java.io.IOException;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.util.List;
 
 import jakarta.servlet.ServletException;
@@ -25,6 +27,14 @@ public class TodoListServlet extends HttpServlet {
 			case "/update": // 修改 
 				Boolean complete = Boolean.valueOf(checked); // String 轉 Boolean
 				todoListDao.updateTodoComplete(Integer.parseInt(id), complete);
+				// 修改完之後要去的地方
+				resp.sendRedirect("/javaweb/todolist/");
+				return;
+			case "/update/text":
+				// 中文要解碼
+				// 因為 GET 在傳遞中文會自動進行 URL 編碼(例如: 看報表 => %E7%9C%8B%E5%A0%B1%E8%A1%A8)
+				String text = URLDecoder.decode(req.getParameter("text"), "UTF-8");
+				todoListDao.updateTodoText(Integer.parseInt(id), text);
 				// 修改完之後要去的地方
 				resp.sendRedirect("/javaweb/todolist/");
 				return;
