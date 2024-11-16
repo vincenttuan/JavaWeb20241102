@@ -3,7 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	List<Todo> todos = (List<Todo>)request.getAttribute("totos");
+	List<Todo> todos = (List<Todo>)request.getAttribute("todos");
 %>    
     
 <!DOCTYPE html>
