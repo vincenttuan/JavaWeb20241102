@@ -62,7 +62,10 @@
                     <div>
                         <input type="checkbox" <%= todo.getComppleted() ? "checked" : "" %>
                                onchange="location.href='/javaweb/todolist/update?id=<%= todo.getId() %>&checked=' + this.checked;" />
-                        <a href="/javaweb/todolist/delete?id=<%= todo.getId() %>" class="btn btn-danger btn-sm ms-2">刪除</a>
+                        已完成
+                        <a href="/javaweb/todolist/delete?id=<%= todo.getId() %>"
+                           style="display: <%= todo.getComppleted() ? "none" : "" %>" 
+                           class="btn btn-danger btn-sm ms-2">刪除</a>
                     </div>
                 </li>
             <% } %>
