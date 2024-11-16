@@ -32,7 +32,7 @@
 				<li>
 					<%=todo.getId() %> - <%=todo.getText() %> 
 					<input type="checkbox" /> 
-					<button type="button">刪除</button>
+					<a href="/javaweb/todolist/delete?id=<%=todo.getId() %>">刪除</a>
 				</li>
 			<% } %>
 		</ul>
