@@ -35,8 +35,26 @@ public class TodoListServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.doPost(req, resp);
+		String pathInfo = req.getPathInfo();
+		if(!pathInfo.equals("/add")) {
+			return;
+		}
+		
+		String id = req.getParameter("id");
+		String text = req.getParameter("text");
+		
+		// 建立 todo 物件
+		Todo todo = new Todo();
+		todo.setId(Integer.parseInt(id));
+		todo.setText(text);
+		todo.setComppleted(false);
+		
+		// 新增
+		todoListDao.addTodo(todo);
+		
+		// 自動轉跳到 /javaweb/todolist/ 頁
+		//resp.sendRedirect("http://localhost:8080/javaweb/todolist/");
+		resp.sendRedirect("/javaweb/todolist/");
 	}
 	
 	
