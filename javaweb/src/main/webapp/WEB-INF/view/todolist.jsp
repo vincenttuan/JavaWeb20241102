@@ -1,5 +1,11 @@
+<%@page import="javaweb.model.entity.Todo"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%
+	List<Todo> todos = (List<Todo>)request.getAttribute("totos");
+%>    
+    
 <!DOCTYPE html>
 <html>
 	<head>
@@ -22,15 +28,13 @@
 		</form>
 		<!-- Todo List 列表 -->
 		<ul>
-			<li>
-				1 - Task 1 <input type="checkbox" /> <button type="button">刪除</button>
-			</li>
-			<li>
-				2 - Task 2 <input type="checkbox" checked /> <button type="button">刪除</button>
-			</li>
-			<li>
-				3 - Task 3 <input type="checkbox" /> <button type="button">刪除</button>
-			</li>
+			<% for(Todo todo : todos) { %>
+				<li>
+					<%=todo.getId() %> - <%=todo.getText() %> 
+					<input type="checkbox" /> 
+					<button type="button">刪除</button>
+				</li>
+			<% } %>
 		</ul>
 	</div>
 	<!-- 引入 Bootstrap JS -->
