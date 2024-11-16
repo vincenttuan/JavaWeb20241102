@@ -21,31 +21,38 @@ public class TodoListInMempry implements TodoListDao {
 	
 	@Override
 	public List<Todo> findAllTodos() {
-		// TODO Auto-generated method stub
-		return null;
+		return todos;
 	}
 
 	@Override
 	public Todo getTodo(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		return todos.stream()
+					.filter(todo -> todo.getId().equals(id))
+					.findAny()
+					.orElseGet(null);
 	}
 
 	@Override
 	public void addTodo(Todo todo) {
-		// TODO Auto-generated method stub
-		
+		todos.add(todo);
 	}
 
 	@Override
 	public void updateTodoComplete(Integer id, Boolean completed) {
-		// TODO Auto-generated method stub
-		
+		Todo todo = getTodo(id);
+		if(todo == null) {
+			return;
+		}
+		todo.setComppleted(completed);
 	}
-
+	
 	@Override
 	public void deleteTodo(Integer id) {
-		// TODO Auto-generated method stub
+		Todo todo = getTodo(id);
+		if(todo == null) {
+			return;
+		}
+		todos.remove(todo);
 		
 	}
 
