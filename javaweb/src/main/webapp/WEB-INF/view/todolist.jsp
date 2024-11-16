@@ -64,7 +64,7 @@
 	                        	   value="<%= todo.getText() %>"
 	                        	   ondblclick="this.readOnly = !this.readOnly"
 	                        	   onkeydown="updateText(event, <%=todo.getId() %>, this)"
-	                        	   readonly />
+	                        	   readonly title="按我2下可以修改" />
                         </div>
                     </div>
                     <div>
