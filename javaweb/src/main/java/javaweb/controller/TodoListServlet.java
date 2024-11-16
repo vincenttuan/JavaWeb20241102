@@ -1,6 +1,7 @@
 package javaweb.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -9,6 +10,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import javaweb.model.dao.TodoListDao;
 import javaweb.model.dao.impl.TodoListDaoInMempry;
+import javaweb.model.entity.Todo;
 
 @WebServlet("/todolist/*")
 public class TodoListServlet extends HttpServlet {
@@ -26,7 +28,8 @@ public class TodoListServlet extends HttpServlet {
 				
 		}
 		
-		
+		List<Todo> todos = todoListDao.findAllTodos();
+		req.setAttribute("todos", todos);
 		req.getRequestDispatcher("/WEB-INF/view/todolist.jsp").forward(req, resp);
 	}
 
