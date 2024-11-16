@@ -19,6 +19,9 @@ public interface TodoListDao {
 	// 修改指定 Todo 完成與否
 	void updateTodoComplete(Integer id, Boolean completed);
 	
+	// 修改指定 Text
+	void updateTodoText(Integer id, String text);
+		
 	// 刪除指定 Todo 紀錄
 	void deleteTodo(Integer id);
 }
