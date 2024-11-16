@@ -32,7 +32,7 @@
 				<li style="text-decoration: <%=todo.getComppleted() ? "line-through" : "" %>;">
 					<%=todo.getId() %> - <%=todo.getText() %> 
 					<input type="checkbox" <%=todo.getComppleted() ? "checked" : "" %> 
-						   onclick="location.href='/javaweb/todolist/update?id=<%=todo.getId() %>&checked=' + this.value;" /> 
+						   onchange="location.href='/javaweb/todolist/update?id=<%=todo.getId() %>&checked=' + this.checked;" /> 
 					<a href="/javaweb/todolist/delete?id=<%=todo.getId() %>">刪除</a>
 				</li>
 			<% } %>
