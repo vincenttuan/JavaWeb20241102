@@ -31,7 +31,7 @@
 			<% for(Todo todo : todos) { %>
 				<li style="text-decoration: <%=todo.getComppleted() ? "line-through" : "" %>;">
 					<%=todo.getId() %> - <%=todo.getText() %> 
-					<input type="checkbox" /> 
+					<input type="checkbox" <%=todo.getComppleted() ? "checked" : "" %> /> 
 					<a href="/javaweb/todolist/delete?id=<%=todo.getId() %>">刪除</a>
 				</li>
 			<% } %>
