@@ -61,7 +61,9 @@
 	                        <span class="fw-bold"><%= todo.getId() %></span>
 	                         - 
 	                        <input class="form-control" type="text" 
-	                        	   value="<%= todo.getText() %>" 
+	                        	   value="<%= todo.getText() %>"
+	                        	   ondblclick="this.readOnly = !this.readOnly"
+	                        	   onkeydown="updateText(event, <%=todo.getId() %>, this)"
 	                        	   readonly />
                         </div>
                     </div>
@@ -77,7 +79,13 @@
             <% } %>
         </ul>
     </div>
-
+	<script type="text/javascript">
+		const updateText = (event, id, input) => {
+			if(event == 'Enter') {
+				console.log(id, input.value);
+			}
+		};
+	</script>
     <!-- 引入 Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
