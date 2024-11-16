@@ -85,7 +85,7 @@
 				input.readOnly = true;
 				const url = '/javaweb/todolist/update/text?id=' + id + '&text=' + input.value;
 				console.log(url);
-				//location.href=url;
+				location.href=url;
 			}
 		};
 	</script>
