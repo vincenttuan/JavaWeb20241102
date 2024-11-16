@@ -18,12 +18,19 @@ public class TodoListServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String pathInfo = req.getPathInfo();
+		String id = req.getParameter("id");
 		
 		switch (pathInfo) {
 			case "/update": // 修改 
-				break;
+				
+				// 修改完之後要去的地方
+				resp.sendRedirect("/javaweb/todolist/");
+				return;
 			case "/delete": // 刪除
-				break;
+				todoListDao.deleteTodo(Integer.parseInt(id));
+				// 刪除完之後要去的地方
+				resp.sendRedirect("/javaweb/todolist/");
+				return;
 			default: // 其他
 				
 		}
