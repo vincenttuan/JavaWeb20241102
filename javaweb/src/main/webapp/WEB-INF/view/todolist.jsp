@@ -82,8 +82,10 @@
 	<script type="text/javascript">
 		const updateText = (event, id, input) => {
 			if(event.key == 'Enter') {
-				console.log(id, input.value);
 				input.readOnly = true;
+				const url = '/javaweb/todolist/update/text?id=' + id + '&text=' + input.value;
+				console.log(url);
+				//location.href=url;
 			}
 		};
 	</script>
