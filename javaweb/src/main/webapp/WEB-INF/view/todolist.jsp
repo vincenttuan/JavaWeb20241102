@@ -81,7 +81,7 @@
     </div>
 	<script type="text/javascript">
 		const updateText = (event, id, input) => {
-			if(event == 'Enter') {
+			if(event.key == 'Enter') {
 				console.log(id, input.value);
 			}
 		};
