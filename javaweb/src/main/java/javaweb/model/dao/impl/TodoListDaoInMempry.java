@@ -56,4 +56,13 @@ public class TodoListDaoInMempry implements TodoListDao {
 		
 	}
 
+	@Override
+	public void updateTodoText(Integer id, String text) {
+		Todo todo = getTodo(id);
+		if(todo == null) {
+			return;
+		}
+		todo.setText(text);
+	}
+
 }
