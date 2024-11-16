@@ -57,7 +57,13 @@
             <% for (Todo todo : todos) { %>
                 <li class="list-group-item d-flex justify-content-between align-items-center <% if (todo.getComppleted()) { %>completed<% } %>">
                     <div>
-                        <span class="fw-bold"><%= todo.getId() %></span> - <%= todo.getText() %>
+                    	<div class="form-group">
+	                        <span class="fw-bold"><%= todo.getId() %></span>
+	                         - 
+	                        <input class="form-control" type="text" 
+	                        	   value="<%= todo.getText() %>" 
+	                        	   readonly />
+                        </div>
                     </div>
                     <div>
                         <input type="checkbox" <%= todo.getComppleted() ? "checked" : "" %>
