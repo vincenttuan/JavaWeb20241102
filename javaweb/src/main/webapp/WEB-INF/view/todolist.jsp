@@ -29,7 +29,7 @@
 		<!-- Todo List 列表 -->
 		<ul>
 			<% for(Todo todo : todos) { %>
-				<li>
+				<li style="text-decoration: line-through;">
 					<%=todo.getId() %> - <%=todo.getText() %> 
 					<input type="checkbox" /> 
 					<a href="/javaweb/todolist/delete?id=<%=todo.getId() %>">刪除</a>
