@@ -4,7 +4,9 @@
 <html>
 	<head>
 	<meta charset="UTF-8">
-	<title></title>
+	<title>My Todo List</title>
+	<!-- 引入 Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 	<h1>My Todo List</h1>
@@ -29,5 +31,8 @@
 			3 - Task 3 <input type="checkbox" /> <button type="button">刪除</button>
 		</li>
 	</ul>
+	
+	<!-- 引入 Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
