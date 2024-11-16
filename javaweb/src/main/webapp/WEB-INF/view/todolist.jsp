@@ -19,7 +19,15 @@
 	</form>
 	<!-- Todo List 列表 -->
 	<ul>
-		<li></li>
+		<li>
+			1 - Task 1 <input type="checkbox" /> <button type="button">刪除</button>
+		</li>
+		<li>
+			2 - Task 2 <input type="checkbox" checked /> <button type="button">刪除</button>
+		</li>
+		<li>
+			3 - Task 3 <input type="checkbox" /> <button type="button">刪除</button>
+		</li>
 	</ul>
 </body>
 </html>
