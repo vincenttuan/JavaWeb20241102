@@ -1,5 +1,6 @@
 package javaweb.model.dao.impl;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -83,8 +84,12 @@ public class TodoListDaoMySQL extends BaseDao implements TodoListDao {
 
 	@Override
 	public void addTodo(Todo todo) {
-		String sql = "insert into todo(text, completed) value(?, ?, ?)";
-		try() {
+		String sql = "insert into todo(text, completed) value(?, ?)";
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			
+			pstmt.setString(1, todo.getText());
+			pstmt.setBoolean(2, todo.getCompleted());
+			pstmt.executeUpdate(); // 執行更新
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
