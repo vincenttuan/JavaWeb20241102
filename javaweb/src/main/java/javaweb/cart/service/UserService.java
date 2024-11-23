@@ -6,8 +6,17 @@ import java.util.Base64;
 
 public class UserService {
 	
+	public static void main(String[] args) {
+		String password = "1234"; // 密碼
+		String salt = generateSalt(); // 鹽
+		String hashPassword = getHashPassword(password, salt);
+		System.out.println("密碼:" + password);
+		System.out.println("salt:" + salt);
+		System.out.println("hashPassword:" + hashPassword);
+	}
+	
 	// 產生鹽
-	private String generateSalt() {
+	private static String generateSalt() {
 		// 數學上安全不可預測的偽隨機(安全的亂數)
 		SecureRandom random = new SecureRandom();
 		byte[] salt = new byte[16];
