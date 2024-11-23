@@ -13,7 +13,7 @@ public class EmailService {
 	// Google應用程式密碼
 	// 請參考此篇 https://www.yongxin-design.com/Article/10
 	// 請自行產生Google應用程式密碼
-	String googleAppPassword = "elre qnee sbiq uqwj";
+	String googleAppPassword = "";
 
 	// 寄件者的電子郵件地址
 	String from = "vincenttuan@gmail.com";
