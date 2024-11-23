@@ -72,7 +72,7 @@ public class TodoListServlet extends HttpServlet {
 		Todo todo = new Todo();
 		todo.setId(Integer.parseInt(id));
 		todo.setText(text);
-		todo.setComppleted(false);
+		todo.setCompleted(false);
 		
 		// 新增
 		todoListDao.addTodo(todo);

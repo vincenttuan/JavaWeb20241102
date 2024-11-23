@@ -55,7 +55,7 @@
         <!-- Todo List 列表 -->
         <ul class="list-group">
             <% for (Todo todo : todos) { %>
-                <li class="list-group-item d-flex justify-content-between align-items-center <% if (todo.getComppleted()) { %>completed<% } %>">
+                <li class="list-group-item d-flex justify-content-between align-items-center <% if (todo.getCompleted()) { %>completed<% } %>">
                     <div>
                     	<div class="form-group">
 	                        <span class="fw-bold"><%= todo.getId() %></span>
@@ -68,11 +68,11 @@
                         </div>
                     </div>
                     <div>
-                        <input type="checkbox" <%= todo.getComppleted() ? "checked" : "" %>
+                        <input type="checkbox" <%= todo.getCompleted() ? "checked" : "" %>
                                onchange="location.href='/javaweb/todolist/update?id=<%= todo.getId() %>&checked=' + this.checked;" />
                         已完成
                         <a href="/javaweb/todolist/delete?id=<%= todo.getId() %>"
-                           style="display: <%= todo.getComppleted() ? "none" : "" %>" 
+                           style="display: <%= todo.getCompleted() ? "none" : "" %>" 
                            class="btn btn-danger btn-sm ms-2">刪除</a>
                     </div>
                 </li>
