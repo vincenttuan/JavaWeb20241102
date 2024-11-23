@@ -20,7 +20,7 @@ public class EmailService {
 	
 	// 測試主程式
 	public static void main(String[] args) {
-		new EmailService().sendEmail("vincenttuan@gmail.com", "http://localhost:8080/cart/email/confirm");
+		new EmailService().sendEmail("vincenttuan@gmail.com", "http://localhost:8080/cart/email/confirm?id=1");
 	}
 	
 	// to: // 收件者的電子郵件地址
