@@ -74,8 +74,11 @@ public class TodoListDaoMySQL extends BaseDao implements TodoListDao {
 
 	@Override
 	public Todo getTodo(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Todo> todos = findAllTodos();
+		return todos.stream()
+					.filter(todo -> todo.getId().equals(id))
+					.findAny()
+					.orElse(null); // 若找不到就得到 null
 	}
 
 	@Override
