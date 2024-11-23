@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<div>
+<div style="background: #DDDDDD;padding: 20px">
 	<a href="/javaweb/user/register">使用者註冊</a> |
 	<a href="/javaweb/user/login">使用者登入</a> | 
 	<a href="/javaweb/user/list">使用者列表</a> | 
