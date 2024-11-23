@@ -25,9 +25,12 @@ package javaweb.model.dao.impl;
    select id, text, completed from todo;
    
    修改資料
-   update todo set text='Task A', completed=true where id=1
+   update todo set text='Task A', completed=true where id=1;
+   update todo set text='Task A' where id=1;
+   update todo set completed=true where id=1;
    
-   
+   刪除資料
+   delete from todo where id=1;
    
  */
 
