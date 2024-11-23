@@ -89,19 +89,29 @@ public class TodoListDaoMySQL extends BaseDao implements TodoListDao {
 			
 			pstmt.setString(1, todo.getText());
 			pstmt.setBoolean(2, todo.getCompleted());
+			
 			int rowcount = pstmt.executeUpdate(); // 執行更新
-			System.out.println("新增筆數: " + rowcount);
+			System.out.println("新增 todo 筆數: " + rowcount);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
 	}
 
 	@Override
 	public void updateTodoComplete(Integer id, Boolean completed) {
-		// TODO Auto-generated method stub
-		
+		String sql = "update todo set completed=? where id=?";
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			
+			pstmt.setBoolean(1, completed);
+			pstmt.setInt(2, id);
+			
+			int rowcount = pstmt.executeUpdate();
+			System.out.println("修改 completed 筆數: " + rowcount);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override
