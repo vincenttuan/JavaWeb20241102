@@ -89,7 +89,8 @@ public class TodoListDaoMySQL extends BaseDao implements TodoListDao {
 			
 			pstmt.setString(1, todo.getText());
 			pstmt.setBoolean(2, todo.getCompleted());
-			pstmt.executeUpdate(); // 執行更新
+			int rowcount = pstmt.executeUpdate(); // 執行更新
+			System.out.println("新增筆數: " + rowcount);
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
