@@ -21,6 +21,9 @@ package javaweb.model.dao.impl;
    insert into todo(text, completed) value('Task 2', true);
    insert into todo(text) value('Task 3');
    
+   查詢資料
+   select id, text, completed from todo;
+   
  */
 
 public class TodoListDaoMySQL {
