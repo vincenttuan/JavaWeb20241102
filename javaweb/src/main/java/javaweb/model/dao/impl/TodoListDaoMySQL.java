@@ -83,7 +83,12 @@ public class TodoListDaoMySQL extends BaseDao implements TodoListDao {
 
 	@Override
 	public void addTodo(Todo todo) {
-		// TODO Auto-generated method stub
+		String sql = "insert into todo(text, completed) value(?, ?, ?)";
+		try() {
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 	}
 
