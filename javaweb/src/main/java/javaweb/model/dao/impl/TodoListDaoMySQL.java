@@ -16,6 +16,11 @@ package javaweb.model.dao.impl;
    	completed boolean not null default false comment '是否完成'
    );
    
+   預設資料
+   insert into todo(text, completed) value('Task 1', false);
+   insert into todo(text, completed) value('Task 2', true);
+   insert into todo(text) value('Task 3');
+   
  */
 
 public class TodoListDaoMySQL {
