@@ -12,11 +12,15 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import javaweb.model.dao.TodoListDao;
 import javaweb.model.dao.impl.TodoListDaoInMempry;
+import javaweb.model.dao.impl.TodoListDaoMySQL;
 import javaweb.model.entity.Todo;
 
 @WebServlet("/todolist/*")
 public class TodoListServlet extends HttpServlet {
-	private TodoListDao todoListDao = new TodoListDaoInMempry();
+	
+	//private TodoListDao todoListDao = new TodoListDaoInMempry();
+	private TodoListDao todoListDao = new TodoListDaoMySQL();
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String pathInfo = req.getPathInfo();
