@@ -9,7 +9,7 @@ public class BaseDao {
 	static {
 		String username = "root";
 		String password = "12345678";
-		String dbUrl = "jdbc:mysql://localhost:3306/web?serverTimezone=Asia/Taipei&characterEncoding=utf-8&useUnicode=true";
+		String dbUrl = "jdbc:mysql://localhost:3306/web?serverTimezone=Asia/Taipei&characterEncoding=utf-8&useUnicode=true&useSSL=false";
 		
 	}
 
