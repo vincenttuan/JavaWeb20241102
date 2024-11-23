@@ -116,7 +116,18 @@ public class TodoListDaoMySQL extends BaseDao implements TodoListDao {
 
 	@Override
 	public void updateTodoText(Integer id, String text) {
-		// TODO Auto-generated method stub
+		String sql = "update todo set text=? where id=?";
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			
+			pstmt.setString(1, text);
+			pstmt.setInt(2, id);
+			
+			int rowcount = pstmt.executeUpdate();
+			System.out.println("修改 Text 筆數: " + rowcount);
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		
 	}
 
