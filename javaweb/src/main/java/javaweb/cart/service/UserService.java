@@ -22,7 +22,7 @@ public class UserService {
 		// 根據我輸入的密碼與原本已經儲存的鹽來產生新的雜湊密碼
 		String myHashPassword = getHashPassword(userPassword, hashSalt);
 		// 將新的雜湊密碼與原本的雜湊密碼進行比對
-		if(myHashPassword.equals(myHashPassword)) {
+		if(myHashPassword.equals(hashPassword)) {
 			System.out.println("登入成功");
 		} else {
 			System.out.println("登入失敗");
