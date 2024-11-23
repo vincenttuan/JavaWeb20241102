@@ -23,6 +23,8 @@ package javaweb.model.dao.impl;
    
    查詢資料
    select id, text, completed from todo;
+   select count(*) as count from todo;
+   
    
    修改資料
    update todo set text='Task A', completed=true where id=1;
