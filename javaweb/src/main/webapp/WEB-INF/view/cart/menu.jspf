@@ -1,2 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<div>
+	<a href="/javaweb/user/register">使用者註冊</a> |
+	<a href="/javaweb/user/login">使用者登入</a> | 
+	<a href="/javaweb/user/list">使用者列表</a> | 
+	
+	<a href="/javaweb/product/list">商品列表</a> | 
+	<a href="/javaweb/product/order">商品訂購</a> | 
+	<a href="/javaweb/product/cart">商品購物車</a> | 
+	<a href="/javaweb/product/order/history">商品紀錄</a> |
+	 
+	<a href="/javaweb/user/logout">使用者登出</a> |
+</div>
