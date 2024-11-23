@@ -33,6 +33,12 @@ public class TodoListServlet extends HttpServlet {
 			case "/update/text":
 				// 中文要解碼
 				// 因為 GET 在傳遞中文會自動進行 URL 編碼(例如: 看報表 => %E7%9C%8B%E5%A0%B1%E8%A1%A8)
+				
+				// http://localhost:8080/javaweb/update/text?id=1&text=看報紙
+				// 實際傳遞
+				// http://localhost:8080/javaweb/update/text?id=1&text=%E7%9C%8B%E5%A0%B1%E8%A1%A8
+				
+				// 將 %E7%9C%8B%E5%A0%B1%E8%A1%A8 解碼還原成 "看報紙"
 				String text = URLDecoder.decode(req.getParameter("text"), "UTF-8");
 				todoListDao.updateTodoText(Integer.parseInt(id), text);
 				// 修改完之後要去的地方

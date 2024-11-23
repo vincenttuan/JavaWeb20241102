@@ -43,7 +43,7 @@ public class TodoListDaoInMempry implements TodoListDao {
 		if(todo == null) {
 			return;
 		}
-		todo.setComppleted(completed);
+		todo.setCompleted(completed);
 	}
 	
 	@Override

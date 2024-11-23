@@ -10,5 +10,5 @@ import lombok.NoArgsConstructor;
 public class Todo {
 	private Integer id; // 序號
 	private String text; // 工作項目
-	private Boolean comppleted; // 項目是否完成 ?
+	private Boolean completed; // 項目是否完成 ?
 }
