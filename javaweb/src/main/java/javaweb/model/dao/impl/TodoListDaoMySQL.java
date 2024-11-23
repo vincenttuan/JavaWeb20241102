@@ -1,5 +1,14 @@
 package javaweb.model.dao.impl;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import javaweb.model.dao.TodoListDao;
+import javaweb.model.entity.Todo;
+
 /*
  * 資料表名稱: todo
  * +----+------+-----------+
@@ -36,7 +45,62 @@ package javaweb.model.dao.impl;
    
  */
 
-public class TodoListDaoMySQL {
+public class TodoListDaoMySQL extends BaseDao implements TodoListDao {
+
+	@Override
+	public List<Todo> findAllTodos() {
+		List<Todo> todos = new ArrayList<>();
+		
+		String sql = "select id, text, completed from todo";
+		try(Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql)) {
+			
+			// 逐一尋訪 rs 的資料
+			while (rs.next()) {
+				Todo todo = new Todo();
+				todo.setId(rs.getInt("id"));
+				todo.setText(rs.getString("text"));
+				todo.setCompleted(rs.getBoolean("completed"));
+				// 注入到 todos
+				todos.add(todo);
+			}
+			
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return todos;
+	}
+
+	@Override
+	public Todo getTodo(Integer id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void addTodo(Todo todo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateTodoComplete(Integer id, Boolean completed) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateTodoText(Integer id, String text) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteTodo(Integer id) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 }
