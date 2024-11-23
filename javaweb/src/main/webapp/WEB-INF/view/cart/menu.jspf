@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <div style="background: #DDDDDD;padding: 20px">
 	🎅<a href="/javaweb/user/register">使用者註冊</a> |
-	👦a href="/javaweb/user/login">使用者登入</a> | 
+	👦<a href="/javaweb/user/login">使用者登入</a> | 
 	👨‍👨‍👧‍👧<a href="/javaweb/user/list">使用者列表</a> | 
 	
 	📄<a href="/javaweb/product/list">商品列表</a> | 
