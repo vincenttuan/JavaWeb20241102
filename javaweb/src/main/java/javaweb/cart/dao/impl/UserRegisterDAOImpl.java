@@ -31,7 +31,6 @@ public class UserRegisterDAOImpl implements UserRegisterDAO {
 	
 	@Override
 	public List<User> findAllUsers() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
@@ -49,7 +48,7 @@ public class UserRegisterDAOImpl implements UserRegisterDAO {
 
 	@Override
 	public int addUser(User user) {
-		// TODO Auto-generated method stub
+		String sql = "insert into user(username, hash_password, hash_salt, email) values(?, ?, ?, ?)";
 		return 0;
 	}
 
