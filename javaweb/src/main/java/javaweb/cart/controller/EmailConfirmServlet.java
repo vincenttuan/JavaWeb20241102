@@ -16,9 +16,9 @@ public class EmailConfirmServlet extends HttpServlet {
 		resp.setCharacterEncoding("UTF-8");
 		resp.setContentType("text/html;chatset=utf-8");
 		
-		String id = req.getParameter("id");
+		String username = req.getParameter("username");
 		
-		resp.getWriter().print("<h1>User id = " + id + " email 驗證成功</h1>");
+		resp.getWriter().print("<h1>User name = " + username + " email 驗證成功</h1>");
 		
 	}
 	
