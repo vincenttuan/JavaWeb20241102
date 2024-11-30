@@ -40,7 +40,7 @@ public class UserRegisterServlet extends HttpServlet {
 		resp.getWriter().flush();
 		
 		// 3. 發送 email 給新註冊的用戶(發送確認信給新註冊的用戶)
-		emailService.sendEmail(email, "http://localhost:8080/javaweb/cart/email/confirm");
+		emailService.sendEmail(email, "http://localhost:8080/javaweb/cart/email/confirm?username=" + username);
 		resp.getWriter().println("Email send OK");
 		
 	}
