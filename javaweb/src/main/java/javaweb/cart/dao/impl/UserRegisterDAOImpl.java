@@ -29,24 +29,6 @@ public class UserRegisterDAOImpl implements UserRegisterDAO {
 		
 	}
 	
-	
-	@Override
-	public List<User> findAllUsers() {
-		return null;
-	}
-
-	@Override
-	public User getUserById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public User getUserByName(String username) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	@Override
 	public int addUser(User user) {
 		String sql = "insert into user(username, hash_password, hash_salt, email) values(?, ?, ?, ?)";
@@ -68,12 +50,6 @@ public class UserRegisterDAOImpl implements UserRegisterDAO {
 		return 0;
 	}
 
-	@Override
-	public int updatePasswordById(Integer id, String newPassword) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	
 	// email 驗證成功並修改 completed = true
 	@Override
 	public int emailConfirmOK(String username) {
