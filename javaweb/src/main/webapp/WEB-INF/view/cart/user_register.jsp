@@ -12,7 +12,7 @@
 		<%@ include file="/WEB-INF/view/cart/menu.jspf"  %>
 		<!-- content -->
 		<div style="padding: 15px">
-			<form method="POST" action="/javaweb/user/register">
+			<form class="pure-form" method="POST" action="/javaweb/user/register">
 				<fieldset>
 					<legend>會員註冊</legend>
 					帳號: <input type="text" name="username" placeholder="請輸入帳號" required="required" /><p>
