@@ -22,6 +22,10 @@ public class UserRegisterServlet extends HttpServlet {
 	// 透過表單進行 POST 請求要做的事
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		// 接收到表單傳來的資料
+		String username = req.getParameter("username");
+		String password = req.getParameter("password");
+		String email = req.getParameter("email");
 		
 	}
 	
