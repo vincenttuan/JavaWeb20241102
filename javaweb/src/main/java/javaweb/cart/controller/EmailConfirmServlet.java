@@ -23,7 +23,7 @@ public class EmailConfirmServlet extends HttpServlet {
 		// 得到 username
 		String username = req.getParameter("username");
 		
-		// email 驗證成功
+		// email 驗證成功 (修改 user 資料表中 completed 欄位的資訊) 重要 !!
 		userRegisterService.emailConfirmOK(username);
 		
 		resp.getWriter().print("<h1>User name = " + username + " email 驗證成功</h1>");
