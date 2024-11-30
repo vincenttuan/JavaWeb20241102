@@ -6,5 +6,5 @@ public interface UserRegisterService {
 	void addUser(String username, String password, String email);
 	
 	// email 驗證
-	void emailConfirmOK(Integer id);
+	void emailConfirmOK(String username);
 }
