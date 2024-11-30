@@ -21,7 +21,21 @@
 			<fieldset>
 				<legend>使用者列表</legend>
 				<table class="pure-table">
-					
+					<thead>
+						<tr>
+							<th>序號</th><th>帳號</th><th>Email</th><th>Email 驗證</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% for(UserDTO userDTO : userDTOs) { %>
+							<tr>
+								<td><%=userDTO.getId() %></td>
+								<td><%=userDTO.getUsername() %></td>
+								<td><%=userDTO.getEmail() %></td>
+								<td><%=userDTO.getCompleted()?"驗證成功":"尚未驗證" %></td>
+							</tr>
+						<% } %>
+					</tbody>
 				</table>
 			</fieldset>
 		</div>
