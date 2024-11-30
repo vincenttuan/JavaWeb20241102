@@ -27,11 +27,11 @@ public class UserRegisterServiceImpl implements UserRegisterService {
 	}
 
 	@Override
-	public void emailConfirmOK(Integer id) {
-		if(id == null) {
+	public void emailConfirmOK(String username) {
+		if(username == null) {
 			return;
 		}
-		userRegisterDAO.emailConfirmOK(id);
+		userRegisterDAO.emailConfirmOK(username);
 	}
 
 }
