@@ -7,9 +7,13 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import javaweb.cart.service.UserRegisterService;
+import javaweb.cart.service.impl.UserRegisterServiceImpl;
 
 @WebServlet("/user/register")
 public class UserRegisterServlet extends HttpServlet {
+	
+	private UserRegisterService userRegisterService = new UserRegisterServiceImpl();
 	
 	// 透過網址進行 GET 請求要做的事
 	@Override
@@ -26,7 +30,9 @@ public class UserRegisterServlet extends HttpServlet {
 		String username = req.getParameter("username");
 		String password = req.getParameter("password");
 		String email = req.getParameter("email");
-		
+		// 將資料傳給 service 進行新增程序
+		userRegisterService.addUser(username, password, email);
+		resp.getWriter().print("Add OK");
 	}
 	
 }
