@@ -22,7 +22,7 @@ public class UserRegisterServlet extends HttpServlet {
 	// 透過表單進行 POST 請求要做的事
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-	
+		
 	}
 	
 }
