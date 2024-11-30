@@ -76,10 +76,10 @@ public class UserRegisterDAOImpl implements UserRegisterDAO {
 	
 	// email 驗證成功並修改 completed = true
 	@Override
-	public int emailConfirmOK(Integer id) {
-		String sql = "update user set completed = true where id = ?";
+	public int emailConfirmOK(String username) {
+		String sql = "update user set completed = true where username = ?";
 		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
-			pstmt.setInt(1, id); // 因為 id 欄位是 int 型別所以要用 setInt()
+			pstmt.setString(1, username); // 因為 username 資料表欄位是 varchar 型別所以要用 setString()
 			
 			int rowcount = pstmt.executeUpdate(); // 執行更新
 			return rowcount;

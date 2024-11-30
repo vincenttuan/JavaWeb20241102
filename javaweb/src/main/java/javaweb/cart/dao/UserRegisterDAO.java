@@ -22,5 +22,5 @@ public interface UserRegisterDAO {
 	int updatePasswordById(Integer id, String newPassword);
 	
 	// email 驗證成功並修改 completed = true
-	int emailConfirmOK(Integer id);
+	int emailConfirmOK(String username);
 }
