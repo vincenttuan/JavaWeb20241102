@@ -53,9 +53,16 @@ public class UserRegisterDAOImpl implements UserRegisterDAO {
 		
 		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
 			
+			pstmt.setString(1, user.getUsername());
+			pstmt.setString(2, user.getHashPassword());
+			pstmt.setString(3, user.getHashSalt());
+			pstmt.setString(4, user.getEmail());
+			
+			int rowcount = pstmt.executeUpdate(); // 執行更新
+			return rowcount; // 若 rowcount = 1 表示新增一筆成功
 			
 		} catch (SQLException e) {
-			
+			e.printStackTrace();
 		}
 		
 		return 0;
