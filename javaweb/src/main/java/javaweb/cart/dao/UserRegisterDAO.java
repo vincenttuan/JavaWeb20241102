@@ -2,7 +2,7 @@ package javaweb.cart.dao;
 
 import java.util.List;
 
-import org.apache.catalina.User;
+import javaweb.cart.model.entity.User;
 
 // 定義對 user 資料表進行 CRUD 的功能
 public interface UserRegisterDAO {

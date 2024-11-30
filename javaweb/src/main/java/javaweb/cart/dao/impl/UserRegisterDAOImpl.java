@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import javaweb.cart.dao.UserRegisterDAO;
+import javaweb.cart.model.entity.User;
 
 public class UserRegisterDAOImpl implements UserRegisterDAO {
 	static Connection conn; // 資料庫連線
@@ -51,7 +52,7 @@ public class UserRegisterDAOImpl implements UserRegisterDAO {
 		String sql = "insert into user(username, hash_password, hash_salt, email) values(?, ?, ?, ?)";
 		
 		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
-			pstmt.setString(1, user.getName());
+			
 			
 		} catch (SQLException e) {
 			
