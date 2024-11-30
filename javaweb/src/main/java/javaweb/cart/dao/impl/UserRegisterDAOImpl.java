@@ -2,9 +2,9 @@ package javaweb.cart.dao.impl;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
-
-import org.apache.catalina.User;
 
 import javaweb.cart.dao.UserRegisterDAO;
 
@@ -49,6 +49,14 @@ public class UserRegisterDAOImpl implements UserRegisterDAO {
 	@Override
 	public int addUser(User user) {
 		String sql = "insert into user(username, hash_password, hash_salt, email) values(?, ?, ?, ?)";
+		
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setString(1, user.getName());
+			
+		} catch (SQLException e) {
+			
+		}
+		
 		return 0;
 	}
 
