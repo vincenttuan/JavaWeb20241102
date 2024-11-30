@@ -26,4 +26,9 @@ public class UserRegisterServiceImpl implements UserRegisterService {
 		userRegisterDAO.addUser(user);
 	}
 
+	@Override
+	public void emailConfirmOK(Integer id) {
+		userRegisterDAO.emailConfirmOK(id);
+	}
+
 }
