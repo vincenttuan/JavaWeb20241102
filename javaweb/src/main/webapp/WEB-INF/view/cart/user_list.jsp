@@ -17,7 +17,7 @@
 		<!-- menu bar -->
 		<%@ include file="/WEB-INF/view/cart/menu.jspf"  %>
 		<!-- content -->
-		<div class="pure-table">
+		<div class="pure-form">
 			<fieldset>
 				<legend>使用者列表</legend>
 				<table class="pure-table">
