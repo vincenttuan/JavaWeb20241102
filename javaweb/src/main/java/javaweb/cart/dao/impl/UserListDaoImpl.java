@@ -9,7 +9,7 @@ import javaweb.cart.model.entity.User;
 
 public class UserListDaoImpl implements UserListDAO {
 	
-static Connection conn; // 資料庫連線
+	static Connection conn; // 資料庫連線
 	
 	static {
 		try {
