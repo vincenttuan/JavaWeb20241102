@@ -73,5 +73,21 @@ public class UserRegisterDAOImpl implements UserRegisterDAO {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
+	// email 驗證成功並修改 completed = true
+	@Override
+	public int emailConfirmOK(Integer id) {
+		String sql = "update user set completed = true where id = ?";
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setInt(1, id); // 因為 id 欄位是 int 型別所以要用 setInt()
+			
+			int rowcount = pstmt.executeUpdate(); // 執行更新
+			return rowcount;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return 0;
+	}
 
 }
