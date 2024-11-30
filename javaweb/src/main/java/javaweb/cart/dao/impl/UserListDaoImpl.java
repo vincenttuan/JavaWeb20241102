@@ -28,6 +28,7 @@ public class UserListDaoImpl implements UserListDAO {
 		
 	}
 	
+	// 查詢所有使用者
 	@Override
 	public List<User> findAllUsers() {
 		// TODO Auto-generated method stub
