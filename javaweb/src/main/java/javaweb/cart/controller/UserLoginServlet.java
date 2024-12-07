@@ -33,7 +33,7 @@ public class UserLoginServlet extends HttpServlet {
 		String resultTitle = "登入結果";
 		String resultMessage = "";
 		try {
-			
+			// 取得以存放在 session 的驗證碼(驗證碼圖片的內容)
 			String sessionAuthcode = session.getAttribute("authcode") + "";
 			boolean checkLogin = userLoginService.login(username, password, authcode, sessionAuthcode); // 進行驗證並取得結果
 			if(checkLogin) { // 驗證成功
