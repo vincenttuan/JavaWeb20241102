@@ -27,16 +27,19 @@ public class UserLoginServlet extends HttpServlet {
 		String password = req.getParameter("password");
 		String authcode = req.getParameter("authcode");
 		
+		HttpSession session = req.getSession();
+		
 		// 驗證帳號與密碼
 		String resultTitle = "登入結果";
 		String resultMessage = "";
 		try {
-			boolean checkLogin = userLoginService.login(username, password); // 進行驗證並取得結果
+			
+			String sessionAuthcode = session.getAttribute("authcode") + "";
+			boolean checkLogin = userLoginService.login(username, password, authcode, sessionAuthcode); // 進行驗證並取得結果
 			if(checkLogin) { // 驗證成功
 				resultMessage = username + " 登入成功";
 				
 				// 將登入資訊存放到 session 變數中, session 變數可以"跨網頁"提取
-				HttpSession session = req.getSession();
 				session.setAttribute("username", username);
 			}
 		} catch (RuntimeException e) { // 驗證失敗
