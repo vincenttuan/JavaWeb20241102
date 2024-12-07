@@ -16,8 +16,9 @@ public class MySessionListener implements HttpSessionListener {
 		HttpSession session = se.getSession();
 		if(session.getAttribute("username") != null) {
 			String username = session.getAttribute("username") + "";
-			System.out.println("有人登入了, username = " + username);
 			loginCount++;
+			System.out.println("有人登入了, username = " + username + ", 目前人數: " + loginCount);
+			
 		}
 	}
 	
@@ -27,8 +28,8 @@ public class MySessionListener implements HttpSessionListener {
 		HttpSession session = se.getSession();
 		if(session.getAttribute("username") != null) {
 			String username = session.getAttribute("username") + "";
-			System.out.println("有人登出了, username = " + username);
 			loginCount--;
+			System.out.println("有人登出了, username = " + username + ", 目前人數: " + loginCount);
 		}
 	}
 	
