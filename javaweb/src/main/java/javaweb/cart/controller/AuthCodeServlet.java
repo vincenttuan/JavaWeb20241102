@@ -1,5 +1,8 @@
 package javaweb.cart.controller;
 
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.Random;
@@ -38,6 +41,18 @@ public class AuthCodeServlet extends HttpServlet {
 	private BufferedImage getAuthCodeImage(String authcode) {
 		// 建立圖像區域 (80(寬度)x30(高度) RGB)
 		BufferedImage img = new BufferedImage(80, 30, BufferedImage.TYPE_INT_RGB);
+		// 建立畫布
+		Graphics g = img.getGraphics();
+		// 設定顏色
+		g.setColor(Color.YELLOW); // 拿起黃色的彩色筆
+		// 塗滿背景
+		g.fillRect(0, 0, 80, 30); // 全區域
+		// 設定顏色
+		g.setColor(Color.BLACK);
+		// 設定字型
+		g.setFont(new Font("Arial", Font.BOLD, 20)); // 字體, 風格, 大小
+		// 繪文字
+		g.drawString(authcode, 22, 22); // (22, 22) 表示繪文字左上角的起點
 		
 		return img;
 	}
