@@ -36,7 +36,7 @@ public class AuthCodeServlet extends HttpServlet {
 		// 1. 產生四位數的隨機驗證碼(位數不足要補 0, Ex: 0123)
 		//Random random = new Random();
 		//String authcode = String.format("%04d", random.nextInt(10000)); // 0000~9999 隨機數
-		String authcode = generateAuthCode();
+		String authcode = generateAuthCode(); // 自訂認證碼
 		System.out.println("認證碼: " + authcode);
 		
 		// 2. 將認證碼存放到 session 中以便其他程式進行比對
