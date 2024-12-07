@@ -52,7 +52,7 @@ public class AuthCodeServlet extends HttpServlet {
 		// 設定字型
 		g.setFont(new Font("Arial", Font.BOLD, 20)); // 字體, 風格, 大小
 		// 繪文字
-		g.drawString(authcode, 22, 22); // (22, 22) 表示繪文字左上角的起點
+		g.drawString(authcode, 18, 22); // (18, 22) 表示繪文字左上角的起點
 		
 		return img;
 	}
