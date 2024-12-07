@@ -13,8 +13,9 @@ public class UserLoginServiceImpl implements UserLoginService {
 	@Override
 	public boolean login(String username, String password, String authcode, String sessionAuthCode) {
 		// 1. 比對驗證碼
-		if(!authcode.equals(sessionAuthCode)) { // 驗證碼不符
-			throw new RuntimeException("驗證碼不符");
+		//if(!authcode.equals(sessionAuthCode)) { // 驗證碼不符
+		if(!authcode.equalsIgnoreCase(sessionAuthCode)) { // 驗證碼不符
+					throw new RuntimeException("驗證碼不符");
 		}
 		// 2.透過 username 尋找有無此使用者 ?
 		User user = userLoginDAO.findUserByName(username);
