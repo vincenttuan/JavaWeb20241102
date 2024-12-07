@@ -7,6 +7,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import javaweb.cart.service.UserLoginService;
 import javaweb.cart.service.impl.UserLoginServiceImpl;
 
@@ -33,6 +34,10 @@ public class UserLoginServlet extends HttpServlet {
 			boolean checkLogin = userLoginService.login(username, password); // 進行驗證並取得結果
 			if(checkLogin) { // 驗證成功
 				resultMessage = username + " 登入成功";
+				
+				// 將登入資訊存放到 session 變數中, session 變數可以"跨網頁"提取
+				HttpSession session = req.getSession();
+				session.setAttribute("username", username);
 			}
 		} catch (RuntimeException e) { // 驗證失敗
 			resultMessage = e.getMessage(); // 失敗原因
