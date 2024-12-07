@@ -18,6 +18,11 @@ public class UserLoginServlet extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		String username = req.getParameter("username");
+		String password = req.getParameter("password");
+		String authcode = req.getParameter("authcode");
+		
+		// 驗證帳號與密碼
 		
 	}
 	
