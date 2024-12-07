@@ -26,7 +26,14 @@ public class EmailConfirmServlet extends HttpServlet {
 		// email 驗證成功 (修改 user 資料表中 completed 欄位的資訊) 重要 !!
 		userRegisterService.emailConfirmOK(username);
 		
-		resp.getWriter().print("<h1>User name = " + username + " email 驗證成功</h1>");
+		// 準備要傳遞給 result.jsp 的資訊
+		String resultTitle = "Email驗證結果";
+		String resultMessage = "用戶名稱: " + username + "<p />Email 驗證成功";
+		req.setAttribute("resultTitle", resultTitle);
+		req.setAttribute("resultMessage", resultMessage);
+		
+		// 重導到 result.jsp
+		req.getRequestDispatcher("/WEB-INF/view/cart/result.jsp").forward(req, resp);
 		
 	}
 	
