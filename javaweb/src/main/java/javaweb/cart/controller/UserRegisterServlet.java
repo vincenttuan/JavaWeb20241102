@@ -36,12 +36,9 @@ public class UserRegisterServlet extends HttpServlet {
 		
 		// 2. 將資料傳給 service 進行新增資料程序(資料庫新增一筆資料)
 		userRegisterService.addUser(username, password, email);
-		//resp.getWriter().println("Add OK");
-		//resp.getWriter().flush();
 		
 		// 3. 發送 email 給新註冊的用戶(發送確認信給新註冊的用戶)
 		emailService.sendEmail(email, "http://localhost:8080/javaweb/cart/email/confirm?username=" + username);
-		//resp.getWriter().println("Email send OK");
 		
 		// 準備要傳遞給 result.jsp 的資訊
 		String resultTitle = "註冊結果";
