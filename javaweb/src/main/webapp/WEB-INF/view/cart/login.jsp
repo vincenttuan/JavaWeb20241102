@@ -24,15 +24,18 @@
 					<label for="username">💇‍♂️ 帳號</label>
 					<input name="username" type="text" placeholder="請輸入帳號" required />
 				</div>
+				<p />
 				<div class="pure-control-group">
 					<label for="password">🔐 密碼</label>
 					<input name="password" type="password" placeholder="請輸入密碼" required />
 				</div>
+				<p />
 				<div class="pure-control-group">
 					<label for="authcode">驗證碼</label>
 					<input name="authcode" type="text" placeholder="請輸入驗證碼" required />
 					<img src="/javaweb/user/authcode" valign="middle" title="驗證碼" alt="驗證碼" />
 				</div>
+				<p />
 				<div class="pure-controls">
 					<button type="submit" class="pure-button pure-button-primary">登入</button>
 				</div>
