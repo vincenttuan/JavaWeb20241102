@@ -50,10 +50,20 @@ public class AuthCodeServlet extends HttpServlet {
 		// 設定顏色
 		g.setColor(Color.BLACK);
 		// 設定字型
-		g.setFont(new Font("Arial", Font.BOLD, 20)); // 字體, 風格, 大小
+		g.setFont(new Font("Arial", Font.BOLD, 22)); // 字體, 風格, 大小
 		// 繪文字
 		g.drawString(authcode, 18, 22); // (18, 22) 表示繪文字左上角的起點
-		
+		// 加上干擾線
+		g.setColor(Color.RED);
+		Random random = new Random();
+		for(int i=0;i<15;i++) {
+			int x1 = random.nextInt(80); // 0~79 之間
+			int y1 = random.nextInt(30); // 0~30 之間
+			int x2 = random.nextInt(80); // 0~79 之間
+			int y2 = random.nextInt(30); // 0~30 之間
+			// 繪直線
+			g.drawLine(x1, y1, x2, y2);
+		}
 		return img;
 	}
 	
