@@ -25,6 +25,7 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public List<ProductDTO> findAll() {
+		System.out.println(productDAO.findAll());
 		return productDAO.findAll() // List<Product>
 						 .stream()  // ... Product
 						 //.map(product -> mapToProductDTO(product)) // ... ProductDTO

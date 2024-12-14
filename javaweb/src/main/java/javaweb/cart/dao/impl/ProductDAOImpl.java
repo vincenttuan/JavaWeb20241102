@@ -55,7 +55,6 @@ public class ProductDAOImpl extends BaseDAO implements ProductDAO {
 		} catch(SQLException e) {
 			e.printStackTrace();
 		}
-		System.out.println(products);
 		return products;
 	}
 
