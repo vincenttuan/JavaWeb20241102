@@ -73,6 +73,10 @@
 		            document.getElementById('price').value = price; // 商品價格
 		        } else {
 		            alert('檔名格式不符合規範，請使用正確格式！');
+		            document.getElementById('qty').value = '';
+		            document.getElementById('productName').value = '';
+		            document.getElementById('price').value = '';
+		            
 		        }
 
 		        // 預覽照片
