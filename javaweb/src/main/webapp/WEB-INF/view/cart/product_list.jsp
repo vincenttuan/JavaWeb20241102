@@ -22,8 +22,8 @@
 						<legend>商品表單</legend>
 						<form enctype="multipart/form-data" method="post" action="/javaweb/product/add">
 							商品名稱：<input type="text" name="productName" required="true"><p />
-							商品價格：<input type="number" name="price" required="true"><p />
-							商品庫存：<input type="number" name="qty" required="true"><p />
+							商品價格：<input type="number" name="price" required="true" min="1" max="200"><p />
+							商品庫存：<input type="number" name="qty" required="true" min="1" max="200"><p />
 							商品照片：<input type="file" name="productImage" required="true"><p />
 							<button type="submit">新增商品</button>
 						</form>
