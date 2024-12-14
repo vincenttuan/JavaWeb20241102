@@ -1,9 +1,13 @@
+<%@page import="javaweb.cart.model.dto.ProductDTO"%>
 <%@page import="javaweb.cart.model.dto.UserDTO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
- 
+<%
+	List<ProductDTO> productDTOs = (List<ProductDTO>)session.getAttribute("productDTOs");
+%>
+
 <!DOCTYPE html>
 <html>
 	<head>
