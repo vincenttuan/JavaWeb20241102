@@ -5,6 +5,6 @@ import java.util.List;
 import javaweb.cart.model.dto.ProductDTO;
 
 public interface ProductService {
-	void add(ProductDTO productDTO);
+	void add(String productName, String price, String qty, String productImageBase64);
 	List<ProductDTO> findAll();
 }

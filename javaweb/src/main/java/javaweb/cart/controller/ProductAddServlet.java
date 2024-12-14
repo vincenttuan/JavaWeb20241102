@@ -13,11 +13,15 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
+import javaweb.cart.service.ProductService;
+import javaweb.cart.service.impl.ProductServiceImpl;
 
 @WebServlet("/product/add")
 @MultipartConfig(maxFileSize = 1024*50) // 設定圖片上傳大小 50K
 public class ProductAddServlet extends HttpServlet {
-
+	
+	private ProductService productService = new ProductServiceImpl();
+	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 接收表單資料
