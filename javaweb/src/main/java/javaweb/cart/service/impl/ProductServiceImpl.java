@@ -21,8 +21,11 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public List<ProductDTO> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return productDAO.findAll() // List<Product>
+						 .stream()  // ... Product
+						 //.map(product -> mapToProductDTO(product)) // ... ProductDTO
+						 .map(this::mapToProductDTO) // ... ProductDTO
+						 .toList(); // List<ProductDTO>
 	}
 	
 	// ProductDTO 轉 Product 物件的方法
