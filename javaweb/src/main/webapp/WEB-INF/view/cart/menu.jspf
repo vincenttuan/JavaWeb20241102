@@ -18,7 +18,11 @@
 	🛒<a href="/javaweb/product/cart">商品購物車</a> | 
 	📊<a href="/javaweb/product/statistics">商品統計</a> |
 	 
-	🎅<a href="/javaweb/user/register">使用者註冊</a> |
-	👦<a href="/javaweb/user/login">使用者登入</a> | 
-	📴<a href="/javaweb/user/logout">使用者登出</a> |
+	<% if(isLoggedIn) { %>
+		📴<a href="/javaweb/user/logout">使用者登出</a> |
+	<% } else { %>
+		🎅<a href="/javaweb/user/register">使用者註冊</a> |
+		👦<a href="/javaweb/user/login">使用者登入</a> |
+	<% } %>
+	
 </div>
