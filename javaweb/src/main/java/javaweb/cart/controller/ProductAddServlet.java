@@ -41,7 +41,7 @@ public class ProductAddServlet extends HttpServlet {
 		
 		// 重導到 result.jsp 頁面
 		req.setAttribute("resultTitle", "商品新增");
-		req.setAttribute("resultMessage", productName + " 商品新增成功");
+		req.setAttribute("resultMessage", productName + " 商品新增成功<p><img src='data:image/png;base64," + productImageBase64 + "'>");
 		req.getRequestDispatcher("/WEB-INF/view/cart/result.jsp").forward(req, resp);
 		
 		
