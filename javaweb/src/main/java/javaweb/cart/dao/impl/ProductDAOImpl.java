@@ -58,4 +58,17 @@ public class ProductDAOImpl extends BaseDAO implements ProductDAO {
 		return products;
 	}
 
+	@Override
+	public void delete(Integer productId) {
+		String sql = "delete from product where product_id = ?";
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setInt(1, productId);
+			int rowcount = pstmt.executeUpdate();
+			System.out.println("資料刪除筆數:" + rowcount);
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
 }
