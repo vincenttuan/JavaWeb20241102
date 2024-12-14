@@ -9,7 +9,7 @@ public class ProductDAOImpl extends BaseDAO implements ProductDAO {
 
 	@Override
 	public void add(Product product) {
-		// TODO Auto-generated method stub
+		String sql = "insert into product(product_name, price, qty, image_base64) values(?, ?, ?, ?)";
 		
 	}
 
