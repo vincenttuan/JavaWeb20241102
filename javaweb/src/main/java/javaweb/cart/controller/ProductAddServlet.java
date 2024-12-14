@@ -31,8 +31,8 @@ public class ProductAddServlet extends HttpServlet {
 		byte[] bytes = productImage.getInputStream().readAllBytes();
 		// 將 bytes[] 轉 base64 字串方便儲存在資料庫中
 		String productImageBase64 = Base64.getEncoder().encodeToString(bytes);
-		// 儲存檔案
-		Files.write(Paths.get("C:/demo.png"), bytes, StandardOpenOption.CREATE_NEW);
+		// 儲存檔案(僅為 demo 用, 本專案不用此方式)
+		Files.write(Paths.get("C:/temp/demo.png"), bytes, StandardOpenOption.CREATE_NEW);
 		
 		// 顯示傳上來的資訊
 		resp.setCharacterEncoding("UTF-8");
