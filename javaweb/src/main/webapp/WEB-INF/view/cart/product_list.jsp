@@ -67,8 +67,8 @@
 		        const match = fileName.match(regex);
 
 		        if (match) {
-		            const [_, stock, name, price] = match; // 解構正則匹配的結果
-		            document.getElementById('qty').value = stock; // 庫存數字
+		            const [_, qty, name, price] = match; // 解構正則匹配的結果
+		            document.getElementById('qty').value = qty; // 庫存數字
 		            document.getElementById('productName').value = name;  // 商品名稱
 		            document.getElementById('price').value = price; // 商品價格
 		        } else {
