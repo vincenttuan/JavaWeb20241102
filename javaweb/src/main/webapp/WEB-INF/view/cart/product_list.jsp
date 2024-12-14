@@ -51,6 +51,7 @@
 								<tr>
 									<th>商品ID</th><th>商品名稱</th><th>商品價格</th>
 									<th>商品庫存</th><th>庫存成本</th><th>商品照片</th>
+									<th>刪除</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -64,6 +65,9 @@
 										<td align="right"><%=productDTO.getTotal() %></td>
 										<td>
 											<img width="100" src='data:image/png;base64,<%=productDTO.getImageBase64() %>'>
+										</td>
+										<td>
+											<a href="/javaweb/product/delete?productId=<%=productDTO.getProductId() %>">刪除</a>
 										</td>
 									</tr>
 								<% } %>
