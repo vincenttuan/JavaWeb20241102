@@ -63,7 +63,7 @@
 		        const fileInput = event.target;
 		        const file = fileInput.files[0];
 		        const fileName = file?.name || ''; // 獲取檔案名稱
-		        const regex = /^.(\d+)([^\d]+)(\d+)\.png$/; // 假設格式為 任意字元<庫存數字><商品名稱><價格>.png
+		        const regex = /^.(\d+)([^\d].*[^\d])(\d+)\.png$/; // 假設格式為 任意字元<庫存數字><商品名稱><價格>.png
 		        const match = fileName.match(regex);
 
 		        if (match) {
