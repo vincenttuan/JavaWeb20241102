@@ -58,6 +58,11 @@ public class ProductServiceImpl implements ProductService {
 		
 		return productDTO;
 	}
+
+	@Override
+	public void delete(Integer productId) {
+		productDAO.delete(productId);
+	}
 	
 
 }
