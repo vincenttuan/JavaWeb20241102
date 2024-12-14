@@ -60,7 +60,7 @@
 										<td align="right"><%=productDTO.getPrice() %></td>
 										<td align="right"><%=productDTO.getQty() %></td>
 										<td>
-											<img width="100" src='data:image/png;base64,<%=productDTO.getProductId() %>'>
+											<img width="100" src='data:image/png;base64,<%=productDTO.getImageBase64() %>'>
 										</td>
 									</tr>
 								<% } %>
