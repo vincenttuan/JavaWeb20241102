@@ -17,7 +17,7 @@ import javaweb.cart.service.ProductService;
 import javaweb.cart.service.impl.ProductServiceImpl;
 
 @WebServlet("/product/add")
-@MultipartConfig(maxFileSize = 1024*50) // 設定圖片上傳大小 50K
+@MultipartConfig(maxFileSize = 1024*1024*10) // 設定圖片上傳大小 10M
 public class ProductAddServlet extends HttpServlet {
 	
 	private ProductService productService = new ProductServiceImpl();
