@@ -15,7 +15,7 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public void add(ProductDTO productDTO) {
 		// 將 productDTO 轉 product
-		
+		Product product = mapToProduct(productDTO);
 		productDAO.add(product);
 	}
 
@@ -35,6 +35,21 @@ public class ProductServiceImpl implements ProductService {
 		product.setQty(productDTO.getQty());
 		product.setImageBase64(productDTO.getImageBase64());
 		return product;
+	}
+	
+	// Product 轉 ProductDTO 物件的方法
+	private ProductDTO mapToProductDTO(Product product) {
+		ProductDTO productDTO = new ProductDTO();
+		productDTO.setProductId(product.getProductId());
+		productDTO.setProductName(product.getProductName());
+		productDTO.setPrice(product.getPrice());
+		productDTO.setQty(product.getQty());
+		productDTO.setImageBase64(product.getImageBase64());
+		// 重要 !! (自訂欄位)
+		Integer total = product.getPrice() * product.getQty();
+		productDTO.setTotal(total);
+		
+		return productDTO;
 	}
 	
 
