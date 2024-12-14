@@ -5,7 +5,7 @@
     pageEncoding="UTF-8"%>
 
 <%
-	List<ProductDTO> productDTOs = (List<ProductDTO>)session.getAttribute("productDTOs");
+	List<ProductDTO> productDTOs = (List<ProductDTO>)request.getAttribute("productDTOs");
 %>
 
 <!DOCTYPE html>
