@@ -19,6 +19,7 @@ public class ProductServiceImpl implements ProductService {
 		product.setPrice(Integer.parseInt(price));
 		product.setQty(Integer.parseInt(qty));
 		product.setImageBase64(productImageBase64);
+		
 		productDAO.add(product);
 	}
 
