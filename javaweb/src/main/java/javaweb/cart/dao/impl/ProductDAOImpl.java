@@ -1,7 +1,10 @@
 package javaweb.cart.dao.impl;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import javaweb.cart.dao.ProductDAO;
@@ -32,8 +35,27 @@ public class ProductDAOImpl extends BaseDAO implements ProductDAO {
 
 	@Override
 	public List<Product> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "select product_id, product_name, price, qty, image_base64 from product";
+		List<Product> products = new ArrayList<>();
+		
+		try(Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql)) {
+			// 逐筆取得資料紀錄
+			while (rs.next()) {
+				Product product = new Product();
+				product.setProductId(rs.getInt("product_id"));
+				product.setProductName(rs.getString("product_name"));
+				product.setPrice(rs.getInt("price"));
+				product.setQty(rs.getInt("qty"));
+				product.setImageBase64(rs.getString("image_base64"));
+				// 將 product 注入到 products 集合中
+				products.add(product);
+			}
+			
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		return products;
 	}
 
 }
