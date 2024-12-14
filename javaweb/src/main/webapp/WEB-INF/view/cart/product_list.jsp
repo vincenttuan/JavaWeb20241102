@@ -76,7 +76,6 @@
 		            document.getElementById('qty').value = '';
 		            document.getElementById('productName').value = '';
 		            document.getElementById('price').value = '';
-		            
 		        }
 
 		        // 預覽照片
