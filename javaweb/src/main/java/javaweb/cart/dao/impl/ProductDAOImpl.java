@@ -67,8 +67,6 @@ public class ProductDAOImpl extends BaseDAO implements ProductDAO {
 			System.out.println("資料刪除筆數:" + rowcount);
 		} catch(SQLException e) {
 			e.printStackTrace();
-		}
-		
+		}	
 	}
-
 }
