@@ -53,7 +53,17 @@
 								</tr>
 							</thead>
 							<tbody>
-								
+								<% for(ProductDTO productDTO : productDTOs) { %>
+									<tr>
+										<td align="center"><%=productDTO.getProductId() %></td>
+										<td><%=productDTO.getProductName() %></td>
+										<td align="right"><%=productDTO.getPrice() %></td>
+										<td align="right"><%=productDTO.getQty() %></td>
+										<td>
+											<img width="100" src='data:image/png;base64,<%=productDTO.getProductId() %>'>
+										</td>
+									</tr>
+								<% } %>
 							</tbody>
 						</table>
 					</fieldset>
