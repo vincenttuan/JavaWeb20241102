@@ -13,9 +13,12 @@ public class ProductServiceImpl implements ProductService {
 	private ProductDAO productDAO = new ProductDAOImpl();
 	
 	@Override
-	public void add(ProductDTO productDTO) {
-		// 將 productDTO 轉 product
-		Product product = mapToProduct(productDTO);
+	public void add(String productName, String price, String qty, String productImageBase64) {
+		Product product = new Product();
+		product.setProductName(productName);
+		product.setPrice(Integer.parseInt(price));
+		product.setQty(Integer.parseInt(qty));
+		product.setImageBase64(productImageBase64);
 		productDAO.add(product);
 	}
 
