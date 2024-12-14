@@ -1,6 +1,9 @@
 package javaweb.cart.controller;
 
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 import java.util.Base64;
 
 import jakarta.servlet.ServletException;
@@ -12,7 +15,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Part;
 
 @WebServlet("/product/add")
-@MultipartConfig(maxFileSize = 1024*1024*10) // 設定圖片上傳大小 10m
+@MultipartConfig(maxFileSize = 1024*50) // 設定圖片上傳大小 50K
 public class ProductAddServlet extends HttpServlet {
 
 	@Override
@@ -28,6 +31,8 @@ public class ProductAddServlet extends HttpServlet {
 		byte[] bytes = productImage.getInputStream().readAllBytes();
 		// 將 bytes[] 轉 base64 字串方便儲存在資料庫中
 		String productImageBase64 = Base64.getEncoder().encodeToString(bytes);
+		// 儲存檔案
+		Files.write(Paths.get("C:/demo.png"), bytes, StandardOpenOption.CREATE_NEW);
 		
 		// 顯示傳上來的資訊
 		resp.setCharacterEncoding("UTF-8");
