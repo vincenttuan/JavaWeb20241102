@@ -55,7 +55,8 @@
 							</thead>
 							<tbody>
 								<% for(ProductDTO productDTO : productDTOs) { %>
-									<tr>
+									<tr onmouseover="this.style.backgroundColor='#f0f8ff'" 
+									    onmouseout="this.style.backgroundColor=''">
 										<td align="center"><%=productDTO.getProductId() %></td>
 										<td><%=productDTO.getProductName() %></td>
 										<td align="right"><%=productDTO.getPrice() %></td>
