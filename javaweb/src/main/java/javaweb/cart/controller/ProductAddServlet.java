@@ -39,11 +39,18 @@ public class ProductAddServlet extends HttpServlet {
 		// 儲存
 		productService.add(productName, price, qty, productImageBase64);
 		
+		// 重導到 result.jsp 頁面
+		req.setAttribute("resultTitle", "商品新增");
+		req.setAttribute("resultMessage", productName + " 商品新增成功");
+		req.getRequestDispatcher("/WEB-INF/view/cart/result.jsp").forward(req, resp);
+		
+		
 		// -----------------------------------------------------------------------------------
 		// 儲存檔案(僅為 demo 用, 本專案不用此方式)
 		//Files.write(Paths.get("C:/temp/demo.png"), bytes, StandardOpenOption.CREATE_NEW);
 		
 		// 顯示傳上來的資訊
+		/*
 		resp.setCharacterEncoding("UTF-8");
 		resp.setContentType("text/html;charset=UTF-8");
 		resp.getWriter().print("上傳資料如下:<p>");
@@ -52,8 +59,7 @@ public class ProductAddServlet extends HttpServlet {
 		resp.getWriter().print("qty:" + qty + "<p>");
 		resp.getWriter().print("productImageBase64:" + productImageBase64 + "<p>");
 		resp.getWriter().print("<img src='data:image/png;base64," + productImageBase64 + "'>");
-		
-		
+		*/
 	}
 	
 	
