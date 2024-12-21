@@ -92,7 +92,7 @@ public class OrderDAOImpl extends BaseDAO implements OrderDAO {
 			
 			while (rs.next()) {
 				OrderItem item = new OrderItem();
-				item.setItemId(rs.getInt("itemId"));
+				item.setItemId(rs.getInt("item_id"));
 				item.setOrderId(rs.getInt("order_id"));
 				item.setProductId(rs.getInt("product_id"));
 				item.setQuantity(rs.getInt("quantity"));
