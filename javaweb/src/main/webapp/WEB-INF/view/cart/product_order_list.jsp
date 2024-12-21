@@ -27,9 +27,15 @@
 				flex-wrap: wrap;
 				gap: 10px; /* 商品之間的間距 */
 			}
+			.product-name {
+				font-size: 20px;
+				font-weight: blod;
+				color: #000000;
+			}
 			.product-price {
-				font-size: 30px;
-				font-weight: blod
+				font-size: 35px;
+				font-weight: blod;
+				color: #D9006C;
 			}
 		</style>
 	</head>
@@ -46,7 +52,7 @@
 							    onmouseout="this.style.backgroundColor=''">
 								<img width="200" src='data:image/png;base64,<%=productDTO.getImageBase64() %>'>
 								<br>
-								<%=productDTO.getProductName() %>(No.<%=productDTO.getProductId() %>)<p />
+								<p class="product-name"><%=productDTO.getProductName() %>(No.<%=productDTO.getProductId() %>)<p>
 								<p class="product-price">$<%=productDTO.getPrice() %><p />
 								庫存:<%=productDTO.getQty() %><p />
 								<a class="pure-button pure-button-primary" href="/javaweb/product/add/cart?productId=<%=productDTO.getProductId() %>">加入購物車</a>
