@@ -49,10 +49,13 @@ public class ProductOrderAddCart extends HttpServlet {
 		// 將 cart 資料回存到 session
 		session.setAttribute("cart", cart);
 		
+		// 回到訂購商品主頁
+		resp.sendRedirect("/javaweb/product/order");
+		
 		// 重導到 result.jsp 頁面
-		req.setAttribute("resultTitle", "訂購商品");
-		req.setAttribute("resultMessage", "目前購物車商品筆數: " + cart.size() + " 筆");
-		req.getRequestDispatcher("/WEB-INF/view/cart/result.jsp").forward(req, resp);
+		//req.setAttribute("resultTitle", "訂購商品");
+		//req.setAttribute("resultMessage", "目前購物車商品筆數: " + cart.size() + " 筆");
+		//req.getRequestDispatcher("/WEB-INF/view/cart/result.jsp").forward(req, resp);
 				
 	}
 	
