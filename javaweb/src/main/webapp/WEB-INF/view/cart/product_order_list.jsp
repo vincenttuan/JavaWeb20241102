@@ -77,6 +77,8 @@
 									int amount = productDTO.getQty() - getProductAmountInCart(productDTO.getProductId());
 								%>
 								可買數量:<%=amount %><p />
+								A:<%=productDTO.getQty() %><p />
+								B:<%=getProductAmountInCart(productDTO.getProductId()) %><p />
 								<a <%=amount == 0 ? "disabled" : "" %> class="pure-button pure-button-primary" href="/javaweb/product/order/add/cart?productId=<%=productDTO.getProductId() %>">加入購物車</a>
 							</div>
 						<% } %>

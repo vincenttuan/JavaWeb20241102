@@ -29,8 +29,9 @@ public class ProductCartSubmitServlet extends HttpServlet {
 		orderService.addOrder(userId, cart);
 		
 		// 清空購物車
-		//session.removeAttribute("cart");
 		session.setAttribute("cart", null);
+		session.removeAttribute("cart");
+		
 		
 		// 重導到 result.jsp 頁面
 		req.setAttribute("resultTitle", "購物車-結帳");
