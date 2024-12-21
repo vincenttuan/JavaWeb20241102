@@ -14,8 +14,8 @@
 	
 	📄<a href="/javaweb/product/list">商品管理</a> | 
 	📝<a href="/javaweb/product/order">商品訂購</a> | 
-	📃<a href="/javaweb/product/order/history">訂單歷史紀錄</a> |
 	🛒<a href="/javaweb/product/cart">商品購物車</a> | 
+	📃<a href="/javaweb/product/order/history">訂單歷史紀錄</a> |
 	📊<a href="/javaweb/product/statistics">商品統計</a> |
 	 
 	<% if(isLoggedIn) { %>
