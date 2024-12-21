@@ -32,13 +32,12 @@
 			<table>
 				<td valign="top">
 					<fieldset>
-						<legend>商品列表</legend>
+						<legend>商品訂單列表</legend>
 						<table class="pure-table">
 							<thead>
 								<tr>
 									<th>商品ID</th><th>商品名稱</th><th>商品價格</th>
-									<th>商品庫存</th><th>庫存成本</th><th>商品照片</th>
-									<th>加入購物車</th>
+									<th>商品庫存</th><th>商品照片</th><th>加入購物車</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -49,7 +48,6 @@
 										<td><%=productDTO.getProductName() %></td>
 										<td align="right"><%=productDTO.getPrice() %></td>
 										<td align="right"><%=productDTO.getQty() %></td>
-										<td align="right"><%=productDTO.getTotal() %></td>
 										<td>
 											<img width="100" src='data:image/png;base64,<%=productDTO.getImageBase64() %>'>
 										</td>
