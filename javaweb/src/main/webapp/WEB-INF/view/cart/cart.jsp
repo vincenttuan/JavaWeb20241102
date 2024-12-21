@@ -41,9 +41,9 @@
 								</tr>
 							</thead>
 							<tbody>
-								<% int total = 0; %>
+								<% int total = 0; // 總計%>
 								<% for(int i=0;i<cart.size();i++) { %>
-									<% total += cart.get(i).getPrice(); %>
+									<% total += cart.get(i).getPrice(); // 總計資料逐筆類加%>
 									<tr onmouseover="this.style.backgroundColor='#E0E0ff'" 
 									    onmouseout="this.style.backgroundColor=''">
 										<td>
