@@ -55,7 +55,7 @@
 								<p class="product-name"><%=productDTO.getProductName() %>(No.<%=productDTO.getProductId() %>)<p>
 								<p class="product-price">$<%=productDTO.getPrice() %><p />
 								庫存:<%=productDTO.getQty() %><p />
-								<a class="pure-button pure-button-primary" href="/javaweb/product/add/cart?productId=<%=productDTO.getProductId() %>">加入購物車</a>
+								<a class="pure-button pure-button-primary" href="/javaweb/product/order/add/cart?productId=<%=productDTO.getProductId() %>">加入購物車</a>
 							</div>
 						<% } %>
 					</div>
