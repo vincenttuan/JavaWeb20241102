@@ -62,7 +62,7 @@
 								<tr>
 									<td colspan="4" align="right">總計</td>
 									<td align="right"><%=total %></td>
-									<td>
+									<td align="center">
 										<a class="pure-button pure-button-primary" href="/javaweb/product/cart/submit">
 											結帳
 										</a>
