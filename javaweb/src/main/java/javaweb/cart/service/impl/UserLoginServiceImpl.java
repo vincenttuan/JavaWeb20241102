@@ -11,7 +11,7 @@ public class UserLoginServiceImpl implements UserLoginService {
 	private UserLoginDAO userLoginDAO = new UserLoginDAOImpl();
 	
 	@Override
-	public boolean login(String username, String password, String authcode, String sessionAuthCode) {
+	public User login(String username, String password, String authcode, String sessionAuthCode) {
 		// 1. 比對驗證碼
 		//if(!authcode.equals(sessionAuthCode)) { // 驗證碼不符
 		if(!authcode.equalsIgnoreCase(sessionAuthCode)) { // 驗證碼不符
@@ -34,7 +34,7 @@ public class UserLoginServiceImpl implements UserLoginService {
 		if(!checkPassword) {
 			throw new RuntimeException("密碼錯誤");
 		}
-		return true;
+		return user;
 	}
 
 }
