@@ -41,7 +41,9 @@
 								</tr>
 							</thead>
 							<tbody>
+								<% int total = 0; %>
 								<% for(int i=0;i<cart.size();i++) { %>
+									<% total += cart.get(i).getPrice(); %>
 									<tr onmouseover="this.style.backgroundColor='#E0E0ff'" 
 									    onmouseout="this.style.backgroundColor=''">
 										<td>
@@ -56,6 +58,12 @@
 										</td>
 									</tr>
 								<% } %>
+								<!-- 總計  -->
+								<tr>
+									<td colspan="4">總計</td>
+									<td><%=total %></td>
+									<td> </td>
+								</tr>
 							</tbody>
 						</table>
 					</fieldset>
