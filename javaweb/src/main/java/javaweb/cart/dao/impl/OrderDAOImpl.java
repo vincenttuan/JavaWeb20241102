@@ -4,8 +4,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import javaweb.cart.dao.OrderDAO;
+import javaweb.cart.model.entity.Order;
+import javaweb.cart.model.entity.OrderItem;
 
 public class OrderDAOImpl extends BaseDAO implements OrderDAO {
 
@@ -49,6 +53,36 @@ public class OrderDAOImpl extends BaseDAO implements OrderDAO {
 			e.printStackTrace();
 		}
 		
+	}
+
+	@Override
+	public List<Order> findAllOrdersByUserId(Integer userId) {
+		List<Order> orders = new ArrayList<>();
+		String sql = "select order_id, user_id, order_date from `order` where user_id = ?";
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setInt(1, userId);
+			
+			ResultSet rs = pstmt.executeQuery();
+			while (rs.next()) {
+				Order order = new Order();
+				order.setOrderId(rs.getInt("order_id"));
+				order.setUserId(rs.getInt("user_id"));
+				order.setOrderDate(rs.getDate("order_date"));
+				// 注入到 orders 集合中保存
+				orders.add(order);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return orders;
+	}
+
+	@Override
+	public List<OrderItem> findAllOrderItemsByOrderId(Integer orderId) {
+		// TODO Auto-generated method stub
+		return null;
 	} 
 
 	
