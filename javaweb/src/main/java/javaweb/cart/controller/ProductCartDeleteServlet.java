@@ -26,6 +26,8 @@ public class ProductCartDeleteServlet extends HttpServlet {
 		// 若購物車無資料, 則將 seesion 中的 cart 資料移除
 		if(cart.size() == 0) {
 			session.removeAttribute("cart");
+			resp.sendRedirect("/javaweb/product/cart");
+			return;
 		}
 		
 		// 重導到 cart.jsp 頁面 
