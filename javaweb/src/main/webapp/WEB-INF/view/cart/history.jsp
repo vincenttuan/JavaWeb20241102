@@ -63,9 +63,10 @@
 									<table class="pure-table pure-table-bordered">
 										<thead>
 											<th>項目ID</th><th>商品ID</th><th>數量</th>
-											<th>商品名稱</th><th>商品價格</th>
+											<th>商品名稱</th><th>商品價格</th><th>商品圖片</th>
 										</thead>
 										<tbody>
+											<% int total = 0; %>
 											<% for(OrderItem item : orderDTO.getItems()) { %>
 											<% ProductDTO productDTO = getProductDTO(item.getProductId()); %>
 											<tr>
@@ -74,8 +75,17 @@
 												<td><%=item.getQuantity() %></td>
 												<td><%=productDTO.getProductName() %></td>
 												<td><%=productDTO.getPrice() %></td>
+												<td>
+													<img width="50" src='data:image/png;base64,<%=productDTO.getImageBase64() %>'>
+												</td>
 											</tr>
+											<% total += item.getQuantity() * productDTO.getPrice() %>
 											<% } %>
+											<tr>
+												<td align="right">小計</td>
+												<td align="right"><%=total %></td>
+												<td> </td>
+											</tr>
 										</tbody>
 									</table>
 								</td>
