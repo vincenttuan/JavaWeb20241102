@@ -50,7 +50,7 @@ public class ProductOrderAddCart extends HttpServlet {
 		session.setAttribute("cart", cart);
 		
 		// 重導到 result.jsp 頁面
-		req.setAttribute("resultTitle", "新增商品資料");
+		req.setAttribute("resultTitle", "訂購商品");
 		req.setAttribute("resultMessage", "目前購物車商品筆數: " + cart.size() + " 筆");
 		req.getRequestDispatcher("/WEB-INF/view/cart/result.jsp").forward(req, resp);
 				
