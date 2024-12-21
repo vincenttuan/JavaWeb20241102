@@ -27,7 +27,6 @@
 	// 取得購物車 
 	if(session.getAttribute("cart") != null) {
 		cart = (List<ProductDTO>)session.getAttribute("cart");
-		out.println(((List)session.getAttribute("cart")).size());
 	}
 	
 %>
