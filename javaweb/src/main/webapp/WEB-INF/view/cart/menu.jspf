@@ -1,3 +1,4 @@
+<%@ page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -7,6 +8,12 @@
 		username = session.getAttribute("username") + " 已登入";
 		isLoggedIn = true;
 	}
+	
+	// 購物車商品數量
+	int itemCount = 0;
+	if(session.getAttribute("cart") != null) {
+		itemCount = ((List)session.getAttribute("cart")).size();
+	}
 %>    
 <div style="background: #DDDDDD;padding: 20px">
 	<%=username %>&nbsp;&nbsp;&nbsp;&nbsp;
@@ -14,7 +21,7 @@
 	
 	📄<a href="/javaweb/product/list">商品管理</a> | 
 	📝<a href="/javaweb/product/order">商品訂購</a> | 
-	🛒<a href="/javaweb/product/cart">商品購物車</a> | 
+	( <%=itemCount %> ) 🛒<a href="/javaweb/product/cart">商品購物車</a> | 
 	📃<a href="/javaweb/product/order/history">訂單歷史紀錄</a> |
 	📊<a href="/javaweb/product/statistics">商品統計</a> |
 	 
