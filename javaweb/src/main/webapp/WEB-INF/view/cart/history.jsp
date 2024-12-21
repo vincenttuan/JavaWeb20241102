@@ -68,18 +68,18 @@
 										<tbody>
 											<% int total = 0; %>
 											<% for(OrderItem item : orderDTO.getItems()) { %>
-											<% ProductDTO productDTO = getProductDTO(item.getProductId()); %>
-											<tr>
-												<td><%=item.getItemId() %></td>
-												<td><%=item.getProductId() %></td>
-												<td><%=item.getQuantity() %></td>
-												<td><%=productDTO.getProductName() %></td>
-												<td><%=productDTO.getPrice() %></td>
-												<td>
-													<img width="50" src='data:image/png;base64,<%=productDTO.getImageBase64() %>'>
-												</td>
-											</tr>
-											<% total += item.getQuantity() * productDTO.getPrice(); %>
+												<% ProductDTO productDTO = getProductDTO(item.getProductId()); %>
+												<tr>
+													<td><%=item.getItemId() %></td>
+													<td><%=item.getProductId() %></td>
+													<td><%=item.getQuantity() %></td>
+													<td><%=productDTO.getProductName() %></td>
+													<td><%=productDTO.getPrice() %></td>
+													<td>
+														<img width="50" src='data:image/png;base64,<%=productDTO.getImageBase64() %>'>
+													</td>
+												</tr>
+												<% total += item.getQuantity() * productDTO.getPrice(); %>
 											<% } %>
 											<tr>
 												<td align="right">小計</td>
