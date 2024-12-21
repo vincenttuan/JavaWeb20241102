@@ -82,7 +82,7 @@
 												<% total += item.getQuantity() * productDTO.getPrice(); %>
 											<% } %>
 											<tr>
-												<td colspan="4" align="right">小計</td>
+												<td colspan="4" align="right">總價</td>
 												<td align="right"><%=total %></td>
 												<td> </td>
 											</tr>
