@@ -23,6 +23,11 @@ public class ProductCartDeleteServlet extends HttpServlet {
 		List<ProductDTO> cart = (List<ProductDTO>)session.getAttribute("cart"); // 取得購物車目前資料
 		cart.remove(index); // 移除
 		
+		// 若購物車無資料, 則將 seesion 中的 cart 資料移除
+		if(cart.size() == 0) {
+			session.removeAttribute("cart");
+		}
+		
 		// 重導到 cart.jsp 頁面 
 		req.getRequestDispatcher("/WEB-INF/view/cart/cart.jsp").forward(req, resp);
 	}
