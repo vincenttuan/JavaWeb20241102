@@ -4,8 +4,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+<%!
+	List<ProductDTO> productDTOs = null;
+	List<ProductDTO> cart = null;
+
+	long getProductAmountInCart(Integer productId) {
+		if (cart == null) return 0;
+		return cart.stream().filter(dto -> dto.getProductId().equals(productId)).count();
+	}
+%>
+
 <%
-	List<ProductDTO> productDTOs = (List<ProductDTO>)request.getAttribute("productDTOs");
+	productDTOs = (List<ProductDTO>)request.getAttribute("productDTOs");
+	
+	// 取得購物車 
+	if(session.getAttribute("cart") != null) {
+		cart = (List<ProductDTO>)session.getAttribute("cart");
+	}
 %>
 
 <!DOCTYPE html>
