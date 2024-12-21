@@ -33,7 +33,7 @@
 				<td valign="top">
 					<fieldset>
 						<legend>購物車</legend>
-						<table class="pure-table">
+						<table class="pure-table pure-table-bordered">
 							<thead>
 								<tr>
 									<th>刪除</th><th>Index</th><th>商品ID</th>
@@ -60,8 +60,8 @@
 								<% } %>
 								<!-- 總計  -->
 								<tr>
-									<td colspan="4">總計</td>
-									<td><%=total %></td>
+									<td colspan="4" align="right">總計</td>
+									<td align="right"><%=total %></td>
 									<td> </td>
 								</tr>
 							</tbody>
