@@ -1,3 +1,4 @@
+<%@page import="javaweb.cart.model.entity.OrderItem"%>
 <%@page import="javaweb.cart.model.dto.OrderDTO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -32,18 +33,40 @@
 				<td valign="top">
 					<fieldset>
 						<legend>訂單歷史紀錄</legend>
+						<% for(OrderDTO orderDTO : orderDTOs) { %>
 						<table class="pure-table pure-table-bordered">
 							<thead>
 								<tr>
-									<th>刪除</th><th>Index</th><th>商品ID</th>
-									<th>商品名稱</th><th>商品價格</th><th>商品照片</th>
+									<th align="center">訂單ID:</th>
+									<th align="center"><%=orderDTO.getOrderId() %></th>
+									<th align="center">使用者 ID:</th>
+									<th align="center"><%=orderDTO.getUserId() %></th>
+								</tr>
+								<tr>
+									<th colspan="4" align="center">訂單明細</th>
 								</tr>
 							</thead>
 							<tbody>
-								
-								
+								<td colspan="4">
+									<!--  明細 -->
+									<table class="pure-table pure-table-bordered">
+										<thead>
+											<th>項目ID</th><th>商品ID</th><th>數量</th>		
+										</thead>
+										<tbody>
+											<% for(OrderItem item : orderDTO.getItems()) { %>
+											<tr>
+												<td><%=item.getItemId() %></td>
+												<td><%=item.getProductId() %></td>
+												<td><%=item.getQuantity() %></td>
+											</tr>
+											<% } %>
+										</tbody>
+									</table>
+								</td>
 							</tbody>
 						</table>
+						<% } %>
 					</fieldset>
 				</td>
 			</table>
