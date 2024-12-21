@@ -79,7 +79,7 @@
 													<img width="50" src='data:image/png;base64,<%=productDTO.getImageBase64() %>'>
 												</td>
 											</tr>
-											<% total += item.getQuantity() * productDTO.getPrice() %>
+											<% total += item.getQuantity() * productDTO.getPrice(); %>
 											<% } %>
 											<tr>
 												<td align="right">小計</td>
