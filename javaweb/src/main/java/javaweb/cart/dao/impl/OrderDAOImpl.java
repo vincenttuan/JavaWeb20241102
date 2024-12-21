@@ -64,6 +64,7 @@ public class OrderDAOImpl extends BaseDAO implements OrderDAO {
 			
 			ResultSet rs = pstmt.executeQuery();
 			while (rs.next()) {
+				// Mapping
 				Order order = new Order();
 				order.setOrderId(rs.getInt("order_id"));
 				order.setUserId(rs.getInt("user_id"));
