@@ -27,7 +27,10 @@
 				flex-wrap: wrap;
 				gap: 10px; /* 商品之間的間距 */
 			}
-			
+			.product-price {
+				font-size: 30px;
+				font-weight: blod
+			}
 		</style>
 	</head>
 	<body>
@@ -44,7 +47,7 @@
 								<img width="200" src='data:image/png;base64,<%=productDTO.getImageBase64() %>'>
 								<br>
 								<%=productDTO.getProductName() %>(No.<%=productDTO.getProductId() %>)<p />
-								$<%=productDTO.getPrice() %><p />
+								<p class="product-price">$<%=productDTO.getPrice() %><p />
 								庫存:<%=productDTO.getQty() %><p />
 								<a class="pure-button pure-button-primary" href="/javaweb/product/add/cart?productId=<%=productDTO.getProductId() %>">加入購物車</a>
 							</div>
