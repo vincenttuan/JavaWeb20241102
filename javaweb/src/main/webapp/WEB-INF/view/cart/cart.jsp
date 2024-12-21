@@ -5,7 +5,7 @@
     pageEncoding="UTF-8"%>
 
 <%
-	List<ProductDTO> productDTOs = (List<ProductDTO>)session.getAttribute("cart");
+	List<ProductDTO> cart = (List<ProductDTO>)session.getAttribute("cart");
 %>
 
 <!DOCTYPE html>
@@ -41,18 +41,18 @@
 								</tr>
 							</thead>
 							<tbody>
-								<% for(ProductDTO productDTO : productDTOs) { %>
+								<% for(int i=0;i<cart.size();i++) { %>
 									<tr onmouseover="this.style.backgroundColor='#E0E0ff'" 
 									    onmouseout="this.style.backgroundColor=''">
-										<td align="center"><%=productDTO.getProductId() %></td>
-										<td><%=productDTO.getProductName() %></td>
-										<td align="right"><%=productDTO.getPrice() %></td>
-										<td align="right"><%=productDTO.getQty() %></td>
+										<td align="center"><%=cart.get(i).getProductId() %></td>
+										<td><%=cart.get(i).getProductName() %></td>
+										<td align="right"><%=cart.get(i).getPrice() %></td>
+										<td align="right"><%=cart.get(i).getQty() %></td>
 										<td>
-											<img width="100" src='data:image/png;base64,<%=productDTO.getImageBase64() %>'>
+											<img width="100" src='data:image/png;base64,<%=cart.get(i).getImageBase64() %>'>
 										</td>
 										<td>
-											<a href="/javaweb/product/delete?productId=<%=productDTO.getProductId() %>">刪除</a>
+											<a href="/javaweb/product/cart/delete?index=<%=i %>">刪除</a>
 										</td>
 									</tr>
 								<% } %>
