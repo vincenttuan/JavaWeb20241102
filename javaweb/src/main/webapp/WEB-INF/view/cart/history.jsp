@@ -1,11 +1,25 @@
+<%@page import="javaweb.cart.model.dto.ProductDTO"%>
 <%@page import="javaweb.cart.model.entity.OrderItem"%>
 <%@page import="javaweb.cart.model.dto.OrderDTO"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%!
+	List<OrderDTO> orderDTOs;
+	List<ProductDTO> productDTOs;
+	
+	ProductDTO getProductDTO(Integer productId) {
+		return productDTOs.stream()
+						  .filter(p -> p.getProductId().equals(productId))
+						  .findAny()
+						  .orElse(new ProductDTO());
+				
+	}
+%>
 
 <%
-	List<OrderDTO> orderDTOs = (List<OrderDTO>)request.getAttribute("orderDTOs");
+	orderDTOs = (List<OrderDTO>)request.getAttribute("orderDTOs");
+	productDTOs = (List<ProductDTO>)request.getAttribute("productDTOs");
 %>
 
 <!DOCTYPE html>
@@ -48,14 +62,18 @@
 									<!--  明細 -->
 									<table class="pure-table pure-table-bordered">
 										<thead>
-											<th>項目ID</th><th>商品ID</th><th>數量</th>		
+											<th>項目ID</th><th>商品ID</th><th>數量</th>
+											<th>商品名稱</th><th>商品價格</th>
 										</thead>
 										<tbody>
 											<% for(OrderItem item : orderDTO.getItems()) { %>
+											<% ProductDTO productDTO = getProductDTO(item.getProductId()); %>
 											<tr>
 												<td><%=item.getItemId() %></td>
 												<td><%=item.getProductId() %></td>
 												<td><%=item.getQuantity() %></td>
+												<td><%=productDTO.getProductName() %></td>
+												<td><%=productDTO.getPrice() %></td>
 											</tr>
 											<% } %>
 										</tbody>
