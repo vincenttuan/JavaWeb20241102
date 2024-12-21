@@ -33,13 +33,7 @@
 				<td valign="top">
 					<fieldset>
 						<legend>商品訂單列表</legend>
-						<table class="pure-table">
-							<thead>
-								<tr>
-									<th>商品ID</th><th>商品名稱</th><th>商品價格</th>
-									<th>商品庫存</th><th>商品照片</th><th>加入購物車</th>
-								</tr>
-							</thead>
+						<table class="pure-table pure-table-bordered">
 							<tbody>
 								<% for(ProductDTO productDTO : productDTOs) { %>
 									<tr onmouseover="this.style.backgroundColor='#E0E0ff'" 
@@ -51,7 +45,7 @@
 											<%=productDTO.getProductName() %>(No.<%=productDTO.getProductId() %>)<p />
 											$<%=productDTO.getPrice() %><p />
 											庫存:<%=productDTO.getQty() %><p />
-											<a href="/javaweb/product/add/cart?productId=<%=productDTO.getProductId() %>">加入購物車</a>
+											<a class="pure-button pure-button-primary" href="/javaweb/product/add/cart?productId=<%=productDTO.getProductId() %>">加入購物車</a>
 										</td>
 									</tr>
 								<% } %>
