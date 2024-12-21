@@ -31,7 +31,6 @@ public class ProductCartServlet extends HttpServlet {
 		// 重導到 cart.jsp 頁面 
 		req.getRequestDispatcher("/WEB-INF/view/cart/cart.jsp").forward(req, resp);
 		
-		
 	}
 	
 	
