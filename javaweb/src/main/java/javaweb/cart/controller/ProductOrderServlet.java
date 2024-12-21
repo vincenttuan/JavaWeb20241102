@@ -22,7 +22,7 @@ public class ProductOrderServlet extends HttpServlet {
 		// 取得所有商品
 		List<ProductDTO> productDTOs = productService.findAll();
 		req.setAttribute("productDTOs", productDTOs);
-		// 重導到訂單頁面
+		// 重導到商品訂單頁面
 		req.getRequestDispatcher("/WEB-INF/view/cart/product_order_list.jsp").forward(req, resp);
 		
 	}
