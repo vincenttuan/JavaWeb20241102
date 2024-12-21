@@ -73,8 +73,11 @@
 								<p class="product-name"><%=productDTO.getProductName() %>(No.<%=productDTO.getProductId() %>)<p>
 								<p class="product-price">$<%=productDTO.getPrice() %><p />
 								庫存數量:<%=productDTO.getQty() %><p />
-								可買數量:<%=productDTO.getQty() - getProductAmountInCart(productDTO.getProductId()) %><p />
-								<a class="pure-button pure-button-primary" href="/javaweb/product/order/add/cart?productId=<%=productDTO.getProductId() %>">加入購物車</a>
+								<%
+									int amount = productDTO.getQty() - getProductAmountInCart(productDTO.getProductId());
+								%>
+								可買數量:<%=amount %><p />
+								<a <%=amount == 0 ? "disabled" : "" %> class="pure-button pure-button-primary" href="/javaweb/product/order/add/cart?productId=<%=productDTO.getProductId() %>">加入購物車</a>
 							</div>
 						<% } %>
 					</div>
