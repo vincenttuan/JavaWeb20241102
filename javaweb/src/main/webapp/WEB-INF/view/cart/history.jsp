@@ -42,9 +42,6 @@
 									<th align="center">使用者 ID:</th>
 									<th align="center"><%=orderDTO.getUserId() %></th>
 								</tr>
-								<tr>
-									<th colspan="4" align="center">訂單明細</th>
-								</tr>
 							</thead>
 							<tbody>
 								<td colspan="4">
