@@ -24,7 +24,6 @@ public class ProductOrderHistory extends HttpServlet {
 		Integer userId = (Integer)session.getAttribute("userId");
 		// 得到使用者歷史訂單紀錄
 		List<OrderDTO> orderDTOs = orderService.findAllOrdersByUserId(userId);
-		
 		req.setAttribute("orderDTOs", orderDTOs);
 		
 		req.getRequestDispatcher("/WEB-INF/view/cart/history.jsp").forward(req, resp);
