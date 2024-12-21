@@ -53,6 +53,19 @@ public class OrderDAOImpl extends BaseDAO implements OrderDAO {
 			e.printStackTrace();
 		}
 		
+		// 扣抵庫存
+		sql = "update product set qty = qty - ? where product_id = ?";
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			
+			pstmt.setInt(1, quantity);
+			pstmt.setInt(2, productId);
+			
+			pstmt.executeUpdate();
+			
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+		
 	}
 
 	@Override
