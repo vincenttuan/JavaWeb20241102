@@ -20,7 +20,7 @@ public class ProductCartDeleteServlet extends HttpServlet {
 		int index = Integer.parseInt(req.getParameter("index"));
 		
 		HttpSession session = req.getSession();
-		List<ProductDTO> cart = (List<ProductDTO>)session.getAttribute("cart");
+		List<ProductDTO> cart = (List<ProductDTO>)session.getAttribute("cart"); // 取得購物車目前資料
 		cart.remove(index); // 移除
 		
 		// 重導到 cart.jsp 頁面 
