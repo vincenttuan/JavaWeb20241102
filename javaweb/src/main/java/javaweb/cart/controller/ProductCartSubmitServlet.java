@@ -28,6 +28,10 @@ public class ProductCartSubmitServlet extends HttpServlet {
 		
 		orderService.addOrder(userId, cart);
 		
+		// 清空購物車
+		//session.removeAttribute("cart");
+		session.setAttribute("cart", null);
+		
 		// 重導到 result.jsp 頁面
 		req.setAttribute("resultTitle", "購物車-結帳");
 		req.setAttribute("resultMessage", "購物車結帳完畢");
