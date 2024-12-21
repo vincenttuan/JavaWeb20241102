@@ -44,14 +44,13 @@
 								<% for(ProductDTO productDTO : productDTOs) { %>
 									<tr onmouseover="this.style.backgroundColor='#E0E0ff'" 
 									    onmouseout="this.style.backgroundColor=''">
-										<td align="center"><%=productDTO.getProductId() %></td>
-										<td><%=productDTO.getProductName() %></td>
-										<td align="right"><%=productDTO.getPrice() %></td>
-										<td align="right"><%=productDTO.getQty() %></td>
 										<td>
 											<img width="100" src='data:image/png;base64,<%=productDTO.getImageBase64() %>'>
 										</td>
-										<td>
+										<td align="top">
+											<%=productDTO.getProductName() %>(No.<%=productDTO.getProductId() %>)<p />
+											$<%=productDTO.getPrice() %><p />
+											庫存:<%=productDTO.getQty() %><p />
 											<a href="/javaweb/product/add/cart?productId=<%=productDTO.getProductId() %>">加入購物車</a>
 										</td>
 									</tr>
