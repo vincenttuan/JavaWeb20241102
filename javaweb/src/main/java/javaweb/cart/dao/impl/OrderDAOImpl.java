@@ -82,8 +82,29 @@ public class OrderDAOImpl extends BaseDAO implements OrderDAO {
 
 	@Override
 	public List<OrderItem> findAllOrderItemsByOrderId(Integer orderId) {
-		// TODO Auto-generated method stub
-		return null;
+		List<OrderItem> items = new ArrayList<>();
+		String sql = "select item_id, order_id, product_id, quantity from order_item where order_id = ?";
+		
+		try(PreparedStatement pstmt = conn.prepareStatement(sql)) {
+			pstmt.setInt(1, orderId);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			while (rs.next()) {
+				OrderItem item = new OrderItem();
+				item.setItemId(rs.getInt("itemId"));
+				item.setOrderId(rs.getInt("order_id"));
+				item.setProductId(rs.getInt("product_id"));
+				item.setQuantity(rs.getInt("quantity"));
+				
+				items.add(item);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return items;
 	} 
 
 	
