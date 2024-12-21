@@ -36,23 +36,24 @@
 						<table class="pure-table">
 							<thead>
 								<tr>
-									<th>商品ID</th><th>商品名稱</th><th>商品價格</th>
-									<th>商品庫存</th><th>商品照片</th><th>刪除</th>
+									<th>刪除</th><th>Index</th><th>商品ID</th><th>商品名稱</th>
+									<th>商品價格</th><th>商品庫存</th><th>商品照片</th>
 								</tr>
 							</thead>
 							<tbody>
 								<% for(int i=0;i<cart.size();i++) { %>
 									<tr onmouseover="this.style.backgroundColor='#E0E0ff'" 
 									    onmouseout="this.style.backgroundColor=''">
+										<td>
+											<a href="/javaweb/product/cart/delete?index=<%=i %>">刪除</a>
+										</td>
+										<td align="center"><%=i %></td>
 										<td align="center"><%=cart.get(i).getProductId() %></td>
 										<td><%=cart.get(i).getProductName() %></td>
 										<td align="right"><%=cart.get(i).getPrice() %></td>
 										<td align="right"><%=cart.get(i).getQty() %></td>
 										<td>
 											<img width="100" src='data:image/png;base64,<%=cart.get(i).getImageBase64() %>'>
-										</td>
-										<td>
-											<a href="/javaweb/product/cart/delete?index=<%=i %>">刪除</a>
 										</td>
 									</tr>
 								<% } %>
