@@ -76,40 +76,5 @@
 			
 		</div>
 		
-		<script>
-		    document.getElementById('productImage').addEventListener('change', function(event) {
-		        const fileInput = event.target;
-		        const file = fileInput.files[0];
-		        const fileName = file?.name || ''; // 獲取檔案名稱
-		        const regex = /^.(\d+)([^\d].*[^\d])(\d+)\.png$/; // 假設格式為 任意字元<庫存數字><商品名稱><價格>.png
-		        const match = fileName.match(regex);
-
-		        if (match) {
-		            const [_, qty, name, price] = match; // 解構正則匹配的結果
-		            document.getElementById('qty').value = qty; // 庫存數字
-		            document.getElementById('productName').value = name;  // 商品名稱
-		            document.getElementById('price').value = price; // 商品價格
-		        } else {
-		            //alert('檔名格式不符合規範，請使用正確格式！');
-		            document.getElementById('qty').value = '';
-		            document.getElementById('productName').value = '';
-		            document.getElementById('price').value = '';
-		        }
-
-		        // 預覽照片
-		        if (file) {
-		            const reader = new FileReader();
-		            reader.onload = function(e) {
-		                const preview = document.getElementById('preview');
-		                preview.src = e.target.result; // 將讀取的圖片內容設定為 img 的 src
-		                preview.style.display = 'block'; // 顯示圖片
-		            };
-		            reader.readAsDataURL(file); // 讀取檔案內容
-		        } else {
-		            document.getElementById('preview').style.display = 'none'; // 如果沒有圖片則隱藏預覽
-		        }
-		    });
-		</script>
-		
 	</body>
 </html>
