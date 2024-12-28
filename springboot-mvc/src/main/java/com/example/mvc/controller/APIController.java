@@ -78,5 +78,35 @@ public class APIController {
 	//   範例路徑: /api/calc/mul?x=30&y=10  執行結果: 300
 	//   範例路徑: /api/calc/div?x=30&y=10  執行結果: 3
 	//   範例路徑: /api/calc/add            執行結果: 0
-	
+	@GetMapping("/{operation}")
+	public String calc(@PathVariable String operation, 
+			@RequestParam(required = false, defaultValue = "0") Integer x,
+			@RequestParam(required = false, defaultValue = "0") Integer y,
+			Model model) {
+		
+		int result = 0;
+		switch (operation) {
+			case "add":
+				result = x + y;
+				break;
+			case "sub":
+				result = x - y;
+				break;
+			case "mul":
+				result = x * y;
+				break;
+			case "div":
+				if(y == 0) {
+					result = 0;
+					break;
+				}
+				result = x / y;
+				break;	
+		}
+		
+		String message = "計算結果:" + result;
+		model.addAttribute("message", message);
+		return "hello_message"; // 利用 hello_message.html 來呈現 message 資料內容
+		
+	}
 }
