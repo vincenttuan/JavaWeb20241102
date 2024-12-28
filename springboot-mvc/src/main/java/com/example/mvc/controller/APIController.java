@@ -121,5 +121,13 @@ public class APIController {
 		return "hello_message"; // 利用 hello_message.html 來呈現 message 資料內容
 	}
 	
+	@PostMapping("/form2")
+	public String handleFromParamters2(User user, Model model) {
+		String message = "User資訊: user=" + user;
+		model.addAttribute("message", message);
+		return "hello_message"; // 利用 hello_message.html 來呈現 message 資料內容
+	}
+	
+	
 	
 }
