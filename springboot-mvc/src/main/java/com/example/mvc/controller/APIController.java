@@ -113,6 +113,7 @@ public class APIController {
 	
 	// 6.POST /api/form 表單參數範例 Form Parameters
 	// 表單會傳來 name=John, age=18 的資訊
+	// 請利用: Rest 工具進行測試(例如:Insomnia)
 	@PostMapping("/form")
 	public String handleFromParamters(@RequestParam String name, @RequestParam Integer age, Model model) {
 		String message = "表單資訊: name=" + name + ", age=" + age;
