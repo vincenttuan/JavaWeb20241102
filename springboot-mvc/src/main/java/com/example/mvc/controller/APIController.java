@@ -46,7 +46,7 @@ public class APIController {
 	}
 	
 	// 3.隨堂練習
-	//   請設計一個可以計算出 BMI 資料的 URL
+	//   請設計一個可以計算出 BMI 資料的 URL 網路服務
 	//   範例路徑: /api/bmi?h=170&w=60
 	//   執行結果: BMI=20.76
 	
