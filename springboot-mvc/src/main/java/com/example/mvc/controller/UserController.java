@@ -40,6 +40,7 @@ public class UserController {
 	@GetMapping
 	public String getAllUsers(Model model) {
 		model.addAttribute("users", users);
+		model.addAttribute("message", "查詢所有使用者成功");
 		return "user";
 	}
 	
@@ -47,6 +48,7 @@ public class UserController {
 	@GetMapping("/{id}")
 	public String getUserById(@PathVariable int id, Model model) {
 		model.addAttribute("user", users.get(id));
+		model.addAttribute("message", "查詢指定使用者成功");
 		return "user";
 	}
 	
