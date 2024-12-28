@@ -20,7 +20,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/api")
 public class APIController {
 	
-	// 存取範例: /api/query?name=John&age=25
+	// 1.存取範例: /api/query?name=John&age=25
+	//                       name 與 age 一定要輸入
 	@GetMapping("/query")
 	public String handleQueryParamters(@RequestParam String name, @RequestParam Integer age, Model model) {
 		// 將 name 與 age 組合一個訊息
@@ -29,5 +30,21 @@ public class APIController {
 		model.addAttribute("message", message);
 		return "hello_message"; // 利用 hello_message.html 來呈現 message 資料內容
 	}
+	
+	// 2.存取範例: /api/find?name=John&age=25
+	//            /api/find?name=John  
+	//             name 一定要輸入但是 age 可以選擇不輸入(預設值=0)
+	@GetMapping("/find")
+	public String handleQueryParamters2(@RequestParam String name, 
+			@RequestParam(required = false, defaultValue = "0") Integer age, 
+			Model model) {
+		// 將 name 與 age 組合一個訊息
+		String message = "姓名:" + name + ", 年齡:" + age;
+		
+		model.addAttribute("message", message);
+		return "hello_message"; // 利用 hello_message.html 來呈現 message 資料內容
+	}
+	
+	
 	
 }
