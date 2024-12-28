@@ -49,6 +49,13 @@ public class APIController {
 	//   請設計一個可以計算出 BMI 資料的 URL 網路服務
 	//   範例路徑: /api/bmi?h=170&w=60
 	//   執行結果: BMI=20.76
-	
+	@GetMapping("/bmi")
+	public String bmi(@RequestParam double h, @RequestParam double w, Model model) {
+		double bmiValue = w / Math.pow(h/100, 2);
+		String message = String.format("bmi=%.2f", bmiValue);
+		
+		model.addAttribute("message", message);
+		return "hello_message"; // 利用 hello_message.html 來呈現 message 資料內容
+	}
 	
 }
