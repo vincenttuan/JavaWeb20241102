@@ -53,6 +53,7 @@ public class UserController {
 	// 新增使用者
 	@PostMapping
 	public String addUser(User user, Model model) {
+		// 將 user 物件加入到 users 集合中保存
 		users.add(user);
 		model.addAttribute("message", "User 新增成功");
 		return "user";
