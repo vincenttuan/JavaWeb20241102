@@ -71,4 +71,12 @@ public class APIController {
 		return "hello_message"; // 利用 hello_message.html 來呈現 message 資料內容
 	}
 	
+	// 5.隨堂練習
+	//   請設計一個可以求出出 x 與 y 的計算結果
+	//   範例路徑: /api/calc/add?x=30&y=10  執行結果: 40
+	//   範例路徑: /api/calc/sub?x=30&y=10  執行結果: 20
+	//   範例路徑: /api/calc/mul?x=30&y=10  執行結果: 300
+	//   範例路徑: /api/calc/div?x=30&y=10  執行結果: 3
+	//   範例路徑: /api/calc/add            執行結果: 0
+	
 }
