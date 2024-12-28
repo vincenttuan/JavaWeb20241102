@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -125,6 +126,14 @@ public class APIController {
 	
 	@PostMapping("/form2")
 	public String handleFromParamters2(User user, Model model) {
+		String message = "User資訊: user=" + user;
+		model.addAttribute("message", message);
+		return "hello_message"; // 利用 hello_message.html 來呈現 message 資料內容
+	}
+	
+	// 透過 @RequestBody 接收 json 資訊
+	@PostMapping("/form3")
+	public String handleFromParamters3(@RequestBody User user, Model model) {
 		String message = "User資訊: user=" + user;
 		model.addAttribute("message", message);
 		return "hello_message"; // 利用 hello_message.html 來呈現 message 資料內容
