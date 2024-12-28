@@ -57,7 +57,7 @@ public class UserController {
 		users.add(user);
 		model.addAttribute("message", "User 新增成功");
 		return "user";
-	}
+	} 
 	
 	
 }
