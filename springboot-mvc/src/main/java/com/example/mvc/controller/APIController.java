@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.example.mvc.model.dto.User;
+
 /*
  * 介紹URL所帶入的各種參數與路徑
  * 範例:
