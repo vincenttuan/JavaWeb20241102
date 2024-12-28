@@ -45,6 +45,10 @@ public class APIController {
 		return "hello_message"; // 利用 hello_message.html 來呈現 message 資料內容
 	}
 	
+	// 3.隨堂練習
+	//   請設計一個可以計算出 BMI 資料的 URL
+	//   範例路徑: /api/bmi?h=170&w=60
+	//   執行結果: BMI=20.76
 	
 	
 }
