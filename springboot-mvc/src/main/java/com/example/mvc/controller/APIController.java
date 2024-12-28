@@ -78,7 +78,7 @@ public class APIController {
 	//   範例路徑: /api/calc/mul?x=30&y=10  執行結果: 300
 	//   範例路徑: /api/calc/div?x=30&y=10  執行結果: 3
 	//   範例路徑: /api/calc/add            執行結果: 0
-	@GetMapping("/{operation}")
+	@GetMapping("/calc/{operation}")
 	public String calc(@PathVariable String operation, 
 			@RequestParam(required = false, defaultValue = "0") Integer x,
 			@RequestParam(required = false, defaultValue = "0") Integer y,
