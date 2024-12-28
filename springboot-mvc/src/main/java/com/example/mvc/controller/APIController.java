@@ -1,5 +1,11 @@
 package com.example.mvc.controller;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 /*
  * 介紹URL所帶入的各種參數與路徑
  * 範例:
@@ -10,6 +16,20 @@ package com.example.mvc.controller;
  *     POST /api/json                   JSON Body 範例 可將 Json 資料注入到指定物件中(例如: User)
  *              Json資料: {"name": "John", "age": 25}
 */
+@Controller
+@RequestMapping("/api")
 public class APIController {
+	
+	// 存取範例: /api/query?name=John&age=25
+	@GetMapping("/query")
+	public String handleQueryParamters(@RequestParam String name, @RequestParam Integer age, Model model) {
+		// 將 name 與 age 組合一個訊息
+		String message = "姓名:" + name + ", 年齡:" + age;
+		
+		model.addAttribute("message", message);
+		return "hello_message"; // 利用 hello_message.html 來呈現 message 資料內容
+	}
+	
+	
 	
 }
