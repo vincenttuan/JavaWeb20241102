@@ -30,6 +30,4 @@ public class APIController {
 		return "hello_message"; // 利用 hello_message.html 來呈現 message 資料內容
 	}
 	
-	
-	
 }
