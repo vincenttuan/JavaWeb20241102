@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -68,6 +69,15 @@ public class UserController {
 		// 變更指定 id 的 user 資料
 		users.set(id, newUser);
 		model.addAttribute("message", "User 修改成功");
+		return "user";
+	}
+	
+	// 刪除
+	@DeleteMapping("/{id}")
+	public String deleteUser(@PathVariable int id, Model model) {
+		// 刪除指定 id 的使用者
+		users.remove(id);
+		model.addAttribute("message", "User 移除成功");
 		return "user";
 	}
 	
