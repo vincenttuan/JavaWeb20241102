@@ -3,6 +3,7 @@ package com.example.mvc.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -53,6 +54,18 @@ public class APIController {
 	public String bmi(@RequestParam double h, @RequestParam double w, Model model) {
 		double bmiValue = w / Math.pow(h/100, 2);
 		String message = String.format("bmi=%.2f", bmiValue);
+		
+		model.addAttribute("message", message);
+		return "hello_message"; // 利用 hello_message.html 來呈現 message 資料內容
+	}
+	
+	// 4.存取範例 /api/path/John/25 <-- 參數內容是放在路徑中
+	//           /api/path/Mary/30 <-- 參數內容是放在路徑中
+	
+	@GetMapping("/path/{name}/{age}")
+	public String handlePathVariables(@PathVariable String name, @PathVariable Integer age, Model model) {
+		// 將 name 與 age 組合一個訊息
+		String message = "姓名:" + name + ", 年齡:" + age;
 		
 		model.addAttribute("message", message);
 		return "hello_message"; // 利用 hello_message.html 來呈現 message 資料內容
