@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -109,4 +110,15 @@ public class APIController {
 		return "hello_message"; // 利用 hello_message.html 來呈現 message 資料內容
 		
 	}
+	
+	// 6.POST /api/form 表單參數範例 Form Parameters
+	// 表單會傳來 name=John, age=18 的資訊
+	@PostMapping("/form")
+	public String handleFromParamters(@RequestParam String name, @RequestParam Integer age, Model model) {
+		String message = "表單資訊: name=" + name + ", age=" + age;
+		model.addAttribute("message", message);
+		return "hello_message"; // 利用 hello_message.html 來呈現 message 資料內容
+	}
+	
+	
 }
