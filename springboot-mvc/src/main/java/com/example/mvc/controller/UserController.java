@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -60,6 +61,15 @@ public class UserController {
 		model.addAttribute("message", "User 新增成功");
 		return "user";
 	} 
+	
+	// 修改使用者 
+	@PutMapping("/{id}")
+	public String updateUser(@PathVariable int id, User newUser, Model model) {
+		// 變更指定 id 的 user 資料
+		users.set(id, newUser);
+		model.addAttribute("message", "User 修改成功");
+		return "user";
+	}
 	
 	
 }
