@@ -19,9 +19,9 @@ public class BMIController {
 	
 	// 計算 bmi
 	@PostMapping("/bmi")
-	public String getBMI(Model model, @RequestParam double h, @RequestParam double w) {
+	public String getBMI(Model model, BMI bmi) {
 		// 計算 bmi
-		double bmiValue = w / Math.pow(h/100, 2);
+		double bmiValue = bmi.getW() / Math.pow(bmi.getH()/100, 2);
 		// 診斷 
 		String result = "正常";
 		if(bmiValue > 23) {
@@ -31,7 +31,8 @@ public class BMIController {
 		}
 		
 		// 將資料放到 model 中目的是傳給 bmi.html 呈現
-		BMI bmi = new BMI(h, w, bmiValue, result);
+		bmi.setBmiValue(bmiValue);
+		bmi.setResult(result);
 		model.addAttribute("bmi", bmi);
 		
 		return "bmi"; // 指的是 src/main/resources/templates/bmi.html
