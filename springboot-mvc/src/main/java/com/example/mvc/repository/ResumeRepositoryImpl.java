@@ -29,5 +29,25 @@ public class ResumeRepositoryImpl implements ResumeRepository {
 							resume.getEducation(), resume.getSkill(), resume.getMemo());
 		
 	}
+
+	@Override
+	public Resume getResumeById(Integer id) {
+		String sql = "select id, name, birth, gender, education, skill, memo from resume where id=?";
+		return jdbcTemplate.queryForObject(sql, new BeanPropertyRowMapper<>(Resume.class), id);
+	}
+
+	@Override
+	public void updateResume(Integer id, Resume resume) {
+		String sql = "update resume set name=?, birth=?, gender=?, education=?, skill=?, memo=? where id=?";
+		jdbcTemplate.update(sql, 
+							resume.getName(), resume.getBirth(), resume.getGender(), 
+							resume.getEducation(), resume.getSkill(), resume.getMemo());
+	}
+
+	@Override
+	public void deleteResume(Integer id) {
+		String sql = "delete from resume where id=?";
+		jdbcTemplate.update(sql, id);
+	}
 	
 }
