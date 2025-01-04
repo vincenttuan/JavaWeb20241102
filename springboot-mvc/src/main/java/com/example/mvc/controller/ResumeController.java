@@ -57,5 +57,13 @@ public class ResumeController {
 		return "redirect:/resume";
 	}
 	
+	@GetMapping("/resume/delete/{id}")
+	public String deleteResume(@PathVariable Integer id) {
+		// 刪除
+		resumeRepository.deleteResume(id);
+		// 重導到首頁
+		return "redirect:/resume";
+	}
+	
 	
 }
