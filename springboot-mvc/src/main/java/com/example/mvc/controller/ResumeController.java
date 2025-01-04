@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -37,8 +38,15 @@ public class ResumeController {
 		return "resume"; // <-- resume.html
 	}
 	
-	// 取得指定 id 的履歷
+	// 取得指定 id 的履歷, 並回傳 resume_edit.html
 	@GetMapping("/resume/{id}")
+	public String getResume(@PathVariable Integer id, Model model) {
+		// 透過 id 得到 resume 資料
+		Resume resume = resumeRepository.getResumeById(id);
+		
+		model.addAttribute("resume", resume);
+		return "resume_edit"; // 修改 resume 頁面
+	}
 	
 	
 }
