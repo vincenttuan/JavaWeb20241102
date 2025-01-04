@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.mvc.model.dto.Resume;
@@ -46,6 +47,14 @@ public class ResumeController {
 		
 		model.addAttribute("resume", resume);
 		return "resume_edit"; // 修改 resume 頁面
+	}
+	
+	@PutMapping("/resume/{id}")
+	public String updateResume(@PathVariable Integer id, Resume resume) {
+		// 修改
+		resumeRepository.updateResume(id, resume);
+		// 重導到首頁
+		return "redirect:/resume";
 	}
 	
 	
