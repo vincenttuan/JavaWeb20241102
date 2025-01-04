@@ -30,6 +30,9 @@ public class ResumeController {
 	// 新增履歷
 	@PostMapping("/resume")
 	public String addResume(Resume resume, Model model) {
+		// 新增到資料表
+		resumeRepository.addResume(resume);
+		
 		model.addAttribute("resume", resume);
 		return "resume"; // <-- resume.html
 	}
