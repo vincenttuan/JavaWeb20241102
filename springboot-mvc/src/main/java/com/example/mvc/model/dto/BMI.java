@@ -3,7 +3,7 @@ package com.example.mvc.model.dto;
 public class BMI {
 	private Double h;
 	private Double w;
-	private Double bmi;
+	private Double bmiValue;
 	private String result;
 	
 	public Double getH() {
@@ -18,11 +18,11 @@ public class BMI {
 	public void setW(Double w) {
 		this.w = w;
 	}
-	public Double getBmi() {
-		return bmi;
+	public Double getBmiValue() {
+		return bmiValue;
 	}
-	public void setBmi(Double bmi) {
-		this.bmi = bmi;
+	public void setBmiValue(Double bmiValue) {
+		this.bmiValue = bmiValue;
 	}
 	public String getResult() {
 		return result;
@@ -30,6 +30,7 @@ public class BMI {
 	public void setResult(String result) {
 		this.result = result;
 	}
+	
 	
 	
 	
