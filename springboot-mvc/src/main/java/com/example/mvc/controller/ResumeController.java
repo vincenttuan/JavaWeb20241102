@@ -20,8 +20,8 @@ public class ResumeController {
 	// 新增履歷
 	@PostMapping
 	public String addResume(Resume resume, Model model) {
-		
-		return "resume";
+		model.addAttribute("resume", resume);
+		return "resume"; // <-- resume.html
 	}
 	
 }
