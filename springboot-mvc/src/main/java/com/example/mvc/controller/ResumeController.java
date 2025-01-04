@@ -18,7 +18,7 @@ public class ResumeController {
 	}
 	
 	// 新增履歷
-	@PostMapping
+	@PostMapping("/resume")
 	public String addResume(Resume resume, Model model) {
 		model.addAttribute("resume", resume);
 		return "resume"; // <-- resume.html
