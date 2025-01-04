@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="UTF-8">
+		<title>Resume</title>
+	</head>
+	<body>
+		<div>
+			<fieldset>
+				<legend>履歷資料</legend>
+				姓名: <span th:text="${resume.name}">name</span><p />
+				生日: <span th:text="${resume.birth}">birth</span><p />
+				性別: <span th:text="${resume.gender}">gender</span><p />
+				學歷: <span th:text="${resume.education}">education</span><p />
+				專長: <span th:text="${resume.skill}">skill</span><p />
+				簡歷: <span th:text="${resume.memo}">memo</span><p />
+			</fieldset>
+		</div>
+	</body>
+</html>
