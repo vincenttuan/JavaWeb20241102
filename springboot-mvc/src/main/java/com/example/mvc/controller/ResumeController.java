@@ -37,4 +37,8 @@ public class ResumeController {
 		return "resume"; // <-- resume.html
 	}
 	
+	// 取得指定 id 的履歷
+	@GetMapping("/resume/{id}")
+	
+	
 }

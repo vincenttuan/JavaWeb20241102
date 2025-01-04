@@ -38,7 +38,7 @@
 						<!-- 遍歷 resumes -->
 						<tr th:each="resume : ${resumes}">
 							<td>
-								<a th:href="@{/resume/edit/{id}(id=${resume.id})}" th:text="${resume.id}">
+								<a th:href="@{/resume/{id}(id=${resume.id})}" th:text="${resume.id}">
 									序號
 								</a>
 							</td>
