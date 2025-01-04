@@ -41,7 +41,7 @@ public class ResumeRepositoryImpl implements ResumeRepository {
 		String sql = "update resume set name=?, birth=?, gender=?, education=?, skill=?, memo=? where id=?";
 		jdbcTemplate.update(sql, 
 							resume.getName(), resume.getBirth(), resume.getGender(), 
-							resume.getEducation(), resume.getSkill(), resume.getMemo());
+							resume.getEducation(), resume.getSkill(), resume.getMemo(), id);
 	}
 
 	@Override
