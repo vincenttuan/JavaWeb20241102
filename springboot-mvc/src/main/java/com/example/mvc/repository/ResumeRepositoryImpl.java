@@ -23,7 +23,10 @@ public class ResumeRepositoryImpl implements ResumeRepository {
 
 	@Override
 	public void addResume(Resume resume) {
-		// TODO Auto-generated method stub
+		String sql = "insert into resume(name, birth, gender, education, skill, memo) values(?, ?, ?, ?, ?, ?)";
+		jdbcTemplate.update(sql, 
+							resume.getName(), resume.getBirth(), resume.getGender(), 
+							resume.getEducation(), resume.getSkill(), resume.getMemo());
 		
 	}
 	
