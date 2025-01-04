@@ -1,5 +1,7 @@
 package com.example.mvc.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,7 +21,9 @@ public class ResumeController {
 	
 	// 取得履歷表單 
 	@GetMapping("/resume")
-	public String getResumeFrom() {
+	public String getResumeFrom(Model model) {
+		List<Resume> resumes = resumeRepository.findAllResumes();
+		model.addAttribute("resumes", resumes);
 		return "resume_form";
 	}
 	
