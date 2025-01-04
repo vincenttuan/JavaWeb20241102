@@ -6,6 +6,17 @@ public class BMI {
 	private Double bmiValue;
 	private String result;
 	
+	public BMI() {
+		
+	}
+	
+	public BMI(Double h, Double w, Double bmiValue, String result) {
+		this.h = h;
+		this.w = w;
+		this.bmiValue = bmiValue;
+		this.result = result;
+	}
+	
 	public Double getH() {
 		return h;
 	}

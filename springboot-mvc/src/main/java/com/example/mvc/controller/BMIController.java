@@ -31,13 +31,8 @@ public class BMIController {
 		}
 		
 		// 將資料放到 model 中目的是傳給 bmi.html 呈現
-		/*
-		model.addAttribute("h", h);
-		model.addAttribute("w", w);
-		model.addAttribute("bmi", bmi);
-		model.addAttribute("result", result);
-		*/
-		BMI bmi
+		BMI bmi = new BMI();
+		
 		return "bmi"; // 指的是 src/main/resources/templates/bmi.html
 	}
 	
