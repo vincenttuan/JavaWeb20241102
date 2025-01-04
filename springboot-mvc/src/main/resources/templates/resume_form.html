@@ -26,9 +26,27 @@
 				</form>
 			</td>
 			<td valign="top">
-				
+				<table>
+					<thead>
+						<tr>
+							<th>序號</th><th>姓名</th><th>生日</th><th>性別</th>
+							<th>學歷</th><th>專長</th><th>簡歷</th>
+						</tr>
+					</thead>
+					<tbody>
+						<!-- 遍歷 resumes -->
+						<tr th:each="resume : ${resumes}">
+							<td th:text="${resume.id}">序號</td>
+							<td th:text="${resume.name}">姓名</td>
+							<td th:text="${resume.birth}">生日</td>
+							<td th:text="${resume.gender}">性別</td>
+							<td th:text="${resume.education}">學歷</td>
+							<td th:text="${resume.skill}">專長</td>
+							<td th:text="${resume.memo}">簡歷</td>
+						</tr>
+					</tbody>
+				</table>
 			</td>
 		</table>
-		
 	</body>
 </html>
