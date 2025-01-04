@@ -10,6 +10,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Resume {
+	private Integer id; // 序號
 	private String name;
 	private String birth;
 	private String gender;
