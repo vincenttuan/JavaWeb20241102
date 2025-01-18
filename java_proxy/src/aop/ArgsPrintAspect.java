@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 public class ArgsPrintAspect {
 	
 	// 前置通知
-	@Before("execution(public int aop.Calculator.add(int, int))")
+	@Before("execution(public int aop.Calculator.add(int, int))") // 要作用的方法
 	public void before(JoinPoint joinPoint) {
 		String methodName = joinPoint.getSignature().getName(); // 方法名稱
 		Object[] args = joinPoint.getArgs(); // 方法參數
