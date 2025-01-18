@@ -15,4 +15,9 @@ public class AppConfig {
 		return new CalculatorImpl();
 	}
 	
+	@Bean
+	public BMI bmi() {
+		return new BMIImpl();
+	}
+	
 }
