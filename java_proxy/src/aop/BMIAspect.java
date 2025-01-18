@@ -18,22 +18,22 @@ public class BMIAspect {
 	
 	@Before(value = "ptBMI()")
 	public void beforeAdvice(JoinPoint joinPoint) {
-		System.out.println("前置通知: 保存 h, w");
+		System.out.println("1.前置通知: 保存 h, w");
 	}
 	
 	@After(value = "ptBMI()")
 	public void afterAdvice(JoinPoint joinPoint) {
-		System.out.println("後置通知: 統計使用次數");
+		System.out.println("2.後置通知: 統計使用次數");
 	}
 	
 	@AfterThrowing(value = "ptBMI()", throwing = "e")
 	public void afterThrowingAdvice(JoinPoint joinPoint, Exception e) {
-		System.err.println("例外通知: 保存例外 log 紀錄");
+		System.err.println("3.例外通知: 保存例外 log 紀錄");
 	}
 	
 	@AfterReturning(value = "ptBMI()", returning = "result")
 	public void afterReturningAdvice(JoinPoint joinPoint, double result) {
-		System.out.println("返回通知: 保存 bmi 的計算結果");
+		System.out.println("4.返回通知: 保存 bmi 的計算結果");
 	}
 	
 }
