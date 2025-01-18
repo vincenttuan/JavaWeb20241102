@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
@@ -24,6 +25,9 @@ public class ArgsPrintAspect {
 	
 	@Pointcut(value = "execution(public int aop.Calculator.div(int, int))")
 	public void ptDiv() {}
+	
+	@Pointcut(value = "execution(* aop.BMI.*(..))")
+	public void ptBMI() {}
 	
 	// 前置通知
 	//@Before("execution(public int aop.Calculator.add(int, int))") // 要作用的指定方法
@@ -54,6 +58,14 @@ public class ArgsPrintAspect {
 	public void afterThrowingAdvice(JoinPoint joinPoint, Exception e) {
 		String methodName = joinPoint.getSignature().getName(); // 方法名稱
 		System.out.printf("異常通知-方法名稱: %s 錯誤訊息: %s%n", methodName, e);
+	}
+	
+	// 返回通知
+	@AfterReturning(value = "ptBMI()", returning = "result")
+	public double afterReturningAdvice(JoinPoint joinPoint, double result) {
+		String methodName = joinPoint.getSignature().getName(); // 方法名稱
+		System.out.printf("返回通知-方法名稱: %s 回傳訊息: %f%n", methodName, result);
+		return result;
 	}
 	
 }
