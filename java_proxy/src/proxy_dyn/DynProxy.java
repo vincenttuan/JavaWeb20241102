@@ -11,7 +11,7 @@ public class DynProxy {
 	// 被代理的對象
 	private Object object; // 可以代理任何物件
 	
-	public DynProxy(Object proxy) { // 注入被代理的物件
+	public DynProxy(Object object) { // 注入被代理的物件
 		this.object = object;
 	}
 	
