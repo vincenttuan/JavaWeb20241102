@@ -28,11 +28,14 @@ public class DynProxy {
 			@Override
 			public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 				// 代理執行任務(公用邏輯)
-				System.out.printf("方法呼叫前-方法啟動: %s 參數: %s\n", method.getName(), Arrays.toString(args));
+				MyPrintAspect.before(method, args);
+				
 				// 代理執行任務(業務邏輯)
 				Object result = method.invoke(object, args); // 執行被代理的任務方法(固定寫法)
+				
 				// 代理執行任務(公用邏輯)
-				System.out.println("方法呼叫後-方法結束");
+				MyPrintAspect.end();
+				
 				return result; // (固定寫法)
 			}
 		};
