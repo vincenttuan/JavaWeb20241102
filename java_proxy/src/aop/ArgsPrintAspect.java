@@ -21,6 +21,9 @@ public class ArgsPrintAspect {
 	@Pointcut(value = "execution(public int aop.Calculator.add(int, int))")
 	public void ptAdd() {}
 	
+	@Pointcut(value = "execution(public int aop.Calculator.div(int, int))")
+	public void ptDiv() {}
+	
 	// 前置通知
 	//@Before("execution(public int aop.Calculator.add(int, int))") // 要作用的指定方法
 	//@Before("execution(public int aop.Calculator.*(int, int))") // 要作用的所有方法
@@ -44,6 +47,8 @@ public class ArgsPrintAspect {
 		String methodName = joinPoint.getSignature().getName(); // 方法名稱
 		System.out.printf("後置通知-方法名稱: %s %n", methodName);
 	}
+	
+	
 	
 }
 
