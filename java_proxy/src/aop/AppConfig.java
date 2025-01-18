@@ -7,7 +7,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @Configuration
 @EnableAspectJAutoProxy
-@ComponentScan(basePackages = "aop") 
+@ComponentScan(basePackages = "aop") // 掃描要給 spring 管理的資源 
 public class AppConfig {
 	
 	@Bean
