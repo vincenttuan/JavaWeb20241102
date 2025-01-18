@@ -14,6 +14,7 @@ public class PersonProxy implements Person {
 	@Override
 	public void work() {
 		// 代理執行任務(公用邏輯)
+		System.out.println("快篩");
 		System.out.println("戴口罩");
 		// 代理執行任務(業務邏輯)
 		person.work();
