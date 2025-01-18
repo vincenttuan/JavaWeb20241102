@@ -60,7 +60,7 @@ public class ArgsPrintAspect {
 		System.out.printf("異常通知-方法名稱: %s 錯誤訊息: %s%n", methodName, e);
 	}
 	
-	// 返回通知
+	// 返回通知(可以設定 returing 的方法回傳值, 但是若有例外發生則不會通知)
 	@AfterReturning(value = "ptBMI()", returning = "result")
 	public double afterReturningAdvice(JoinPoint joinPoint, double result) {
 		String methodName = joinPoint.getSignature().getName(); // 方法名稱
