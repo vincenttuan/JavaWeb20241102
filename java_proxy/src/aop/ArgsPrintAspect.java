@@ -62,10 +62,9 @@ public class ArgsPrintAspect {
 	
 	// 返回通知(可以設定 returing 的方法回傳值, 但是若有例外發生則不會通知)
 	@AfterReturning(value = "ptBMI()", returning = "result")
-	public double afterReturningAdvice(JoinPoint joinPoint, double result) {
+	public void afterReturningAdvice(JoinPoint joinPoint, double result) {
 		String methodName = joinPoint.getSignature().getName(); // 方法名稱
 		System.out.printf("返回通知-方法名稱: %s 回傳訊息: %f%n", methodName, result);
-		return 0;
 	}
 	
 }
