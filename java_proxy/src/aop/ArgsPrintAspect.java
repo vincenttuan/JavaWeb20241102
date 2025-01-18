@@ -16,7 +16,12 @@ public class ArgsPrintAspect {
 	// 前置通知
 	//@Before("execution(public int aop.Calculator.add(int, int))") // 要作用的指定方法
 	//@Before("execution(public int aop.Calculator.*(int, int))") // 要作用的所有方法
-	@Before("execution(public int aop.Calculator.*(int, int)) || execution(public double aop.BMI.*(double, double))") // 要作用的所有方法
+	//@Before("execution(public int aop.Calculator.*(int, int)) || execution(public double aop.BMI.*(double, double))") // 要作用的所有方法
+	@Before("execution(* aop.*.*(..))") // 要作用的所有方法
+	//                 └ *任何權限與回傳值 
+	//                       └ *任何類
+	//                         └ *任何方法
+	//                           └ ..任何參數
 	public void before(JoinPoint joinPoint) {
 		String methodName = joinPoint.getSignature().getName(); // 方法名稱
 		Object[] args = joinPoint.getArgs(); // 方法參數
