@@ -28,7 +28,7 @@ public class BMIAspect {
 	
 	@AfterThrowing(value = "ptBMI()", throwing = "e")
 	public void afterThrowingAdvice(JoinPoint joinPoint, Exception e) {
-		System.out.println("例外通知: 保存例外 log 紀錄");
+		System.err.println("例外通知: 保存例外 log 紀錄");
 	}
 	
 	@AfterReturning(value = "ptBMI()", returning = "result")
