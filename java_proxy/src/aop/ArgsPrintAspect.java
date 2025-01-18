@@ -65,7 +65,7 @@ public class ArgsPrintAspect {
 	public double afterReturningAdvice(JoinPoint joinPoint, double result) {
 		String methodName = joinPoint.getSignature().getName(); // 方法名稱
 		System.out.printf("返回通知-方法名稱: %s 回傳訊息: %f%n", methodName, result);
-		return result;
+		return 0;
 	}
 	
 }
