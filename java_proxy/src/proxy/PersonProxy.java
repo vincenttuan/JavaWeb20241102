@@ -3,7 +3,7 @@ package proxy;
 // 靜態代理
 // 代理執行任務
 public class PersonProxy implements Person {
-	// 代理對象
+	// 指定特定的代理對象
 	private Person person;
 	
 	// 透過建構子可以將  Man 或 Woman 物件傳入
