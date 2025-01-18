@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.AfterThrowing;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -48,7 +49,12 @@ public class ArgsPrintAspect {
 		System.out.printf("後置通知-方法名稱: %s %n", methodName);
 	}
 	
-	
+	// 異常通知
+	@AfterThrowing(value = "ptDiv()", throwing = "e")
+	public void afterThrowingAdvice(JoinPoint joinPoint, Exception e) {
+		String methodName = joinPoint.getSignature().getName(); // 方法名稱
+		System.out.printf("異常通知-方法名稱: %s 錯誤訊息: %s%n", methodName, e);
+	}
 	
 }
 
