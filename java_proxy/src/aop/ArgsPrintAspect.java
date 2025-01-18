@@ -49,7 +49,7 @@ public class ArgsPrintAspect {
 		System.out.printf("後置通知-方法名稱: %s %n", methodName);
 	}
 	
-	// 異常通知
+	// 異常通知(可以設定 throwing 來得到異常的錯誤資訊)
 	@AfterThrowing(value = "ptDiv()", throwing = "e")
 	public void afterThrowingAdvice(JoinPoint joinPoint, Exception e) {
 		String methodName = joinPoint.getSignature().getName(); // 方法名稱
