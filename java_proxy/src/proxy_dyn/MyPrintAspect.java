@@ -11,7 +11,6 @@ public class MyPrintAspect {
 	public static void before(Method method, Object[] args) {
 		// 代理執行任務(公用邏輯)
 		System.out.printf("方法呼叫前-方法啟動: %s 參數: %s\n", method.getName(), Arrays.toString(args));
-		
 	}
 	
 	// exception: 例外通知 (Advice)
