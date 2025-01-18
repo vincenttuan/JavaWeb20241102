@@ -31,8 +31,13 @@ public class DynProxy {
 				MyPrintAspect.before(method, args);
 				
 				// 代理執行任務(業務邏輯)
-				Object result = method.invoke(object, args); // 執行被代理的任務方法(固定寫法)
-				
+				Object result = null;
+				try {
+					result = method.invoke(object, args); // 執行被代理的任務方法(固定寫法)
+				} catch (Exception e) {
+					// 代理執行[例外]任務(公用邏輯)
+					MyPrintAspect.exception(e);
+				}
 				// 代理執行任務(公用邏輯)
 				MyPrintAspect.end();
 				
