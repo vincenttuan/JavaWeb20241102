@@ -28,7 +28,7 @@ public class DynProxy {
 			@Override
 			public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 				// 代理執行任務(公用邏輯)
-				System.out.printf("方法呼叫前-方法啟動: %s 參數: %s %d\n", method.getName(), Arrays.toString(args));
+				System.out.printf("方法呼叫前-方法啟動: %s 參數: %s\n", method.getName(), Arrays.toString(args));
 				// 代理執行任務(業務邏輯)
 				Object result = method.invoke(object, args); // 執行被代理的任務方法(固定寫法)
 				// 代理執行任務(公用邏輯)
