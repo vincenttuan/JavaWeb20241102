@@ -38,7 +38,7 @@ public class DynProxy {
 					// 代理執行[例外]任務(公用邏輯)
 					MyPrintAspect.exception(e);
 				} finally {
-					// 代理執行任務(公用邏輯)
+					// 代理執行任務(公用邏輯) 通常是放在 finally 區段中
 					MyPrintAspect.end();
 				}
 				
