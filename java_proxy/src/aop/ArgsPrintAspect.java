@@ -39,14 +39,20 @@ public class ArgsPrintAspect {
 	}
 	
 	// 後置通知(不論是否發生錯誤都會通知)
-	@After(value = "ptAdd")
+	@After(value = "ptAdd()")
 	public void afterAdvice(JoinPoint joinPoint) {
 		String methodName = joinPoint.getSignature().getName(); // 方法名稱
 		System.out.printf("後置通知-方法名稱: %s %n", methodName);
 	}
 	
-	
-	
-	
-	
 }
+
+
+
+
+
+
+
+
+
+
