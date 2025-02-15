@@ -25,9 +25,10 @@
 			
 			// 獲取最新 symbol 資料
 			function fetchSymbol() {
-				fetch("/getSymbol")
+				fetch("/symbol")
 					.then(response => response.text())
 					.then(data => {
+						console.log(data);
 						document.getElementById("symbol").value = data;
 					});
 			}
