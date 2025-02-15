@@ -23,6 +23,7 @@
 				}
 			}
 			
+			// 獲取最新 symbol 資料
 			function fetchSymbol() {
 				fetch("/getSymbol")
 					.then(response => response.text())
@@ -32,7 +33,7 @@
 			}
 			
 			window.onload = function() {
-				fetchSymbol();
+				fetchSymbol(); // 獲取最新 symbol 資料
 				setInterval(fetchSymbol, 100); // 每隔 0.1 秒更新一次
 			}
 			
