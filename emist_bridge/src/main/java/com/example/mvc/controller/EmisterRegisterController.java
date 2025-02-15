@@ -1,9 +1,12 @@
 package com.example.mvc.controller;
 
+import java.net.URL;
 import java.util.LinkedHashSet;
+import java.util.Scanner;
 import java.util.Set;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,5 +42,21 @@ public class EmisterRegisterController {
 		
 		return message;
 	}
+	
+	// 將股票代號傳送到 urls 中有紀錄的位置
+	@GetMapping("/send/{symbol}")
+	public String send(@PathVariable String symbol) {
+		for(String url : urls) {
+			try {
+				URL sendURL = new URL(url + "/received/" + symbol);
+				String response = new Scanner(sendURL.openStream(), "utf-8").useDelimiter("\\A").next();
+				System.out.println(response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		return "ok";
+	}
+	
 	
 }
