@@ -37,6 +37,14 @@ public class RegisterController {
 		int port = request.getLocalPort(); // 取得本機端 port
 		String url = portocol + "://" + ip + ":" + port;
 		String message = "取消註冊: " + url;
+		// 向 emister_bridge 進行取消註冊
+		try {
+			URL bridgeURL = new URL("http://127.0.0.1:8080/unregister?url=" + url);
+			String response = new Scanner(bridgeURL.openStream(), "UTF-8").useDelimiter("\\A").next();
+			message += " " + response;
+		} catch(Exception e) {
+			message += " 失敗:" + e.getMessage();
+		} 
 		return message;
 	}
 	
