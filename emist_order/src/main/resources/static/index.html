@@ -14,6 +14,11 @@
 				window.location.href = '/unregister';
 			}
 			
+			function order() {
+				var symbol = document.getElementById('symbol');
+				window.location.href = '/order/' + symbol;
+			}
+			
 		</script>
 	</head>
 	<body style="padding: 15px">
@@ -26,7 +31,7 @@
 					<td valign="top">
 						<button id="register" class="pure-button pure-button-primary" onclick="register()" >註冊</button>
 						<button id="unRegister" class="pure-button" onclick="unregister()">取消註冊</button>
-						<button id="order" class="pure-button pure-button-primary">下單</button>	
+						<button id="order" class="pure-button pure-button-primary" onclick="order()">下單</button>	
 					</td>
 				</tr>
 			</table>
