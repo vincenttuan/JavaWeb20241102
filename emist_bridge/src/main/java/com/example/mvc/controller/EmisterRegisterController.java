@@ -29,4 +29,15 @@ public class EmisterRegisterController {
 		return message;
 	}
 	
+	@GetMapping
+	public String getAllUrls() {
+		String message = "";
+		
+		for(String url : urls) {
+			message += url + "\n";
+		}
+		
+		return message;
+	}
+	
 }
