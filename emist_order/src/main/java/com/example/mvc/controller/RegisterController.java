@@ -12,6 +12,8 @@ import jakarta.servlet.http.HttpServletRequest;
 @RestController
 public class RegisterController {
 	
+	private String symbol = "";
+	
 	@GetMapping("/register")
 	public String register(HttpServletRequest request) {
 		String portocol = request.getScheme(); // 取得通訊協定 http or https
@@ -54,5 +56,17 @@ public class RegisterController {
 		return message;
 	}
 	
+	// 接收來自於 emist_bridge 的股票代號
+	@GetMapping("/received/{symbol}")
+	public String receivedSymbol(@PathVariable String symbol) {
+		this.symbol = symbol; // 將股票代號存放在物件變數中
+		return "ok";
+	}
+	
+	// 取得目前 emist_bridge 所傳來的股票代號
+	@GetMapping("/symbol")
+	public String getSymbol() {
+		return this.symbol;
+	}
 	
 }
