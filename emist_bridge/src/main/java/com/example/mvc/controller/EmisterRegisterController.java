@@ -15,7 +15,7 @@ public class EmisterRegisterController {
 	
 	@GetMapping("/register") // 註冊
 	public String register(@RequestParam String url) {
-		urls.add(url);
+		urls.add(url); // 加入 url 到 urls 中 => 註冊
 		String message = "在 emist_bridger 中註冊 [ " + url + " ] 成功, 目前註冊的有 " + urls;
 		System.out.println(message);
 		return message;
@@ -23,7 +23,7 @@ public class EmisterRegisterController {
 	
 	@GetMapping("/unregister") // 取消註冊
 	public String unregister(@RequestParam String url) {
-		urls.remove(url);
+		urls.remove(url); // 將 url 自 urls 中移除 => 取消註冊
 		String message = "在 emist_bridger 中取消註冊 [ " + url + " ] 成功, 目前註冊的有 " + urls;
 		System.out.println(message);
 		return message;
