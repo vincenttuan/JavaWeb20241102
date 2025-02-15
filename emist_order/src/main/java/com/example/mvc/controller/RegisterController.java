@@ -1,6 +1,7 @@
 package com.example.mvc.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.servlet.http.HttpServletRequest;
@@ -25,6 +26,12 @@ public class RegisterController {
 		int port = request.getLocalPort(); // 取得本機端 port
 		String url = portocol + "://" + ip + ":" + port;
 		String message = "取消註冊: " + url;
+		return message;
+	}
+	
+	@GetMapping("/order/{symbol}")
+	public String order(@PathVariable String symbol) {
+		String message = "下單: " + symbol;
 		return message;
 	}
 	
