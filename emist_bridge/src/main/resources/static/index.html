@@ -4,6 +4,22 @@
 		<meta charset="UTF-8">
 		<title>主畫面</title>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
+		<script type="text/javascript">
+			function fetchUrls() {
+				fetch("/emist")
+					.then(response => response.text())
+					.then(data => {
+						document.getElementById("urls").value = data;
+					});
+			}
+			
+			// 當網頁載入成功之後執行
+			window.onload = function() {
+				fetchUrls(); // 首次執行
+				setInterval(fetchUrls, 100); // 每 0.1 秒更新一次
+			};
+			
+		</script>
 	</head>
 	<body style="padding: 15px">
 		<div class="pure-form">
