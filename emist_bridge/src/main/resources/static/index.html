@@ -16,7 +16,7 @@
 			// 發送股票代號
 			function send() {
 				var symbol = document.getElementById("symbol").value;
-				fetch("/send/" + symbol);
+				fetch("/emist/send/" + symbol);
 			}
 			
 			// 當網頁載入成功之後執行
