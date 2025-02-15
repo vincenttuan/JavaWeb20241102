@@ -1,5 +1,8 @@
 package com.example.mvc.controller;
 
+import java.net.URL;
+import java.util.Scanner;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +19,14 @@ public class RegisterController {
 		int port = request.getLocalPort(); // 取得本機端 port
 		String url = portocol + "://" + ip + ":" + port;
 		String message = "註冊: " + url;
+		// 向 emister_bridge 進行註冊
+		try {
+			URL bridgeURL = new URL("http://127.0.0.1:8080/register?url=" + url);
+			String response = new Scanner(bridgeURL.openStream(), "UTF-8").useDelimiter("\\A").next();
+			message += " " + response;
+		} catch(Exception e) {
+			message += " 失敗:" + e.getMessage();
+		} 
 		return message;
 	}
 	
