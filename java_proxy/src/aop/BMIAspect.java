@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class BMIAspect {
 	
-	@Pointcut(value = "execution(* aop.BMI.*(..))")
+	@Pointcut(value = "execution(* aop.BMI.calc(..))")
 	public void ptBMI() {}
 	
 	@Before(value = "ptBMI()")

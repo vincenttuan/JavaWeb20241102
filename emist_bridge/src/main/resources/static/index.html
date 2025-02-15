@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>主畫面</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
+	</head>
+	<body style="padding: 15px">
+		<div class="pure-form">
+			<table class="pure-table">
+				<tr>
+					<td valign="top">
+						股票代號: <input type="text" name="symbol" id="symbol" value="2330" />
+					</td>
+					<td rowspan="2" valign="top">
+						<textarea rows="5" cols="30" id="urls" name="urls"></textarea>
+					</td>
+				</tr>
+				<tr>
+					<td valign="top">
+						<button id="send" class="pure-button pure-button-primary">發送</button>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</body>
+</html>
