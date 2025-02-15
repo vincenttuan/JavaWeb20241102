@@ -16,7 +16,11 @@
 			
 			function order() {
 				var symbol = document.getElementById('symbol').value;
-				window.location.href = '/order/' + symbol;
+				if(symbol == null || symbol == '') {
+					alert('無法下單, 原因:無股票代號資料');	
+				} else {
+					window.location.href = '/order/' + symbol;
+				}
 			}
 			
 		</script>
