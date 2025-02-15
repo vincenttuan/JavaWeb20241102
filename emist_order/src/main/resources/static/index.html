@@ -23,6 +23,19 @@
 				}
 			}
 			
+			function fetchSymbol() {
+				fetch("/getSymbol")
+					.then(response => response.text())
+					.then(data => {
+						document.getElementById("symbol").value = data;
+					});
+			}
+			
+			window.onload = function() {
+				fetchSymbol();
+				setInterval(fetchSymbol, 100); // 每隔 0.1 秒更新一次
+			}
+			
 		</script>
 	</head>
 	<body style="padding: 15px">
