@@ -7,11 +7,13 @@
 		<script type="text/javascript">
 			<!-- 註冊 -->
 			function register() {
-				window.location.href = '/register';
+				//window.location.href = '/register';
+				fetch('/register');
 			}
 			
 			function unregister() {
-				window.location.href = '/unregister';
+				//window.location.href = '/unregister';
+				fetch('/unregister');
 			}
 			
 			function order() {
@@ -19,7 +21,10 @@
 				if(symbol == null || symbol == '') {
 					alert('無法下單, 原因:無股票代號資料');	
 				} else {
-					window.location.href = '/order/' + symbol;
+					//window.location.href = '/order/' + symbol;
+					fetch('/order/' + symbol).then(response => {
+						alert('下單成功');
+					});
 				}
 			}
 			
