@@ -21,7 +21,7 @@ public class RegisterController {
 		String message = "註冊: " + url;
 		// 向 emister_bridge 進行註冊
 		try {
-			URL bridgeURL = new URL("http://127.0.0.1:8080/register?url=" + url);
+			URL bridgeURL = new URL("http://127.0.0.1:8080/emist/register?url=" + url);
 			String response = new Scanner(bridgeURL.openStream(), "UTF-8").useDelimiter("\\A").next();
 			message += " " + response;
 		} catch(Exception e) {
@@ -39,7 +39,7 @@ public class RegisterController {
 		String message = "取消註冊: " + url;
 		// 向 emister_bridge 進行取消註冊
 		try {
-			URL bridgeURL = new URL("http://127.0.0.1:8080/unregister?url=" + url);
+			URL bridgeURL = new URL("http://127.0.0.1:8080/emist/unregister?url=" + url);
 			String response = new Scanner(bridgeURL.openStream(), "UTF-8").useDelimiter("\\A").next();
 			message += " " + response;
 		} catch(Exception e) {
