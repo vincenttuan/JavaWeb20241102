@@ -13,6 +13,12 @@
 					});
 			}
 			
+			// 發送股票代號
+			function send() {
+				var symbol = document.getElementById("symbol").value;
+				fetch("/send/" + symbol);
+			}
+			
 			// 當網頁載入成功之後執行
 			window.onload = function() {
 				fetchUrls(); // 首次執行
@@ -34,7 +40,7 @@
 				</tr>
 				<tr>
 					<td valign="top">
-						<button id="send" class="pure-button pure-button-primary">發送</button>
+						<button id="send" class="pure-button pure-button-primary" onclick="send()">發送</button>
 					</td>
 				</tr>
 			</table>
