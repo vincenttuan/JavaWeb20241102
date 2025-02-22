@@ -11,11 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/chat")
 public class ChatController {
 	
-	private final ChatClient chatClient;
-	
-	public ChatController(ChatClient chatClient) {
-		this.chatClient = chatClient;
-	}
+	@Autowired
+	private ChatClient chatClient;
 	
 	@GetMapping("/ask")
 	public String ask(@RequestParam String question) {
