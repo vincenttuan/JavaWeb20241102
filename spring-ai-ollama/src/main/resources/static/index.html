@@ -6,6 +6,12 @@
 	</head>
 	<body>
 		<h1>Spring AI Ollama Chat</h1>
+		模型:
+		<select id="modelSelect">
+			<option value="llama3.2:3b">llama3.2:3b</option>
+			<option value="deepseek-r1:1.5b">deepseek-r1:1.5b</option>
+		</select>
+		<p />
 		問題:
 		<textarea cols="50" rows="5" id="questionInput" placeholder="請輸入提問"></textarea>
 		<div id="chat">等待訊息...</div>
@@ -17,6 +23,7 @@
 			let eventSource; 
 			const chatDiv = document.getElementById('chat');
 			const questionInput = document.getElementById('questionInput');
+			const modelSelect = document.getElementById('modelSelect');
 			
 			// 綁定 enter 鍵事件
 			questionInput.addEventListener("keydown", function(event) {
@@ -30,8 +37,10 @@
 					eventSource.close(); // 關閉之前的連線
 				}
 				
+				const selectedModel = modelSelect.value;
+				
 				// 建立新的 EventSource
-				eventSource = new EventSource('/chat/ask?question=' + encodeURIComponent(message));
+				eventSource = new EventSource('/chat/ask?question=' + encodeURIComponent(message) + '&model=' + encodeURIComponent(selectedModel));
 				
 				// 處理訊息接收
 				eventSource.onmessage = function(event) {
