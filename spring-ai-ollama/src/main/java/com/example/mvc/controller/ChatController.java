@@ -33,12 +33,13 @@ public class ChatController {
 		// 建立發射器
 		SseEmitter emitter = new SseEmitter();
 		
+		// 建立 ChatOptions 來動態指定模型
 		ChatOptions options = ChatOptions.builder().model(model).build();
 		
 		// 使用 ChatClient 的 stream 方法來獲取串流回應
 		Flux<String> responseFlux = chatClient.prompt()
 											  .user(question)
-											  .options(options)
+											  .options(options) // 指定模型
 											  .stream()
 											  .content();
 		
