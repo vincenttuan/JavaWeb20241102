@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Spring AI Ollama</title>
+	</head>
+	<body>
+		<h1>Spring AI Ollama Chat</h1>
+		問題:
+		<input type="text" id="questionInput" placeholder="請輸入提問" />
+		<div id="chat">等待訊息...</div>
+		
+		<script type="text/javascript">
+			// EventSource 連線:
+			// Server-Send-Events(SSE) 可以讓瀏覽器持續接收來自伺服器的即時更新
+			// 適合用來實現 LLM 文字流式回應(Streaming Chat)
+			let eventSource; 
+			const chatDiv = document.getElementById('chat');
+			const questionInput = document.getElementById('questionInput');
+			
+			// 綁定 enter 鍵事件
+			questionInput.addEventListener("keydown", function(event) {
+				const message = questionInput.value.trim(); // 取得使用者所輸入的問題
+				if(event.key != 'Enter' || !message) {
+					return;
+				}
+				
+				chatDiv.innerText = ''; // 清空對話紀錄
+				if(evetSource) {
+					evetSource.close(); // 關閉之前的連線
+				}
+				
+				// 建立新的 EventSource
+				eventSource = new EventSource('/chat/ask?question=' + encodeURIComponent(message));
+				
+				// 處理訊息接收
+				eventSource.onmessage = function(event) {
+					chatDiv.innerText += event.data + ""; // 將訊息逐字追加到聊天框中
+				};
+				
+				// 錯誤處理
+				eventSource.onerror = function() {
+					chatDiv.innerText += "\n[錯誤] 無法接收訊息";
+					eventSource.close();
+				};
+				
+			});
+		
+		</script>
+		
+	</body>
+</html>
