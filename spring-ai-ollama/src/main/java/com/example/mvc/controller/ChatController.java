@@ -1,6 +1,7 @@
 package com.example.mvc.controller;
 
 import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.ai.chat.prompt.ChatOptions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -27,12 +28,19 @@ public class ChatController {
 	
 	// 逐字回報
 	@RequestMapping(value = "/ask", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
-	public SseEmitter ask(@RequestParam String question) {
+	public SseEmitter ask(@RequestParam String question, 
+						  @RequestParam(required = false, defaultValue = "llama3.2:3b") String model ) {
 		// 建立發射器
 		SseEmitter emitter = new SseEmitter();
 		
+		ChatOptions options = ChatOptions.builder().model(model).build();
+		
 		// 使用 ChatClient 的 stream 方法來獲取串流回應
-		Flux<String> responseFlux = chatClient.prompt().user(question).stream().content();
+		Flux<String> responseFlux = chatClient.prompt()
+											  .user(question)
+											  .options(options)
+											  .stream()
+											  .content();
 		
 		// 透過訂閱機制將資料逐字傳送給前端
 		responseFlux.subscribe(
