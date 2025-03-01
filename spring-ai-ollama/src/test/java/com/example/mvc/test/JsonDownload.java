@@ -13,7 +13,7 @@ public class JsonDownload {
 	
 	public static List<List<String>> getData(String date) throws Exception {
 		// Json URL
-		String urlString = "https://www.twse.com.tw/rwd/zh/afterTrading/BWIBBU_d?date=20250227&response=json";
+		String urlString = "https://www.twse.com.tw/rwd/zh/afterTrading/BWIBBU_d?date=" + date + "&response=json";
 		
 		// 創建 URL 物件
 		URL url = new URL(urlString);
