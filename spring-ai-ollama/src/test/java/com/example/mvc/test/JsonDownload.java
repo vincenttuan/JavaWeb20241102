@@ -82,7 +82,9 @@ public class JsonDownload {
 				Double pe = Double.parseDouble(row.get(5));
 				Double pb = Double.parseDouble(row.get(6));
 				if(r > 7 && (pe > 15 && pe < 25) && pb < 1) {
-					System.out.println(row);
+					//System.out.println(row);
+					System.out.printf("證券代號:%s 證券名稱:%s 收盤價:%s 殖利率(%%):%s 本益比:%s 股價淨值比:%s%n",
+							row.get(0), row.get(1), row.get(2), row.get(3), row.get(5), row.get(6));
 				}
 			} catch (Exception e) {
 				continue;
