@@ -15,7 +15,7 @@ import com.google.gson.Gson;
 @RestController
 public class TWSEController {
 	
-	@GetMapping
+	@GetMapping("/twse")
 	public String index() throws Exception {
 		return getData();
 	}
