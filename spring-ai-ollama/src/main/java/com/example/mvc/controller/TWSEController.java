@@ -54,7 +54,7 @@ public class TWSEController {
 				Double pe = Double.parseDouble(row.get(5)); // 本益比
 				Double pb = Double.parseDouble(row.get(6)); // 股價淨值比
 				if(r > 7 && (pe > 15 && pe < 25) && pb < 1) {
-					return String.format("證券代號:%s 證券名稱:%s 收盤價:%s 殖利率(%%):%s 本益比:%s 股價淨值比:%s%n",
+					return String.format("證券代號:%s 證券名稱:%s 收盤價:%s 殖利率(%%):%s 本益比:%s 股價淨值比:%s 請分析此股票是否建議投資?%n",
 							row.get(0), row.get(1), row.get(2), row.get(3), row.get(5), row.get(6));
 				}
 			} catch (Exception e) {
