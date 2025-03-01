@@ -32,7 +32,7 @@
 			// 綁定 click 鍵事件
 			twseButton.addEventListener("click", function(event) {
 				// 從 http://localhost/twse 取得資料後放到 questionInput 中
-				fetch('http://localhost/twse')
+				fetch('http://localhost:8080/twse')
 					.then(response => response.text())
 					.then(data => {
 						questionInput.value = data;
