@@ -13,6 +13,8 @@
 			<option value="qwen2.5:0.5b">qwen2.5:0.5b(阿里巴巴)</option>
 		</select>
 		<p />
+		資料: <button id="twseButton">取得商品資料</button>
+		<p />
 		問題:
 		<textarea cols="50" rows="5" id="questionInput" placeholder="請輸入提問"></textarea>
 		<div id="chat">等待訊息...</div>
@@ -25,6 +27,17 @@
 			const chatDiv = document.getElementById('chat');
 			const questionInput = document.getElementById('questionInput');
 			const modelSelect = document.getElementById('modelSelect');
+			const twseButton = document.getElementById('twseButton');
+			
+			// 綁定 click 鍵事件
+			twseButton.addEventListener("click", function(event) {
+				// 從 http://localhost/twse 取得資料後放到 questionInput 中
+				fetch('http://localhost/twse')
+					.then(response => response.text())
+					.then(data => {
+						questionInput.value = data;
+					});
+			});
 			
 			// 綁定 enter 鍵事件
 			questionInput.addEventListener("keydown", function(event) {
