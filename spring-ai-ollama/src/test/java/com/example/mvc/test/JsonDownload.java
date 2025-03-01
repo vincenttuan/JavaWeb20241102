@@ -37,11 +37,8 @@ public class JsonDownload {
 		// 設定一個字串變數來放 json 字串資料
 		String jsonString = response.toString();
 		
-		System.out.println(jsonString);
-		
-		
-		
-		
+		//System.out.println(jsonString);
+		System.out.println(jsonString.length());
 		
 		
 	}
