@@ -54,6 +54,16 @@ public class JsonDownload {
 		return data;
 	}
 	
+	public static List<String> getDataBySymbol(String date, String symbol) throws Exception {
+		List<List<String>> data = getData(date);
+		for(List<String> row : data) {
+			if(row.get(0).equals(symbol)) {
+				return row;
+			}
+		}
+		return null;
+	}
+	
 	public static void main(String[] args) throws Exception {
 		List<List<String>> data = getData("20250227");
 		// 過濾出殖利率(r) > 7, 本益比(pe) > 20, 股價淨值比(pb) < 1
