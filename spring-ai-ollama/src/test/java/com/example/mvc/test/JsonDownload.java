@@ -4,6 +4,10 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
+import java.util.Map;
+
+import com.google.gson.Gson;
 
 public class JsonDownload {
 	
@@ -38,7 +42,52 @@ public class JsonDownload {
 		String jsonString = response.toString();
 		
 		//System.out.println(jsonString);
-		System.out.println(jsonString.length());
+		System.out.println("jsonString.length():" + jsonString.length());
+		
+		// 利用 gson 來分析資料
+		Gson gson = new Gson();
+		
+		// 解析成 Map 類型來處理資料
+		Map<String, Object> map = gson.fromJson(jsonString, Map.class);
+		System.out.println("map.size():" + map.size());
+		System.out.println("stat:" + map.get("stat"));
+		System.out.println("date:" + map.get("date"));
+		System.out.println("title: " + map.get("title"));
+		// 取得 fields 內的欄位資料
+		List<String> fields = (List<String>)map.get("fields");
+		System.out.println("fields.size():" + fields.size());
+		System.out.println(fields);
+		// 取得 data 內的股票資料
+		List<List<String>> data = (List<List<String>>)map.get("data");
+		System.out.println("data.size():" + data.size() + "筆股票資料");
+		// 逐筆印出股票資料
+		for(List<String> row : data) {
+			System.out.println(row);
+		}
+		System.out.println("---------------------------------------------------");
+		// 過濾出2330股票資料
+		for(List<String> row : data) {
+			if(row.get(0).equals("2330")) {
+				System.out.println(fields);
+				System.out.println(row);
+				break;
+			}
+		}
+		System.out.println("---------------------------------------------------");
+		// 過濾出殖利率(r) > 7, 本益比(pe) > 20, 股價淨值比(pb) < 1
+		System.out.println(fields);
+		for(List<String> row : data) {
+			try {
+				Double r = Double.parseDouble(row.get(3));
+				Double pe = Double.parseDouble(row.get(5));
+				Double pb = Double.parseDouble(row.get(6));
+				if(r > 7 && (pe > 15 && pe < 25) && pb < 1) {
+					System.out.println(row);
+				}
+			} catch (Exception e) {
+				continue;
+			}
+		}
 		
 		
 	}
