@@ -21,7 +21,7 @@ public class TWSEController {
 	}
 	
 	// 取得股票資訊
-	public String getData() throws Exception {
+	private String getData() throws Exception {
 		// Json URL
 		String urlString = "https://www.twse.com.tw/rwd/zh/afterTrading/BWIBBU_d?response=json";
 		
