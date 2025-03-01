@@ -5,17 +5,18 @@ import java.util.List;
 public class JsonDownload2 {
 	public static void main(String[] args) throws Exception {
 		// 從殖利率, 本益比, 股價淨值比來分析台積電
-		System.out.println("20250227");
-		List<String> row = JsonDownload.getDataBySymbol("20250227", "2330");
-		printRow(row);
+		List<String> dates = List.of("20250227", "20240827", "20240227");
+		String symbol = "2330";
 		
-		System.out.println("20240827");
-		row = JsonDownload.getDataBySymbol("20240827", "2330");
-		printRow(row);
-		
-		System.out.println("20240227");
-		row = JsonDownload.getDataBySymbol("20240227", "2330");
-		printRow(row);
+		dates.forEach(date -> {
+			System.out.println(date);
+			try {
+				List<String> row = JsonDownload.getDataBySymbol(date, symbol);
+				printRow(row);
+			} catch (Exception e) {
+				
+			}
+		});
 		
 		System.out.println("請問是否可以買進 ?");
 	}
