@@ -40,7 +40,25 @@
 				</td>
 				<td valign="top">
 					<!-- 股票資料繪圖走勢 -->
-					<div id="curve_chart" style="width: 900px; height: 500px;"></div>
+					<table>
+						<tr>
+							<td valign="top">
+								<div id="curve_price_chart" style="width: 450px; height: 250px;"></div>
+							</td>
+							<td valign="top">
+								<div id="curve_yield_chart" style="width: 450px; height: 250px;"></div>
+							</td>
+						</tr>
+						<tr>
+							<td valign="top">
+								<div id="curve_pe_chart" style="width: 450px; height: 250px;"></div>
+							</td>
+							<td valign="top">
+								<div id="curve_pb_chart" style="width: 450px; height: 250px;"></div>
+							</td>
+						</tr>
+					</table>
+					
 				</td>
 			</tr>
 			<tr>
@@ -102,7 +120,10 @@
 						});
 						
 						// 繪圖
-						drawChart(data);
+						drawPriceChart(data);
+						drawYieldChart(data);
+						drawPEChart(data);
+						drawPBChart(data);
 					})
 					.catch(error => {
 						alert('無法載入資料: ' + error);
@@ -111,8 +132,48 @@
 			}
 			
 			google.charts.load('current', {'packages':['corechart', 'line']});
+			
+			function drawPriceChart(data) {
+		    	var dataArray = [['日期', '收盤價']]; // 表頭
+		    	data.forEach(item => {
+		          dataArray.push([item.date, item.price]);
+		        });
 
-			function drawChart(data) {
+		        var data = google.visualization.arrayToDataTable(dataArray);
+
+		        var options = {
+		          title: '收盤價走勢',
+		          curveType: 'function',
+		          legend: { position: 'bottom' },
+		          hAxis: { title: '日期' },
+		          vAxis: { title: '收盤價 (Price)' }
+		        };
+
+		        var chart = new google.visualization.LineChart(document.getElementById('curve_price_chart'));
+		        chart.draw(data, options);
+			}
+			
+			function drawYieldChart(data) {
+		    	var dataArray = [['日期', '殖利率(%)']]; // 表頭
+		    	data.forEach(item => {
+		          dataArray.push([item.date, item.yield]);
+		        });
+
+		        var data = google.visualization.arrayToDataTable(dataArray);
+
+		        var options = {
+		          title: '殖利率(%)走勢',
+		          curveType: 'function',
+		          legend: { position: 'bottom' },
+		          hAxis: { title: '日期' },
+		          vAxis: { title: '殖利率(%) (Yield)' }
+		        };
+
+		        var chart = new google.visualization.LineChart(document.getElementById('curve_yield_chart'));
+		        chart.draw(data, options);
+			}
+			
+			function drawPEChart(data) {
 		    	var dataArray = [['日期', '本益比']]; // 表頭
 		    	data.forEach(item => {
 		          dataArray.push([item.date, item.pe]);
@@ -128,7 +189,27 @@
 		          vAxis: { title: '本益比 (PE)' }
 		        };
 
-		        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+		        var chart = new google.visualization.LineChart(document.getElementById('curve_pe_chart'));
+		        chart.draw(data, options);
+			}
+			
+			function drawPBChart(data) {
+		    	var dataArray = [['日期', '股價淨值比']]; // 表頭
+		    	data.forEach(item => {
+		          dataArray.push([item.date, item.pb]);
+		        });
+
+		        var data = google.visualization.arrayToDataTable(dataArray);
+
+		        var options = {
+		          title: '股價淨值走勢',
+		          curveType: 'function',
+		          legend: { position: 'bottom' },
+		          hAxis: { title: '日期' },
+		          vAxis: { title: '股價淨值 (PB)' }
+		        };
+
+		        var chart = new google.visualization.LineChart(document.getElementById('curve_pb_chart'));
 		        chart.draw(data, options);
 			}
 		
