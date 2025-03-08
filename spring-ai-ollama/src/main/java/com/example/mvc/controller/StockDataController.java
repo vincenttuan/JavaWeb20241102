@@ -23,7 +23,7 @@ import com.google.gson.Gson;
 
 @RestController
 @RequestMapping("/api/stock")
-@CrossOrigin(origins = "http://localhost:8080")
+@CrossOrigin(origins = "*")
 public class StockDataController {
 	
 	@Autowired

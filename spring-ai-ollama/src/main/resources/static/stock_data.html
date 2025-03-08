@@ -11,13 +11,13 @@
 			<tr>
 				<td valign="top">
 					<!-- 查詢股票 -->
-					<form class="pure-form">
+					<div class="pure-form">
 						<fieldset>
 							<legend>查詢股票</legend>
-							<input type="text" id="symbol" placeholder="請輸入股票代號" required />
+							<input type="text" id="symbol" placeholder="請輸入股票代號" value="2330" required />
 							<button onclick="fetchStockData()" class="pure-button pure-button-primary">查詢</button>
 						</fieldset>
-					</form>
+					</div>
 					
 					<!-- 資料列表統計 -->
 					<div class="pure-form">
@@ -58,8 +58,12 @@
 				// 發送 api 請求
 				const url = `http://localhost:8080/api/stock/symbol/${symbol}`;
 				fetch(url)
-					.then(response => response.json()) // 將回應資料解析為 json 格式
+					.then(response => {
+						console.log(response.status);
+						return response.json();
+					}) // 將回應資料解析為 json 格式
 					.then(data => {
+						console.log(data);
 						// 取得表格的 <tbody> 元素
 						const tableBody = document.querySelector('#stockTable tbody');
 						
@@ -95,8 +99,6 @@
 							// 將 row 添加在表格中
 							tableBody.appendChild(row);
 						});
-						
-						
 					})
 					.catch(error => {
 						alert('無法載入資料: ' + error);
