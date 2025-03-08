@@ -3,6 +3,7 @@ package com.example.mvc.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +14,6 @@ import com.example.mvc.entity.StockData;
  * 
  *  功能:
  *  - 儲存股票資料到資料表中
- *  - 查詢所有股票資料
  *  - 查詢特定單一股票資料(根據 symbol)
  * */
 @Service
@@ -42,6 +42,14 @@ public class StockDataService {
 				stockData.getPeriod() // 財報年/季
 			);
 		});
+	}
+	
+	// 查詢特定股票資料
+	public List<StockData> getStockDataBySymbol(String symbol) {
+		// SQL 查詢語句
+		String selectSql = "select id, date, symbol, name, price, yield, year, pe, pb, period from stock_data where symbol = ?";
+		// 會自動將資料表中的紀錄逐筆封裝在 StockData 物件中
+		return jdbcTemplate.query(selectSql, new BeanPropertyRowMapper<>(StockData.class), symbol);
 	}
 	
 	
