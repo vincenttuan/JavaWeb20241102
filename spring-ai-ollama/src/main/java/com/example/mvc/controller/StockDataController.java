@@ -2,8 +2,10 @@ package com.example.mvc.controller;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.math.BigDecimal;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -36,7 +38,37 @@ public class StockDataController {
 	// 範例連結: http://localhost:8080/api/stock/import/20250307
 	public String importStockDataByDate(@PathVariable String date) throws Exception {
 		List<List<String>> data = getData(date);
-		return data + "";
+		if(data == null) {
+			return "無資料可供匯入";
+		}
+		
+		// 20250307 轉變成 2025-03-07 
+		date = date.substring(0, 4) + "-" + date.substring(4, 6) + "-" + date.substring(6); // 格式:yyyy-MM-dd
+		
+		// 匯入資料-準備資料
+		List<StockData> stockDatas = new ArrayList<>();
+		for(List<String> row : data) {
+			//      "股票代號","股票名稱","收盤價","殖利率(%)","股利年度","本益比","股價淨值比","財報年/季"
+			// row -> 1101, 台泥, 34.50, 2.90, 112.0, 28.99, 1.08, 113/3
+			//         0     1      2     3     4       5     6     7  
+			// 建立 StockData 物件
+			StockData stockData = new StockData();
+			stockData.setDate(date);
+			stockData.setSymbol(row.get(0)); // 股票代號
+			stockData.setName(row.get(1)); // 股票名稱
+			stockData.setPrice(new BigDecimal(row.get(2))); // 收盤價
+			stockData.setYield(new BigDecimal(row.get(3))); // 殖利率(%)
+			stockData.setYear(Integer.parseInt(row.get(4))); // 股利年度
+			stockData.setPe(new BigDecimal(row.get(5))); // 本益比
+			stockData.setPb(new BigDecimal(row.get(6))); // 股價淨值比
+			stockData.setPeriod(row.get(7)); // 財報年/季
+			
+			stockDatas.add(stockData);
+		}
+		
+		// 匯入資料-執行匯入
+		stockDataService.saveStockData(date, stockDatas);
+		return "匯入成功";
 	}
 	
 	// 取得股票資訊
