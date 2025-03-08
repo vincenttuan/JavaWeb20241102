@@ -64,14 +64,15 @@ public class StockDataController {
 		String jsonString = response.toString();
 		Map<String, Object> map = gson.fromJson(jsonString, Map.class);
 		
+		// 判斷 total 欄位資料
+		int total = Integer.parseInt(map.get("total").toString());
+		
 		// 取得 data 欄位資料
-		try {
+		if(total > 0) {
 			List<List<String>> data = (List<List<String>>)map.get("data");
 			return data;
-		} catch (Exception e) {
-			return null;
 		}
-		
+		return null;
 	}
 	
 }
