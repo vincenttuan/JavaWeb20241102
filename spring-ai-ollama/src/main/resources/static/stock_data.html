@@ -10,11 +10,36 @@
 		<table>
 			<tr>
 				<td valign="top">
-					<!-- 查詢股票與資料列表統計 -->
+					<!-- 查詢股票 -->
+					<form id="pure-form">
+						<fieldset>
+							<legend>查詢股票</legend>
+							<input type="text" id="symbol" placeholder="請輸入股票代號" required />
+							<button onclick="fetchStockData()">查詢</button>
+						</fieldset>
+					</form>
 					
+					<!-- 資料列表統計 -->
+					<div id="pure-form">
+						<fieldset>
+							<legend>股票資料列表統計</legend>
+							<table id="stockTable" class="pure-table pure-table-bordered">
+								<thead>
+									<tr>
+										<th>日期</th><th>股票代號</th><th>股票名稱</th><th>收盤價</th><th>殖利率(%)</th>
+										<th>股利年度</th><th>本益比(PE)</th><th>股價淨值比(PB)</th><th>財報年/季</th>
+									</tr>
+								</thead>
+								<tbody>
+									<!-- 股票資料會在這邊動態顯示 -->
+								</tbody>
+							</table>
+						</fieldset>
+					</div>
 				</td>
 				<td valign="top">
 					<!-- 股票資料繪圖走勢 -->
+					
 				</td>
 			</tr>
 			<tr>
