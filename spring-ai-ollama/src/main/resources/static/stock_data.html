@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css">
 		<title>股票資料表格</title>
 	</head>
@@ -39,7 +40,7 @@
 				</td>
 				<td valign="top">
 					<!-- 股票資料繪圖走勢 -->
-					
+					<div id="curve_chart" style="width: 900px; height: 500px;"></div>
 				</td>
 			</tr>
 			<tr>
@@ -99,11 +100,36 @@
 							// 將 row 添加在表格中
 							tableBody.appendChild(row);
 						});
+						
+						// 繪圖
+						drawChart(data);
 					})
 					.catch(error => {
 						alert('無法載入資料: ' + error);
 					});
 				
+			}
+			
+			google.charts.load('current', {'packages':['corechart', 'line']});
+
+			function drawChart(data) {
+		    	var dataArray = [['日期', '本益比']]; // 表頭
+		    	data.forEach(item => {
+		          dataArray.push([item.date, item.pe]);
+		        });
+
+		        var data = google.visualization.arrayToDataTable(dataArray);
+
+		        var options = {
+		          title: '本益比走勢',
+		          curveType: 'function',
+		          legend: { position: 'bottom' },
+		          hAxis: { title: '日期' },
+		          vAxis: { title: '本益比 (PE)' }
+		        };
+
+		        var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+		        chart.draw(data, options);
 			}
 		
 		</script>
