@@ -52,18 +52,23 @@ public class StockDataController {
 			// row -> 1101, 台泥, 34.50, 2.90, 112.0, 28.99, 1.08, 113/3
 			//         0     1      2     3     4       5     6     7  
 			// 建立 StockData 物件
-			StockData stockData = new StockData();
-			stockData.setDate(date);
-			stockData.setSymbol(row.get(0)); // 股票代號
-			stockData.setName(row.get(1)); // 股票名稱
-			stockData.setPrice(new BigDecimal(row.get(2).equals("-") ? "0" : row.get(2))); // 收盤價
-			stockData.setYield(new BigDecimal(row.get(3).equals("-") ? "0" : row.get(3))); // 殖利率(%)
-			stockData.setYear((int)Double.parseDouble(row.get(4).equals("-") ? "0" : row.get(4))); // 股利年度
-			stockData.setPe(new BigDecimal(row.get(5).equals("-") ? "0" : row.get(5))); // 本益比
-			stockData.setPb(new BigDecimal(row.get(6).equals("-") ? "0" : row.get(6))); // 股價淨值比
-			stockData.setPeriod(row.get(7)); // 財報年/季
-			
-			stockDatas.add(stockData);
+			try {
+				StockData stockData = new StockData();
+				stockData.setDate(date);
+				stockData.setSymbol(row.get(0)); // 股票代號
+				stockData.setName(row.get(1)); // 股票名稱
+				stockData.setPrice(new BigDecimal(row.get(2).equals("-") ? "0" : row.get(2).replaceAll(",", ""))); // 收盤價
+				stockData.setYield(new BigDecimal(row.get(3).equals("-") ? "0" : row.get(3))); // 殖利率(%)
+				//stockData.setYear(new BigDecimal(row.get(4).equals("-") ? "0" : row.get(4)).intValue()); // 股利年度
+				stockData.setPe(new BigDecimal(row.get(5).equals("-") ? "0" : row.get(5).replaceAll(",", ""))); // 本益比
+				stockData.setPb(new BigDecimal(row.get(6).equals("-") ? "0" : row.get(6))); // 股價淨值比
+				stockData.setPeriod(row.get(7)); // 財報年/季
+				
+				stockDatas.add(stockData);	
+			} catch (Exception e) {
+				System.out.println(row + ":" + e);
+			}
+			//return stockDatas + "";
 		}
 		
 		// 匯入資料-執行匯入
