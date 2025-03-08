@@ -37,7 +37,7 @@ public class StockDataController {
 	@GetMapping("/import/{date}")
 	// 範例連結: http://localhost:8080/api/stock/import/20250307
 	public String importStockDataByDate(@PathVariable String date) throws Exception {
-		List<List<String>> data = getData(date);
+		List<List<Object>> data = getData(date);
 		if(data == null) {
 			return "無資料可供匯入";
 		}
@@ -47,7 +47,7 @@ public class StockDataController {
 		
 		// 匯入資料-準備資料
 		List<StockData> stockDatas = new ArrayList<>();
-		for(List<String> row : data) {
+		for(List<Object> row : data) {
 			//      "股票代號","股票名稱","收盤價","殖利率(%)","股利年度","本益比","股價淨值比","財報年/季"
 			// row -> 1101, 台泥, 34.50, 2.90, 112.0, 28.99, 1.08, 113/3
 			//         0     1      2     3     4       5     6     7  
@@ -55,14 +55,14 @@ public class StockDataController {
 			try {
 				StockData stockData = new StockData();
 				stockData.setDate(date);
-				stockData.setSymbol(row.get(0)); // 股票代號
-				stockData.setName(row.get(1)); // 股票名稱
-				stockData.setPrice(new BigDecimal(row.get(2).equals("-") ? "0" : row.get(2).replaceAll(",", ""))); // 收盤價
-				stockData.setYield(new BigDecimal(row.get(3).equals("-") ? "0" : row.get(3))); // 殖利率(%)
-				//stockData.setYear(new BigDecimal(row.get(4).equals("-") ? "0" : row.get(4)).intValue()); // 股利年度
-				stockData.setPe(new BigDecimal(row.get(5).equals("-") ? "0" : row.get(5).replaceAll(",", ""))); // 本益比
-				stockData.setPb(new BigDecimal(row.get(6).equals("-") ? "0" : row.get(6))); // 股價淨值比
-				stockData.setPeriod(row.get(7)); // 財報年/季
+				stockData.setSymbol(row.get(0)+""); // 股票代號
+				stockData.setName(row.get(1)+""); // 股票名稱
+				stockData.setPrice(new BigDecimal((row.get(2)+"").equals("-") ? "0" : (row.get(2)+"").replaceAll(",", ""))); // 收盤價
+				stockData.setYield(new BigDecimal((row.get(3)+"").equals("-") ? "0" : (row.get(3)+""))); // 殖利率(%)
+				stockData.setYear(new BigDecimal((row.get(4)+"").equals("-") ? "0" : (row.get(4)+"")).intValue()); // 股利年度
+				stockData.setPe(new BigDecimal((row.get(5)+"").equals("-") ? "0" : (row.get(5)+"").replaceAll(",", ""))); // 本益比
+				stockData.setPb(new BigDecimal((row.get(6)+"").equals("-") ? "0" : (row.get(6)+""))); // 股價淨值比
+				stockData.setPeriod(row.get(7) + ""); // 財報年/季
 				
 				stockDatas.add(stockData);	
 			} catch (Exception e) {
@@ -77,7 +77,7 @@ public class StockDataController {
 	}
 	
 	// 取得股票資訊
-	private List<List<String>> getData(String date) throws Exception {
+	private List<List<Object>> getData(String date) throws Exception {
 		// Json URL
 		String urlString = "https://www.twse.com.tw/rwd/zh/afterTrading/BWIBBU_d?response=json&date=" + date;
 		
@@ -103,7 +103,7 @@ public class StockDataController {
 		
 		// 取得 data 欄位資料
 		try {
-			List<List<String>> data = (List<List<String>>)map.get("data");
+			List<List<Object>> data = (List<List<Object>>)map.get("data");
 			return data;
 		} catch (Exception e) {
 			System.out.println("查無資料");
