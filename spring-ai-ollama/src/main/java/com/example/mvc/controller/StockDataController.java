@@ -65,9 +65,13 @@ public class StockDataController {
 		Map<String, Object> map = gson.fromJson(jsonString, Map.class);
 		
 		// 取得 data 欄位資料
-		List<List<String>> data = (List<List<String>>)map.get("data");
+		try {
+			List<List<String>> data = (List<List<String>>)map.get("data");
+			return data;
+		} catch (Exception e) {
+			return null;
+		}
 		
-		return data;
 	}
 	
 }
