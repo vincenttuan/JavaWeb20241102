@@ -36,7 +36,7 @@ public class StockDataController {
 	// 範例連結: http://localhost:8080/api/stock/import/20250307
 	public String importStockDataByDate(@PathVariable String date) throws Exception {
 		List<List<String>> data = getData(date);
-		return data.toString();
+		return data + "";
 	}
 	
 	// 取得股票資訊
