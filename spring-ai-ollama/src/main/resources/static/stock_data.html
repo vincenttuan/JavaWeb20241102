@@ -64,7 +64,8 @@
 			<tr>
 				<td colspan="2" valign="top">
 					<!-- AI 投資建議 -->
-					
+					詢問 AI 的文字敘述: 
+					<div id="question"></div>
 				</td>
 			</tr>
 		</table>
@@ -124,6 +125,20 @@
 						drawYieldChart(data);
 						drawPEChart(data);
 						drawPBChart(data);
+						
+						// 產生給 AI 的詢問資訊
+						var ask = '請問這檔股票是否值得投資?';
+						data.forEach(stock => {
+							ask += `
+								股票代號: ${stock.symbol},
+								股票名稱: ${stock.name},
+								收盤價: ${stock.price},
+								本益比(PE): ${stock.pe},
+								股價淨值比(PB): ${stock.pb},
+								殖利率: ${stock.yield}
+								`;
+						});
+						document.getElementById('question').innerHTML = ask;
 					})
 					.catch(error => {
 						alert('無法載入資料: ' + error);
