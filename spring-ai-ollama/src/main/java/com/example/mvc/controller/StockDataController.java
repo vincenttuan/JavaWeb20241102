@@ -58,7 +58,7 @@ public class StockDataController {
 			stockData.setName(row.get(1)); // 股票名稱
 			stockData.setPrice(new BigDecimal(row.get(2).equals("-") ? "0" : row.get(2))); // 收盤價
 			stockData.setYield(new BigDecimal(row.get(3).equals("-") ? "0" : row.get(3))); // 殖利率(%)
-			stockData.setYear(Integer.parseInt(row.get(4).equals("-") ? "0" : row.get(4))); // 股利年度
+			stockData.setYear((int)Double.parseDouble(row.get(4).equals("-") ? "0" : row.get(4))); // 股利年度
 			stockData.setPe(new BigDecimal(row.get(5).equals("-") ? "0" : row.get(5))); // 本益比
 			stockData.setPb(new BigDecimal(row.get(6).equals("-") ? "0" : row.get(6))); // 股價淨值比
 			stockData.setPeriod(row.get(7)); // 財報年/季
