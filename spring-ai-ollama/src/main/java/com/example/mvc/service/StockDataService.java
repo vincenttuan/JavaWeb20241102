@@ -23,7 +23,16 @@ public class StockDataService {
 	private JdbcTemplate jdbcTemplate;
 	
 	// 儲存股票資料到資料表中
-	public void saveStockData(List<StockData> stockDatas) {
+	public void saveStockData(String date, List<StockData> stockDatas) {
+		// 檢查資料表中是否已有 date 的紀錄, 面免重覆匯入
+		String checkDateSql = "select count(*) from stock_date where date = ?";
+		int count = jdbcTemplate.queryForObject(checkDateSql, Integer.class, date);
+		
+		if(count > 0) {
+			System.out.println("資料表中已有 " + date + " 的資料");
+			return;
+		}
+		
 		// SQL 新增語句
 		String insertSql = "insert into stock_data (date, symbol, name, price, yield, year, pe, pb, period) "
 				+ " values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
