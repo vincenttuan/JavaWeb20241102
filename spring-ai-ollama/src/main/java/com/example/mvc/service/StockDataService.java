@@ -25,7 +25,7 @@ public class StockDataService {
 	// 儲存股票資料到資料表中
 	public void saveStockData(String date, List<StockData> stockDatas) {
 		// 檢查資料表中是否已有 date 的紀錄, 面免重覆匯入
-		String checkDateSql = "select count(*) from stock_date where date = ?";
+		String checkDateSql = "select count(*) from stock_data where date = ?";
 		int count = jdbcTemplate.queryForObject(checkDateSql, Integer.class, date);
 		
 		if(count > 0) {
