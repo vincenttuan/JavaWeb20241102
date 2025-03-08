@@ -64,7 +64,7 @@
 			<tr>
 				<td colspan="2" valign="top">
 					<!-- AI 投資建議 -->
-					詢問 AI 的文字敘述: 
+					詢問 AI 的文字敘述: <button id="copyQuestion" onclick="copy()">Copy</button>
 					<div id="question"></div>
 				</td>
 			</tr>
@@ -72,6 +72,14 @@
 		
 		<!-- javascript -->
 		<script type="text/javascript">
+			function copy() {
+				const questionText = document.getElementById('question').textContent;
+				// 利用 Clipboard API 來複製文字
+				navigator.clipboard.writeText(questionText).then(function(){
+					alert('複製成功');
+				});
+			}
+		
 			function fetchStockData() {
 				const symbol = document.getElementById('symbol').value; // 取得使用者所輸入的股票代號
 				
