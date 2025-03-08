@@ -130,6 +130,7 @@
 						var ask = '請問這檔股票是否值得投資?';
 						data.forEach(stock => {
 							ask += `
+								日期: ${stock.date},
 								股票代號: ${stock.symbol},
 								股票名稱: ${stock.name},
 								收盤價: ${stock.price},
