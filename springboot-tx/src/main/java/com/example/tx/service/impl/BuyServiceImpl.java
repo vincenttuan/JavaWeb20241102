@@ -25,7 +25,7 @@ public class BuyServiceImpl implements BuyService {
 		System.out.println("bookId = " + bookPrice + " 價格 = " + bookPrice);
 		
 		// 2. 減去庫存
-		bookService.reduceBookAmount(bookId, bookPrice);
+		bookService.reduceBookAmount(bookId, 1);
 		System.out.println("bookId = " + bookId + " 減去一本書的庫存");
 		
 		// 3. 修改餘額
