@@ -13,7 +13,7 @@ import lombok.Setter;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity // 自動生成資料表
-public class BookInventoty {
+public class BookInventory {
 	@Id
 	private Integer bookId; // 書號
 	@Column
