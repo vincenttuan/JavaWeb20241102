@@ -6,6 +6,8 @@ import org.springframework.stereotype.Service;
 import com.example.tx.service.BookService;
 import com.example.tx.service.BuyService;
 
+import jakarta.transaction.Transactional;
+
 // 買書服務(交易)
 @Service
 public class BuyServiceImpl implements BuyService {
@@ -13,7 +15,8 @@ public class BuyServiceImpl implements BuyService {
 	@Autowired
 	private BookService bookService;
 	
-	// 買書的行為
+	// 買書的行為 (下面的 @Transactional 可以觀察有加入與沒加的的差別)
+	//@Transactional // 加入交易機制
 	@Override
 	public void buyOneBook(String username, Integer bookId) {
 		System.out.println(username + " 要買一本書, bookId = " + bookId);
