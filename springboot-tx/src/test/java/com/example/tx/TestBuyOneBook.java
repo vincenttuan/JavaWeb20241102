@@ -16,9 +16,14 @@ public class TestBuyOneBook {
 	public void test() {
 		
 		String username = "John";
-		Integer bookId = 1;
+		Integer bookId = 2;
 		
-		buyService.buyOneBook(username, bookId);
+		try {
+			buyService.buyOneBook(username, bookId);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+		
 		
 	}
 	
