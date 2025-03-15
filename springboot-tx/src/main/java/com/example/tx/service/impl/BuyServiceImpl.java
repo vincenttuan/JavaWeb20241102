@@ -6,6 +6,7 @@ import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.example.tx.exception.InsufficientAmount;
 import com.example.tx.service.BookService;
 import com.example.tx.service.BuyService;
 
@@ -22,7 +23,7 @@ public class BuyServiceImpl implements BuyService {
 			isolation = Isolation.REPEATABLE_READ
 	) 
 	@Override
-	public void buyOneBook(String username, Integer bookId) {
+	public void buyOneBook(String username, Integer bookId) throws InsufficientAmount {
 		System.out.println(username + " 要買一本書, bookId = " + bookId);
 		// 1. 查詢書本價格
 		Integer bookPrice = bookService.getBookPrice(bookId);
