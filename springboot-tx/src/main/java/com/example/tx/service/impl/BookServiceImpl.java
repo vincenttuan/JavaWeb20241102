@@ -3,6 +3,7 @@ package com.example.tx.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.tx.exception.InsufficientAmount;
 import com.example.tx.repository.BookInventoryRepository;
 import com.example.tx.repository.BookRepository;
 import com.example.tx.repository.WalletRepository;
@@ -39,24 +40,25 @@ public class BookServiceImpl implements BookService {
 	
 	// 更新書本庫存
 	@Override
-	public void reduceBookAmount(Integer bookId, Integer amountToReduce) {
+	public void reduceBookAmount(Integer bookId, Integer amountToReduce) throws InsufficientAmount {
 		// 1. 取得目前庫存
 		Integer bookAmount = getBookAmount(bookId);
 		// 2. 若庫存不足(目前庫存量 < amountToReduce)則拋出例外
 		if(bookAmount < amountToReduce) {
-			throw new RuntimeException("庫存不足 " + bookAmount + " < " + amountToReduce);
+			throw new InsufficientAmount("庫存不足 " + bookAmount + " < " + amountToReduce);
 		}
 		// 3. 更新庫存
 		bookInventoryRepository.updateBookAmount(amountToReduce, bookId);
 	}
-
+	
+	// 更新餘額
 	@Override
-	public void updateWalletBalance(String username, Integer bookPrice) {
+	public void updateWalletBalance(String username, Integer bookPrice) throws InsufficientAmount {
 		// 1. 取得目前餘額
 		Integer walletBalance = getWalletBalance(username);
 		// 2. 若餘額不足(目前餘額 < bookPrice)則拋出例外
 		if(walletBalance < bookPrice) {
-			throw new RuntimeException("餘額不足 " + walletBalance + " < " + bookPrice);
+			throw new InsufficientAmount("餘額不足 " + walletBalance + " < " + bookPrice);
 		}
 		// 3. 更新餘額
 		walletRepository.updateWalletBalance(bookPrice, username);
