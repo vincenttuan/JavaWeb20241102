@@ -20,7 +20,8 @@ public class BuyServiceImpl implements BuyService {
 	// 買書的行為 (下面的 @Transactional 可以觀察有加入與沒加的的差別)
 	@Transactional(  // 加入交易機制
 			propagation = Propagation.REQUIRED,
-			isolation = Isolation.REPEATABLE_READ
+			isolation = Isolation.REPEATABLE_READ,
+			rollbackFor = {InsufficientAmount.class}
 	) 
 	@Override
 	public void buyOneBook(String username, Integer bookId) throws InsufficientAmount {
