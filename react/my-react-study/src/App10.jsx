@@ -1,5 +1,5 @@
 // BMI 計算
-import React, {useState} from "react";
+import React, {useState} from "react"
 
 function App() {
     // 建立身高,體重與BMI的狀態
@@ -8,10 +8,10 @@ function App() {
     const [bmi, setBmi] = useState(0)
     // 計算 bmi
     function calcBmi() {
-        const h = parseFloat(height) / 100;
-        const w = parseFloat(weight);
-        const result = w / (h*h);
-        setBmi(result.toFixed(2)); // 計算結果到小數點第二位
+        const h = parseFloat(height) / 100
+        const w = parseFloat(weight)
+        const result = w / (h*h)
+        setBmi(result.toFixed(2)) // 計算結果到小數點第二位
     }
     return(
         <div>
