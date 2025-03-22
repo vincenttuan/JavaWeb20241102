@@ -31,6 +31,19 @@
 	</properties>
 	<dependencies>
 		
+		<!-- JavaMail API -->
+	    <dependency>
+	        <groupId>javax.mail</groupId>
+	        <artifactId>javax.mail-api</artifactId>
+	        <version>1.6.2</version>
+	    </dependency>
+	    <!-- JavaMail Implementation -->
+	    <dependency>
+	        <groupId>com.sun.mail</groupId>
+	        <artifactId>javax.mail</artifactId>
+	        <version>1.6.2</version>
+	    </dependency>
+    
 		<!-- sprintboot jdbctemplate -->
 		<dependency>
 		    <groupId>org.springframework.boot</groupId>
