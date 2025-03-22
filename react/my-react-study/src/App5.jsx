@@ -15,7 +15,16 @@ function App() {
     return (
         <>
             {fruits}
-            {listFruits}
+            <hr />
+            <ul>
+                {listFruits}
+            </ul>
+            <hr />
+            <ul>
+                {fruits.map((fruit, index) => (
+                    <li key={index}>{fruit}</li>
+                ))}
+            </ul>
         </>
     )    
 }
