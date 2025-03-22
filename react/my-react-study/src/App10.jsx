@@ -11,7 +11,7 @@ function App() {
         const h = parseFloat(height) / 100
         const w = parseFloat(weight)
         const result = w / (h*h)
-        setBmi(result.toFixed(2)) // 計算結果到小數點第二位
+        setBmi(result.toFixed(2)) // 計算結果到小數點第二位(會自動四捨五入)
     }
     return(
         <div>
