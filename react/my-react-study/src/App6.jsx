@@ -22,7 +22,12 @@ function App() {
                 ))}
             </ul>
             <hr />
-
+            <h2>顯示價格 &gt; 25元的水果</h2>
+            <ul>
+                {filterFruits.map((fruit, index) => (
+                    <li key={index}>{fruit.name} ${fruit.price}</li>
+                ))}
+            </ul>    
         </>
     )
 }
