@@ -8,9 +8,10 @@ function App() {
     const handleGuess = () => {
         const gus = guess.split('').map(Number); // "1234" -> [1, 2, 3, 4]
         const [acount, bcount] = checkAns(gus); // 得到 AB
-        const newResult = `${acount}A ${bcount}B`; // 此次結果
+        const newResult = `${guess} => ${acount}A ${bcount}B`; // 此次結果
         // 將 newResult, 放在 results 後面
-        setResults([...results, newResult]); // ...results 表示之前的資訊, newResult 放在後面
+        //setResults([...results, newResult]); // ...results 表示之前的資訊, newResult 放在"後"面
+        setResults([newResult, ...results]); // ...results 表示之前的資訊, newResult 放在"前"面
     }
 
     // 比對 A B 資料
