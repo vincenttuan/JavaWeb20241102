@@ -1,6 +1,11 @@
 package com.example.mvc.game;
 
+import java.util.LinkedHashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
+import java.util.Set;
 
 public class GuessNumberTest2 {
 	public static void main(String[] args) {
@@ -54,5 +59,17 @@ public class GuessNumberTest2 {
 		return result;
 	}
 	
+	// 產生動態答案
+	public static Integer[] getRandomAns() {
+		Set<Integer> setNumbers = new LinkedHashSet<>();
+		while(setNumbers.size() < 4) {
+			setNumbers.add(new Random().nextInt(9) + 1);
+		}
+		// Set -> List -> int[]
+		List<Integer> listNumbers = new LinkedList<>(setNumbers);
+		Integer[] ans = new Integer[4]; 
+		listNumbers.toArray(ans);
+		return ans;
+	}
 	
 }
