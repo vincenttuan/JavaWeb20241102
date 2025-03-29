@@ -22,8 +22,11 @@ public class GameController {
 	// 玩家猜測
 	@GetMapping("/guess")
 	public String checkGuess(@RequestParam String num) {
-		
-		int[] result = null;
+		int data = Integer.parseInt(num);
+		int[] gus = {
+				data/1000, data/100%10, data/10%10, data%10
+		};
+		int[] result = check(ans, gus);
 		return num + " " + result[0] + "A " + result[1] + "B";
 	}
 	
