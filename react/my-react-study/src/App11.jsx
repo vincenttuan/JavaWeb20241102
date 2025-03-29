@@ -4,6 +4,16 @@ function App() {
     const [guess, setGuess] = useState(''); // 玩家猜測的數字 
     const [results, setResults] = useState([]); // 累積結果陣列
 
+    // 處理玩家猜測
+    const handleGuess = () => {
+        const gus = guess.split('').map(Number); // "1234" -> [1, 2, 3, 4]
+        const [acount, bcount] = checkAns(gus); // 得到 AB
+        const newResult = `${acount}A ${bcount}B`; // 此次結果
+        // 將 newResult, 放在 results 後面
+        setResults([...results, newResult]); // ...results 表示之前的資訊, newResult 放在後面
+    }
+
+    // 比對 A B 資料
     const checkAns = (gus) => {
         const ans = [1, 2, 3, 4]; // 假設答案是 1234
         let acount = 0;
