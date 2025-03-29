@@ -31,6 +31,8 @@ public class GameController {
 		
 		// 將結果放到 guessHistory 中
 		guessHistory.add(num + " " + result[0] + "A " + result[1] + "B");
+		// 原本: [1234 0A 2B, 5678 1A 1B, 1234 0A 2B, 5678 1A 1B, ...]
+		// 變為: 1234 0A 2B\n5678 1A 1B\n1234 0A 2B\n5678 1A 1B\n ...
 		return guessHistory.toString().replace("[", "").replace("]", "").replace(", ", "\n");
 	}
 	
