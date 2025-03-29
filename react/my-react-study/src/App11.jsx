@@ -44,7 +44,7 @@ function App() {
             <h1>猜數字遊戲</h1>
             <div>
                 <input type="number" value={guess} onChange={(e) => setGuess(e.target.value)} maxLength="4" placeholder="請輸入四位數字(1~9)" />
-                <button>提交猜測</button>
+                <button onClick={handleGuess}>提交猜測</button>
             </div>
             <h3>結果</h3>
             <ul>
