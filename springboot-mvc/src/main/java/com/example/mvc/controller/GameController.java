@@ -20,6 +20,16 @@ public class GameController {
 	
 	private int[] ans = getRandomAns(); // 動態答案 
 	private List<String> guessHistory = new CopyOnWriteArrayList<>(); // 支援多人讀寫
+	
+	// 玩家 restart
+	@GetMapping("/restart")
+	public String restart() {
+		ans = getRandomAns(); // 重新產生動態答案
+		guessHistory.clear(); // 清空歷史資料
+		guessHistory.add("新局開啟");
+		return history();
+	}
+	
 	// 玩家猜測
 	@GetMapping("/guess")
 	public String checkGuess(@RequestParam String num) {
