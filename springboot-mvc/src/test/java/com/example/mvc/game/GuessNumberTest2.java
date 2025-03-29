@@ -60,15 +60,19 @@ public class GuessNumberTest2 {
 	}
 	
 	// 產生動態答案
-	public static Integer[] getRandomAns() {
+	public static int[] getRandomAns() {
 		Set<Integer> setNumbers = new LinkedHashSet<>();
 		while(setNumbers.size() < 4) {
 			setNumbers.add(new Random().nextInt(9) + 1);
 		}
 		// Set -> List -> int[]
 		List<Integer> listNumbers = new LinkedList<>(setNumbers);
-		Integer[] ans = new Integer[4]; 
-		listNumbers.toArray(ans);
+		int[] ans = {
+				listNumbers.get(0),
+				listNumbers.get(1),
+				listNumbers.get(2),
+				listNumbers.get(3)
+		};
 		return ans;
 	}
 	
