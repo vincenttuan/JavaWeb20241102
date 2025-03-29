@@ -17,9 +17,10 @@ public class GuessNumberTest2 {
 			System.out.printf("%dA %dB%n", result[0], result[1]);
 			if(result[0] == 4) {
 				System.out.println("恭喜答對了~");
+				scanner.close();
 				break;
 			}
-			
+			scanner.close();
 		} while(true);
 	}
 	
