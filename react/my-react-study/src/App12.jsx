@@ -1,7 +1,19 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 function App() {
     const [guess, setGuess] = useState('');
     const [result, setResult] = useState('');
+
+    // 每秒自動抓取
+    useEffect(() => {
+        const interval = setInterval(async() => {
+            const url = 'http://localhost:8080/game/history';
+            const response = await fetch(url); // 傳送請求
+            const result = await response.text(); // 取得回應
+            setResult(result);
+        }, 1000);
+
+        return () => clearInterval(interval);
+    }, []);
 
     const handleSubmit = async() => {
         const url = `http://localhost:8080/game/guess?num=${guess}`;
