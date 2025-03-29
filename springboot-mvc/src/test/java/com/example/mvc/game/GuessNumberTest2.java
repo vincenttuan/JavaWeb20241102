@@ -1,5 +1,6 @@
 package com.example.mvc.game;
 
+import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -9,8 +10,9 @@ import java.util.Set;
 
 public class GuessNumberTest2 {
 	public static void main(String[] args) {
-		int[] ans = {9, 1, 2, 8}; // 答案
-		
+		//int[] ans = {9, 1, 2, 8}; // 答案
+		int[] ans = getRandomAns(); // 動態答案
+		System.out.println("答案: " + Arrays.toString(ans));
 		do {
 			Scanner scanner = new Scanner(System.in);
 			System.out.print("請輸入數字不重複的四位數(1~9) => ");
