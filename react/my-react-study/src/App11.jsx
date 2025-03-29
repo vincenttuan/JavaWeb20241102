@@ -4,6 +4,31 @@ function App() {
     const [guess, setGuess] = useState(''); // 玩家猜測的數字 
     const [results, setResults] = useState([]); // 累積結果陣列
 
+    const checkAns = (gus) => {
+        const ans = [1, 2, 3, 4]; // 假設答案是 1234
+        let acount = 0;
+        let bcount = 0;
+
+        // 判斷 A : 數字正確且位置正確
+        for(let i=0;i<4;i++) {
+            if(ans[i] === gus[i]) {
+                acount++;
+                continue;
+            }
+        }
+        // 判斷 B : 數字正確且位置不正確
+        for(let i=0;i<4;i++) {
+            for(let k=0;k<4;k++) {
+                if(ans[i] === gus[k]) {
+                    bcount++;
+                    continue;
+                }
+            }
+        }
+
+        return [acount, bcount];
+    }
+
     return (
         <div>
             <h1>猜數字遊戲</h1>
