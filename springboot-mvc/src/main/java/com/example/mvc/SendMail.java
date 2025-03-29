@@ -8,14 +8,14 @@ public class SendMail {
 	// 1.登入 Google
 	// 2.啟用二階段驗證(網址如下)
 	// https://myaccount.google.com/security
-	private static final String username = "xxxx@gmail.com"; // 你的 Gmail 郵箱
+	private static final String username = "vincenttuan@gmail.com"; // 你的 Gmail 郵箱
 	// 3.設定應用程式密碼(網址如下)
 	// https://myaccount.google.com/apppasswords
-	private static final String password = "xxxx xxxx xxxx xxxx"; // 二階段應用專用密碼
+	private static final String password = "vxua uccu rnhe geqa"; // 二階段應用專用密碼
     
 	public static void main(String[] args) {
 		// 4.設定收件人信箱
-		String to = "xxx@gmail.com"; // 收件人電子郵件地址
+		String to = "vincenttuan@gmail.com"; // 收件人電子郵件地址
         String emailHeader = "我的測試信件"; // Email 標題
         String emailContent = "這是我用 Java 寫的測試信件"; // Email 內文
         send(to, emailHeader, emailContent);
