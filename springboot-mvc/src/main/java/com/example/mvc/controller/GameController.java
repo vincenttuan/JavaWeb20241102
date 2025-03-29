@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class GameController {
 	
 	private int[] ans = getRandomAns(); // 動態答案 
-	
+	private List<String> guessHistory = new CopyOnWriteArrayList<>(); // 支援多人讀寫
 	// 玩家猜測
 	@GetMapping("/guess")
 	public String checkGuess(@RequestParam String num) {
@@ -27,7 +28,10 @@ public class GameController {
 				data/1000, data/100%10, data/10%10, data%10
 		};
 		int[] result = check(ans, gus);
-		return num + " " + result[0] + "A " + result[1] + "B";
+		
+		// 將結果放到 guessHistory 中
+		guessHistory.add(num + " " + result[0] + "A " + result[1] + "B");
+		return guessHistory.toString();
 	}
 	
 	// 判斷服務
