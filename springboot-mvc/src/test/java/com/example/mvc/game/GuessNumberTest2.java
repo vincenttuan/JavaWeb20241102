@@ -13,8 +13,12 @@ public class GuessNumberTest2 {
 			int[] gus = {
 						data/1000, data/100%10, data/10%10, data%10
 					};
-			
-			
+			int[] result = check(ans, gus);
+			System.out.printf("%dA %dB%n", result[0], result[1]);
+			if(result[0] == 4) {
+				System.out.println("恭喜答對了~");
+				break;
+			}
 			
 		} while(true);
 	}
