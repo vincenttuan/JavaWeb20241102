@@ -31,7 +31,7 @@ public class GameController {
 		
 		// 將結果放到 guessHistory 中
 		guessHistory.add(num + " " + result[0] + "A " + result[1] + "B");
-		return guessHistory.toString().replace("[", "").replace("]", "").replace(",", "\n");
+		return guessHistory.toString().replace("[", "").replace("]", "").replace(", ", "\n");
 	}
 	
 	// 判斷服務

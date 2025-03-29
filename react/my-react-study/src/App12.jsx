@@ -17,9 +17,11 @@ function App() {
                 value={guess} onChange={(e) => setGuess(e.target.value)} />
             <button onClick={handleSubmit}>提交測試</button>    
             <h2>遊戲結果</h2>
-            <ul>
-                {result}
-            </ul>
+            <h2>
+                <pre>
+                    {result}
+                </pre>
+            </h2>
         </div>
     )
 }
