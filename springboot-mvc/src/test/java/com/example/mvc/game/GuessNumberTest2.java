@@ -27,7 +27,6 @@ public class GuessNumberTest2 {
 				scanner.close();
 				break;
 			}
-			scanner.close();
 		} while(true);
 	}
 	
