@@ -35,7 +35,7 @@ function App() {
                 }
             }
         }
-
+        bcount = bcount - acount; // 減去重複計算的部分
         return [acount, bcount];
     }
 
